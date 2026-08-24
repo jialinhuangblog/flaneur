@@ -1,0 +1,734 @@
+# 紐西蘭 11 天行程（南島先 × 耍廢 × 電影雙透鏡）
+# 來源草稿：~/Downloads/紐西蘭11天行程_v4.md
+# seed： pnpm tsx scripts/seed.ts public/trip-nz.yaml
+# 已訂：TPE 來回機票、AKL→ZQN 10/2 14:40、CHC→AKL 10/11 18:10、皇后鎮 Amity 3 晚、Oamaru 2 晚、
+#       基督城 1 晚、奧克蘭 SkyCity 2 晚、藍企鵝 10/8 20:00、Tasman Heli Hike 10/8 9:00（截圖為準、Funliday 的 10/7 是舊版）。
+# Funliday 選好、確認信未見：Wanaka Manuka Crescent 1 晚、Tekapo Tailor Made 2 晚。
+# 未訂：南島租車（10/2 ZQN 取、10/11 CHC 還）、Hobbiton 一日團。
+# 10/3–10/9 依 Funliday「紐西蘭 Good Timing」PDF 重排；10/10 之後 Funliday 空白、維持訂房版。
+# 改完可重 seed（idempotent，保留照片）。
+
+meta:
+  id: new-zealand-2026
+  title: 紐西蘭 11 天（南島先 × 耍廢）
+  startDate: 2026-10-01
+  endDate: 2026-10-13
+  traveler: 與夥伴同行
+  luggage: 自駕，行李放後車廂
+
+days:
+  # =========================================================
+  - id: day-01
+    date: 2026-10-01
+    weekday: Thu
+    country: TW
+    transitCountries: [NZ]
+    title: 桃機起飛
+    overview: 出發、NZ078 TPE → AKL（紅眼直飛）
+    events:
+      - id: e-d01-01
+        time: "18:35"
+        duration: 640
+        title: NZ078 TPE 桃園 T2 → AKL 奧克蘭
+        type: flight
+        highlight: true
+        booking:
+          ref: __SECRET__
+        notes:
+          - 飛行約 10h40m、隔天 10:15 抵奧克蘭（+1）
+          - 與回程 NZ077 同一張票 [SRC:用戶截圖]
+
+  # =========================================================
+  - id: day-02
+    date: 2026-10-02
+    weekday: Fri
+    country: NZ
+    title: 抵奧克蘭、當天轉機進皇后鎮
+    overview: 落地 10:15、轉國內線 AKL → ZQN、皇后鎮機場取南島車
+    events:
+      - id: e-d02-01
+        time: "10:15"
+        title: NZ078 抵 AKL 奧克蘭國際機場、通關領行李
+        type: arrival
+        highlight: true
+      - id: e-d02-02
+        time: "14:40"
+        duration: 115
+        title: 國內線 AKL 奧克蘭 → ZQN 皇后鎮（14:40 → 16:35）
+        type: flight
+        highlight: true
+        booking:
+          ref: __SECRET__
+        notes:
+          - Air NZ 已訂、三人 [SRC:用戶截圖]
+          - 10:15 落地到 14:40 起飛有 4hr+、通關領行李轉航廈很夠、還能吃午餐
+          - 國際轉國內航廈步行約 10 分（綠線）[GUESS]
+      - id: e-d02-03
+        time: "17:00"
+        duration: 30
+        title: 皇后鎮機場取南島租車（甲租乙還、基督城還）
+        type: drive
+        warnings:
+          - level: amber
+            text: 一定加 SCDW、南島碎石路常崩裂擋風玻璃 [TOOL-SUM]
+      - id: e-d02-04
+        time: "18:30"
+        duration: 90
+        title: 皇后鎮晚餐、湖邊散步（紅眼剛下、吃完早點收）
+        type: meal
+      - id: e-d02-05
+        time: "22:00"
+        title: 宿：Amity Serviced Apartments（南島 · 3 晚 · 10/2→10/5 退）
+        type: hotel
+        highlight: true
+        address: 7 Melbourne Street, Queenstown 9348
+        cost: "NZD 909 / 3 晚"
+        booking:
+          ref: __SECRET__
+        mapQuery: "Amity Serviced Apartments Queenstown"
+        notes:
+          - One Bedroom Apartment with Mountain View、3 adults [SRC:用戶截圖]
+          - 入住 14:00 後、退房 10:00 前；訂單填的 ETA 是 18:30 [SRC:用戶截圖]
+
+  # =========================================================
+  - id: day-03
+    date: 2026-10-03
+    weekday: Sat
+    country: NZ
+    title: 皇后鎮市區日｜纜車滑車 + 湖邊 + 掃街
+    overview: 早上 Skyline 避排隊、Fergburger、湖邊散步、下午超市 + Shotover St
+    events:
+      - id: e-d03-01
+        time: "08:00"
+        duration: 120
+        title: Skyline 纜車 + 滑車（建議早點去、不然會排隊）
+        type: attraction
+        highlight: true
+        mapQuery: "Skyline Queenstown New Zealand"
+        notes:
+          - Brecon St、Gondola 9:30–21:00、Luge 10:00–19:00 [SRC:Funliday PDF]
+      - id: e-d03-02
+        time: "10:00"
+        duration: 60
+        title: Fergburger（cult 級漢堡、早去少排）
+        type: meal
+        mapQuery: "Fergburger Queenstown"
+      - id: e-d03-03
+        time: "11:00"
+        duration: 60
+        title: Saint Omer Park 湖邊散步
+        type: attraction
+        mapQuery: "Saint Omer Park Queenstown"
+      - id: e-d03-04
+        time: "12:00"
+        duration: 60
+        title: Patagonia Chocolates 冰淇淋（可以坐一下休息）
+        type: meal
+        mapQuery: "Patagonia Chocolates Queenstown"
+        notes:
+          - 南島最有名冰淇淋店、2005 年創始於 Arrowtown、手工巧克力 [SRC:Funliday PDF]
+      - id: e-d03-05
+        time: "13:00"
+        duration: 60
+        title: Queenstown Bay Beach 湖邊散步
+        type: attraction
+        mapQuery: "Queenstown Bay Beach"
+      - id: e-d03-06
+        time: "14:00"
+        duration: 60
+        title: Kaikikokiko 牛頰肉（slowcooked meats）
+        type: meal
+        mapQuery: "Kaikikokiko Queenstown"
+      - id: e-d03-07
+        time: "15:00"
+        duration: 60
+        title: 逛市區超市採購（Queenstown Mall）
+        type: shopping
+        mapQuery: "Queenstown Mall"
+      - id: e-d03-08
+        time: "16:00"
+        duration: 90
+        title: 逛街：Shotover St、Mall St、Beach St
+        type: shopping
+        mapQuery: "Shotover Street Queenstown"
+
+  # =========================================================
+  - id: day-04
+    date: 2026-10-04
+    weekday: Sun
+    country: NZ
+    title: Glenorchy 上午 + Arrowtown 下午 + Gibbston 酒莊
+    overview: 一早進 Glenorchy（碼頭、Red Shed、潟湖步道、Paradise）、下午淘金小鎮、傍晚酒莊晚餐
+    events:
+      - id: e-d04-01
+        time: "08:00"
+        duration: 60
+        title: Glenorchy Wharf & Viewpoint 格萊諾基碼頭
+        type: photo
+        highlight: true
+        mapQuery: "Glenorchy Wharf"
+        notes:
+          - 皇后鎮開過去約 45 分、那條路是全紐最美自駕之一
+      - id: e-d04-02
+        time: "09:00"
+        duration: 60
+        title: Red Shed 紅色蒸汽船倉庫（小地標、可以進去逛）
+        type: photo
+        mapQuery: "Glenorchy Restored Steamship Depot"
+      - id: e-d04-03
+        time: "10:00"
+        duration: 60
+        title: Glenorchy Waterfront Reserve 濱海小徑走一走
+        type: attraction
+        mapQuery: "Glenorchy Waterfront Reserve"
+      - id: e-d04-04
+        time: "11:00"
+        duration: 90
+        title: Glenorchy Lagoon 潟湖步道（5.3km 全程約 2hr、難度易、可走 1.5h 版）
+        type: attraction
+        mapQuery: "Glenorchy Lagoon Scenic Walkway"
+        notes:
+          - 起點在 Glenorchy Waterfront 停車場、附近有廁所 [SRC:Funliday PDF]
+      - id: e-d04-05
+        time: "12:30"
+        duration: 90
+        title: Paradise 天堂地標（離市區來回車程 1h）
+        type: photo
+        mapQuery: "Paradise Glenorchy New Zealand"
+        warnings:
+          - level: amber
+            text: 石子路、保險可能不理賠 [SRC:Funliday PDF]
+      - id: e-d04-06
+        time: "15:00"
+        duration: 60
+        title: Arrowtown 箭鎮主要街道 Buckingham Street
+        type: attraction
+        mapQuery: "Buckingham Street Arrowtown"
+        notes:
+          - 10 月是綠的、不是楓紅（楓紅要 4 月）
+      - id: e-d04-07
+        time: "16:00"
+        duration: 60
+        title: 湖區博物館 淘金體驗（可以借淘金用具去河邊試）
+        type: attraction
+        mapQuery: "Lakes District Museum Arrowtown"
+        notes:
+          - 49 Buckingham St、9:00–16:00、大人 $12 / 小孩 $5 / 家庭 $25 NZD [SRC:Funliday PDF]
+      - id: e-d04-08
+        time: "17:00"
+        duration: 45
+        title: Arrowtown Bakery（有鹿肉鹹派的咖啡店）
+        type: meal
+        mapQuery: "Arrowtown Bakery"
+      - id: e-d04-09
+        time: "18:10"
+        duration: 90
+        title: Gibbston Valley Winery & Restaurant（全紐最大洞穴酒窖）
+        type: meal
+        highlight: true
+        mapQuery: "Gibbston Valley Winery"
+        notes:
+          - 1820 State Highway 6、酒窖導覽 $25 NZD、餐廳 11:30–15:00 [SRC:Funliday PDF]
+          - 想跟導覽或吃餐廳要早點到、營業到 17:00 [SRC:Funliday PDF]
+
+  # =========================================================
+  - id: day-05
+    date: 2026-10-05
+    weekday: Mon
+    country: NZ
+    title: 皇后鎮退房 → Cromwell → Wanaka 住一晚
+    overview: 經 Cromwell（酒莊、水果地標、舊城區）進 Wanaka、孤獨樹、湖邊碼頭
+    events:
+      - id: e-d05-01
+        time: "08:00"
+        duration: 60
+        title: Mt Difficulty Wines（Cromwell 附近酒莊）
+        type: attraction
+        mapQuery: "Mt Difficulty Wines Bannockburn"
+      - id: e-d05-02
+        time: "09:10"
+        duration: 60
+        title: Cromwell Fruit Sculpture 水果地標
+        type: photo
+        mapQuery: "Cromwell Fruit Sculpture"
+      - id: e-d05-03
+        time: "10:15"
+        duration: 90
+        title: Cromwell Heritage Precinct 舊城區走走休息
+        type: attraction
+        mapQuery: "Cromwell Heritage Precinct"
+      - id: e-d05-04
+        time: "12:00"
+        duration: 60
+        title: Wānaka Sequoia（有名的樹）
+        type: photo
+        mapQuery: "Wanaka Sequoia"
+      - id: e-d05-05
+        time: "13:00"
+        duration: 60
+        title: "#thatwanakatree 孤獨樹（Wānaka Willow Tree）"
+        type: photo
+        highlight: true
+        mapQuery: "That Wanaka Tree New Zealand"
+      - id: e-d05-06
+        time: "14:00"
+        duration: 80
+        title: Wanaka 湖邊碼頭（Fish & Cruise）
+        type: attraction
+        mapQuery: "Wanaka Wharf"
+      - id: e-d05-07
+        time: "15:30"
+        duration: 80
+        title: Diamond Lake 步道（不想走就湖邊躺、跟市區走走）
+        type: attraction
+        mapQuery: "Diamond Lake Conservation Area Wanaka"
+        notes:
+          - Diamond Lake Lookout 2.5km 來回約 1hr；Rocky Mountain Summit 6km 來回 3–4hr、難度中 [SRC:Funliday PDF]
+          - 步道入口停車場距 Wanaka 小鎮約 20 分 [SRC:Funliday PDF]
+      - id: e-d05-08
+        time: "17:00"
+        title: 宿：Manuka Crescent Motel（Wanaka · 1 晚 · 10/5→10/6 退）
+        type: hotel
+        highlight: true
+        mapQuery: "Manuka Crescent Motel Wanaka"
+        notes:
+          - 可洗衣服 [SRC:Funliday PDF]、還沒看到訂房確認信
+
+  # =========================================================
+  - id: day-06
+    date: 2026-10-06
+    weekday: Tue
+    country: NZ
+    title: Wanaka → Lindis Pass → Pukaki → Tekapo
+    overview: 隘口拍照、高地鮭魚生魚片、兩個 Pukaki 觀景台、白天上 Mt John、晚上 Tekapo Springs 觀星
+    events:
+      - id: e-d06-01
+        time: "08:00"
+        duration: 90
+        title: Lindis Pass 林迪斯隘口景觀台（路上拍照）
+        type: photo
+        mapQuery: "Lindis Pass Lookout"
+        warnings:
+          - level: amber
+            text: 10 月清晨陰面可能結冰、等太陽出來再上山 [GUESS]
+      - id: e-d06-02
+        time: "09:40"
+        duration: 60
+        title: 高地鄉村鮭魚 生魚片（High Country Salmon）
+        type: meal
+        mapQuery: "High Country Salmon Twizel"
+      - id: e-d06-03
+        time: "11:00"
+        duration: 45
+        title: Peter's Lookout（必去觀景台）
+        type: photo
+        highlight: true
+        mapQuery: "Peters Lookout Lake Pukaki"
+      - id: e-d06-04
+        time: "12:15"
+        duration: 60
+        title: Lake Pukaki Viewpoint 牛奶藍配雪山（必去觀景台）
+        type: photo
+        highlight: true
+        mapQuery: "Lake Pukaki Viewpoint"
+      - id: e-d06-05
+        time: "13:50"
+        duration: 60
+        title: Mt John 約翰山大學天文臺（白天上山看湖景）
+        type: attraction
+        highlight: true
+        mapQuery: "Mount John Observatory Tekapo"
+        warnings:
+          - level: amber
+            text: 通道每日 10:00–16:00 開放自駕、$14 NZD/車、16:00 後只剩觀星團巴士 [SRC:Funliday PDF]
+      - id: e-d06-06
+        time: "14:50"
+        duration: 60
+        title: Astro Cafe（天文台旁邊的咖啡廳）
+        type: meal
+        mapQuery: "Astro Cafe Mount John"
+      - id: e-d06-07
+        time: "16:05"
+        duration: 60
+        title: 好牧羊人教堂 + Lake Tekapo Walkway（附近有小狗雕像）
+        type: attraction
+        mapQuery: "Church of the Good Shepherd Tekapo"
+        notes:
+          - 教堂內部免費參觀（建議捐 $5 NZD/人）、週三到週日 10:00–15:00、不保證開放、內部嚴禁拍照 [SRC:Funliday PDF]
+      - id: e-d06-08
+        time: "17:10"
+        duration: 70
+        title: Tekapo Springs 湖景泳池 spa + Stargazing
+        type: attraction
+        mapQuery: "Tekapo Springs"
+      - id: e-d06-09
+        time: "18:20"
+        duration: 60
+        title: Pines Beach 鵝卵石灘（可拍湖景+山景、天黑後可觀星）
+        type: photo
+        mapQuery: "Pines Beach Lake Tekapo"
+      - id: e-d06-10
+        time: "19:30"
+        title: 宿：Tailor Made Tekapo Accommodation（南島 · 2 晚 · 10/6→10/8 退）
+        type: hotel
+        highlight: true
+        mapQuery: "Tailor Made Tekapo Accommodation"
+        notes:
+          - Guesthouse & Hostel、四人房隔天換三人房 [SRC:Funliday PDF]
+          - 還沒看到訂房確認信
+
+  # =========================================================
+  - id: day-07
+    date: 2026-10-07
+    weekday: Wed
+    country: NZ
+    title: 庫克山當天來回｜Hooker Valley + Kea Point
+    overview: Hooker Valley 早上出發、Kea Point 下午、回 Tekapo（直升機在明早 10/8、截圖為準）
+    events:
+      - id: e-d07-01
+        time: "08:00"
+        duration: 90
+        title: Tekapo → 庫克山 Aoraki（約 1.5hr、沿 Lake Pukaki）
+        type: drive
+      - id: e-d07-02
+        time: "09:30"
+        duration: 180
+        title: Hooker Valley Track（全程平路吊橋、終點冰河湖、來回約 3hr）
+        type: attraction
+        highlight: true
+        mapQuery: "Hooker Valley Track Aoraki Mount Cook"
+        notes:
+          - 路程較遠、適合早上出發、帶個簡單輕食慢慢走 [SRC:Funliday PDF]
+      - id: e-d07-03
+        time: "13:30"
+        duration: 90
+        title: Kea Point 步道（比較簡單走、有機會看到 Kea）
+        type: attraction
+        mapQuery: "Kea Point Track Mount Cook"
+        notes:
+          - 適合下午出發、時間較短可以輕鬆來回 [SRC:Funliday PDF]
+      - id: e-d07-04
+        time: "15:30"
+        duration: 90
+        title: 開回 Tekapo（沒看夠星可再看一晚、明天 7:15 要出門）
+        type: drive
+
+  # =========================================================
+  - id: day-08
+    date: 2026-10-08
+    weekday: Thu
+    country: NZ
+    title: 冰川直升機一早飛 → Oamaru 看企鵝
+    overview: 9:00 Tasman Heli Hike（已訂）、經 Elephant Rocks 進 Oamaru、黃眼企鵝、Moeraki、20:00 藍企鵝（已訂）
+    events:
+      - id: e-d08-01
+        time: "07:15"
+        duration: 90
+        title: Tekapo → 庫克山機場（約 1.25hr、9:00 報到）
+        type: drive
+      - id: e-d08-02
+        time: "09:00"
+        duration: 180
+        title: Tasman Glacier Heli Hike（直升機上冰川 + 冰上健行、9:00–12:00）
+        type: attraction
+        highlight: true
+        booking:
+          ref: __SECRET__
+        mapQuery: "Mount Cook Airport"
+        warnings:
+          - level: amber
+            text: 常因天氣取消、起飛前打 +64 3 435 1801 確認航班狀態
+        notes:
+          - 確認信寫 10/8（週四）9:00–12:00、以截圖為準；Funliday 排 10/7 是舊版 [SRC:用戶截圖]
+          - 集合：Mount Cook Airport、辦公室在機場樓上、有免費停車 [SRC:用戶截圖]
+          - 三人成人 [SRC:用戶截圖]
+      - id: e-d08-03
+        time: "12:30"
+        duration: 105
+        title: 庫克山 → Elephant Rocks 大象岩（Duntroon、往 Oamaru 路上）
+        type: photo
+        mapQuery: "Elephant Rocks Duntroon"
+      - id: e-d08-04
+        time: "14:45"
+        duration: 60
+        title: Oamaru 維多利亞老街區（Heritage Precinct）+ 蒸氣龐克
+        type: attraction
+        mapQuery: "Oamaru Victorian Precinct New Zealand"
+      - id: e-d08-05
+        time: "16:00"
+        duration: 90
+        title: Bushy Beach 看黃眼企鵝跟海豹（免費）
+        type: attraction
+        mapQuery: "Bushy Beach Oamaru"
+        notes:
+          - 黃眼企鵝最佳時段是太陽下山前兩小時、觀看距離較遠要一點運氣 [SRC:Funliday PDF]
+      - id: e-d08-06
+        time: "17:45"
+        duration: 60
+        title: Moeraki Boulders 圓石沙灘（大家會去的地方）
+        type: photo
+        highlight: true
+        mapQuery: "Moeraki Boulders New Zealand"
+        notes:
+          - Oamaru 南方約 40 公里、車程約 30 分；停車場走 600 公尺、走咖啡廳那條進海灘每人 $2 NZD [SRC:Funliday PDF]
+          - 退潮前後最能看完整輪廓、出門前查潮汐 [SRC:Funliday PDF]
+      - id: e-d08-07
+        time: "19:15"
+        duration: 30
+        title: Oamaru Lookout Point（俯瞰市區跟太平洋、離市區 5 分鐘）
+        type: photo
+        mapQuery: "Oamaru Lookout Point"
+      - id: e-d08-08
+        time: "20:00"
+        duration: 90
+        title: 藍企鵝夜間觀賞（世界最小企鵝上岸、中文場 1.5hr）
+        type: attraction
+        highlight: true
+        booking:
+          ref: __SECRET__
+        cost: "$88.17 / 3 人"
+        mapQuery: "Oamaru Blue Penguin Colony"
+        notes:
+          - 集合：Waterfront Rd, South Hill、提前 10–15 分到 [SRC:用戶截圖]
+          - 嚴禁攝影 [SRC:用戶截圖]
+      - id: e-d08-09
+        time: "22:00"
+        title: 宿：ASURE Ambassador Motor Lodge（南島 · 2 晚 · 10/8→10/10 退）
+        type: hotel
+        highlight: true
+        address: 296 Thames Highway, Oamaru 9400
+        booking:
+          ref: __SECRET__
+        mapQuery: "ASURE Ambassador Motor Lodge Oamaru"
+        notes:
+          - 入住 14:00 後、退房 10:00 前 [SRC:用戶截圖]
+
+  # =========================================================
+  - id: day-09
+    date: 2026-10-09
+    weekday: Fri
+    country: NZ
+    title: Dunedin 全日｜海狗 + 市區 + 半島
+    overview: 一早 Sandfly Bay 看海狗、市區（八角廣場、教堂、車站、Baldwin St）、信號山、信天翁中心、回程 Shag Point / Katiki 燈塔順路停
+    events:
+      - id: e-d09-01
+        time: "08:00"
+        duration: 80
+        title: Sandfly Bay 沙灘（海狗上岸）
+        type: attraction
+        highlight: true
+        mapQuery: "Sandfly Bay Dunedin"
+        notes:
+          - Oamaru 過去約 1.5hr、要 8:00 到得 6:30 前出門
+      - id: e-d09-02
+        time: "09:30"
+        duration: 60
+        title: The Octagon 八角廣場附近走走
+        type: attraction
+        mapQuery: "The Octagon Dunedin"
+      - id: e-d09-03
+        time: "10:30"
+        duration: 60
+        title: St Paul's Cathedral 教堂
+        type: attraction
+        mapQuery: "St Paul's Cathedral Dunedin"
+      - id: e-d09-04
+        time: "11:30"
+        duration: 90
+        title: Dunedin Railway Station 漂亮火車站
+        type: photo
+        highlight: true
+        mapQuery: "Dunedin Railway Station"
+      - id: e-d09-05
+        time: "13:30"
+        duration: 60
+        title: Baldwin St 世界最陡街道
+        type: photo
+        mapQuery: "Baldwin Street Dunedin"
+      - id: e-d09-06
+        time: "15:00"
+        duration: 60
+        title: 信號山瞭望點（Signal Hill Lookout）
+        type: photo
+        mapQuery: "Signal Hill Lookout Dunedin"
+      - id: e-d09-07
+        time: "16:15"
+        duration: 60
+        title: 皇家信天翁中心（Royal Albatross Centre、半島最尾端）
+        type: attraction
+        mapQuery: "Royal Albatross Centre Dunedin"
+      - id: e-d09-08
+        time: "17:30"
+        duration: 45
+        title: Saint Clair Beach（有機會看企鵝跟海豹）
+        type: attraction
+        mapQuery: "Saint Clair Beach Dunedin"
+      - id: e-d09-09
+        time: "18:45"
+        duration: 30
+        title: 回程順路：Shag Point 夏格看台（岩石灘、海狗最多）
+        type: photo
+        mapQuery: "Shag Point Katiki"
+      - id: e-d09-10
+        time: "19:20"
+        duration: 30
+        title: 回程順路：Katiki Point 卡提奇燈塔（草地海狗最不怕人、可以近一點看）
+        type: photo
+        mapQuery: "Katiki Point Lighthouse"
+        notes:
+          - 這天塞很滿、市區跟半島擇重點跑、回程兩個點看天色挑著停
+
+  # =========================================================
+  - id: day-10
+    date: 2026-10-10
+    weekday: Sat
+    country: NZ
+    title: Oamaru → 基督城
+    overview: 沿海北上約 3.5hr、下午基督城花園城市
+    events:
+      - id: e-d10-01
+        time: "10:00"
+        duration: 210
+        title: Oamaru → 基督城（沿海約 3.5hr）
+        type: drive
+        notes:
+          - Oamaru 退房 10:00 前 [SRC:用戶截圖]
+      - id: e-d10-02
+        time: "14:30"
+        duration: 210
+        title: 基督城：植物園、Avon 河撐篙、復古電車
+        type: attraction
+        highlight: true
+        mapQuery: "Christchurch Botanic Gardens"
+      - id: e-d10-03
+        time: "21:00"
+        title: 宿：Metropolitan Executive Motel on Riccarton（南島 · 1 晚 · 10/10→10/11 退）
+        type: hotel
+        highlight: true
+        address: 175 Riccarton Road, Christchurch 8041
+        booking:
+          ref: __SECRET__
+        mapQuery: "Metropolitan Executive Motel on Riccarton Christchurch"
+        notes:
+          - 入住 14:00 後、退房 10:00 前 [SRC:用戶截圖]
+          - Riccarton 在 Hagley Park 西側、開進市區約 10 分 [GUESS]
+
+  # =========================================================
+  - id: day-11
+    date: 2026-10-11
+    weekday: Sun
+    country: NZ
+    title: 基督城補漏 → 傍晚飛奧克蘭
+    overview: 白天把基督城逛完、還車、18:10 CHC → AKL、宿 SkyCity
+    events:
+      - id: e-d11-01
+        time: "10:00"
+        duration: 300
+        title: 基督城補漏：紙教堂、Riverside Market、Quake City（行李先上車）
+        type: attraction
+        mapQuery: "Riverside Market Christchurch"
+        notes:
+          - motel 退房 10:00 前 [SRC:用戶截圖]
+      - id: e-d11-02
+        time: "15:30"
+        duration: 45
+        title: 基督城機場還南島車（甲租乙還）
+        type: drive
+        warnings:
+          - level: amber
+            text: 訂租車時記得訂到 10/11 還車（行程舊版寫 10/9 還）
+      - id: e-d11-03
+        time: "18:10"
+        duration: 85
+        title: 國內線 CHC 基督城 → AKL 奧克蘭（18:10 → 19:35）
+        type: flight
+        highlight: true
+        booking:
+          ref: __SECRET__
+        notes:
+          - Air NZ、票種 flexichange (G)、三人同行 [SRC:用戶截圖]
+      - id: e-d11-04
+        time: "21:00"
+        title: 宿：SkyCity Hotel 奧克蘭（北島 · 2 晚 · 10/11→10/13 退）
+        type: hotel
+        highlight: true
+        address: 72 Victoria Street West, Auckland Central 1010
+        cost: "TWD 7,564 / 2 晚"
+        booking:
+          ref: __SECRET__
+        mapQuery: "SkyCity Hotel Auckland"
+        notes:
+          - 市中心、Sky Tower 樓下 [SRC:用戶截圖]
+          - 入住 15:00 後、退房 11:00 前 [SRC:用戶截圖]
+          - 不可退款、不可修改 [SRC:用戶截圖]
+          - 機場進市區約 45 分：SkyDrive 巴士或計程車 [GUESS]
+
+  # =========================================================
+  - id: day-12
+    date: 2026-10-12
+    weekday: Mon
+    country: NZ
+    title: 奧克蘭整天｜Hobbiton 或 Karekare 二選一
+    overview: 北島這版沒租車：巴士團去 Hobbiton、或租一天車去 Karekare
+    events:
+      - id: e-d12-01
+        time: "08:00"
+        duration: 600
+        title: 選項 A：Hobbiton 哈比人村一日團（奧克蘭出發、來回約 10hr）
+        type: attraction
+        highlight: true
+        mapQuery: "Hobbiton Movie Set Matamata"
+        warnings:
+          - level: red
+            text: 要先訂團、旺季常滿
+        notes:
+          - 沒車了，選奧克蘭出發含車票的一日團 [GUESS]
+      - id: e-d12-02
+        time: "10:00"
+        duration: 300
+        title: 選項 B：Karekare Beach（《The Piano》鋼琴黑沙灘）+ Piha
+        type: attraction
+        mapQuery: "Karekare Beach Auckland New Zealand"
+        notes:
+          - 要租一天車、市區出發約 1hr、最後一段山路
+          - Jane Campion 作者論線朝聖、黑沙浪大人少、安靜得像句點
+        sources:
+          - type: TOOL-SUM
+            label: The Piano 拍攝地
+            url: https://movie-locations.com/movies/p/Piano.php
+      - id: e-d12-03
+        time: "19:30"
+        duration: 90
+        title: Sky Tower 看夜景（就在飯店樓上）
+        type: attraction
+        mapQuery: "Sky Tower Auckland"
+
+  # =========================================================
+  - id: day-13
+    date: 2026-10-13
+    weekday: Tue
+    country: NZ
+    transitCountries: [TW]
+    title: 奧克蘭 → 台北
+    overview: NZ077 10:40 起飛、同日 17:05 抵桃機
+    events:
+      - id: e-d13-00
+        time: "07:15"
+        duration: 45
+        title: SkyCity → 奧克蘭機場（車程約 45 分、抓 10:40 起飛前 3hr 到）
+        type: transit
+      - id: e-d13-01
+        time: "10:40"
+        duration: 685
+        title: NZ077 AKL 奧克蘭 → TPE 桃園 T2
+        type: flight
+        highlight: true
+        booking:
+          ref: __SECRET__
+        notes:
+          - 飛行約 11h25m、同日 17:05 抵達 [SRC:用戶截圖]
+      - id: e-d13-02
+        time: "17:05"
+        title: 抵桃園機場、旅程結束
+        type: arrival
+        highlight: true

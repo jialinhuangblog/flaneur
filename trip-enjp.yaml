@@ -1,0 +1,1199 @@
+# 東北 16 天（tripenjp：e for east, n for north）
+# 富士山定點 2 晚 + JR EAST PASS 10 日：福島 1 晚 → 青森 3 晚 → 秋田 3 晚 → 仙台 4 晚，四個定點各自放射
+# seed： pnpm tsx scripts/seed.ts public/trip-enjp.yaml
+# 原則：懶人玩法。景點在車站步行圈或公車可達，零爬坡、零溫泉、過程型搭車。
+# 時刻凡標 [GUESS] 者出發前用乘換案內釘死。
+# PASS 帳：範圍內 23 段原價合計 ¥102,028（2026-08-24 重算）
+# 指定席特急料金有季節加減：最繁忙期 +400、繁忙期 +200、閑散期 -200。8/7・8・15・16 最繁忙期，8/17・21–23 繁忙期，8/24–27 閑散期 [SRC:jreast.co.jp/kippu/1202.html]
+# ekitan／navitime 不管填哪天都只顯示通常期，所以那邊查到的數字要自己套季節
+
+meta:
+  id: tripenjp
+  title: 東北 16 天（富士山 × 鐵道大 C）
+  startDate: 2026-08-11
+  endDate: 2026-08-26
+  traveler: Jialin
+  luggage: 大行李全程自己帶；只有 8/12–8/14 河口湖兩晚寄放在神田那間旅館（8/11 跟 8/14 都住那）
+
+days:
+  # =========================================================
+  - id: day-01
+    date: 2026-08-11
+    weekday: Tue
+    country: TW
+    transitCountries: [JP]
+    city: 東京
+    title: 台北 → 東京
+    overview: 星宇 15:05 落地成田，領 PASS、搭巴士進東京駅，趕在 20:00 關門前去 Le Labo refill
+    events:
+      - id: e-d01-01
+        time: "10:40"
+        duration: 205
+        title: 星宇 JX802 TPE 桃園 T1 → NRT 成田 T2 15:05 着
+        type: flight
+        highlight: true
+        notes:
+          - 10:40–15:05 直飛，A350 經濟艙含餐，訂單 1616333110746748 [SRC:用戶截圖]
+      - id: e-d01-02
+        time: "15:30"
+        duration: 10
+        title: T2 1F LCB 巴士櫃檯先買票（實際買到 16:05 那班）
+        type: other
+        highlight: true
+        notes:
+          - 買到 16:05 那班 ¥1,500
+        sources:
+          - type: SRC
+            label: AIRPORT BUS TYO-NRT 時刻表 PDF（2026.4.1 改訂）
+            url: https://tyo-nrt.com/wp/wp-content/themes/tyo-nrt/files/timetable_new_horizon.pdf
+      - id: e-d01-03
+        time: "15:40"
+        duration: 20
+        title: T2 B1F みどりの窓口 領 JR EAST PASS ＋指定席券
+        type: other
+        highlight: true
+        notes:
+          - 這天領，PASS 8/15 才啟用
+      - id: e-d01-04
+        time: "16:05"
+        duration: 73
+        title: Airport Bus TYO-NRT，成田機場 T2 6番乘車處 16:05 → 東京駅日本橋口 17:18 ¥1,500
+        type: transit
+        highlight: true
+        notes:
+          - PASS 8/15 才啟用，這段自費
+        sources:
+          - type: SRC
+            label: AIRPORT BUS TYO-NRT 時刻表 PDF（2026.4.1 改訂）
+            url: https://tyo-nrt.com/wp/wp-content/themes/tyo-nrt/files/timetable_new_horizon.pdf
+          - type: SRC
+            label: AIRPORT BUS TYO-NRT 搭乘流程
+            url: https://tyo-nrt.com/tw/flow
+          - type: SRC
+            label: 京成巴士 官方路線頁
+            url: https://www.keiseibus.co.jp/express-bus/90101-2/
+      - id: e-d01-05
+        time: "19:10"
+        duration: 50
+        title: Le Labo 丸の内 refill
+        type: shopping
+        highlight: true
+        address: 東京都千代田区丸の内2-5-1
+        mapQuery: "Le Labo 丸の内"
+        sources:
+          - type: SRC
+            label: Le Labo 日本 店舖清單
+            url: https://www.lelabofragrances.jp/pages/locations
+          - type: SRC
+            label: 店頭リフィルサービス
+            url: https://www.lelabofragrances.jp/pages/edm2024022ec
+      - id: e-d01-06
+        time: "20:15"
+        title: 宿：Hostel Est Lilas 神田（8/11 一晚，8/14 再住一晚）
+        type: hotel
+        highlight: true
+        address: 東京都千代田区岩本町1-1-9
+        mapQuery: "Hostel Est Lilas Kanda Tokyo"
+        booking:
+          cost: "TWD 747"
+        notes:
+          - 8/12–8/14 大行李寄放在這裡
+        sources:
+          - type: SRC
+            label: 訂房頁
+            url: https://www.booking.com/hotel/jp/hosuteruerirashen-tian-hostel-estlilas-kanda.zh-tw.html
+
+  # =========================================================
+  - id: day-02
+    date: 2026-08-12
+    weekday: Wed
+    country: JP
+    city: 河口湖
+    transitCities: [東京]
+    title: 河口湖｜落地窗等富士山
+    overview: 八重洲搭高速巴士直達河口湖，之後整天在旅館耍廢，大石公園沒去
+    events:
+      - id: e-d02-01
+        time: "10:20"
+        duration: 122
+        title: 東京駅～富士五湖線 高速巴士，東京駅八重洲南口 10:20 発 → 河口湖駅2番 12:22 着
+        type: transit
+        highlight: true
+        booking:
+          coach: 1
+          seat: 2C
+        notes:
+          - 已訂，片道，車号 01、2C，運行是 JRバス関東 [SRC:用戶截圖 訂位確認]
+          - 2 小時 2 分、¥2,300 [TOOL-SUM]
+      - id: e-d02-02
+        time: "13:00"
+        duration: 150
+        title: 河口湖周遊バス レッドライン → 大石公園（湖＋花田＋富士山同框）
+        type: attraction
+        skipped: true
+        mapQuery: "Oishi Park Kawaguchiko"
+      - id: e-d02-03
+        time: "17:00"
+        duration: 120
+        title: 旅館落地窗前等富士山夕燒
+        type: rest
+        highlight: true
+      - id: e-d02-04
+        time: "21:00"
+        title: 宿：Ryokan Fuji Heights（2 晚・8/12→8/14 退）
+        type: hotel
+        highlight: true
+        address: 〒401-0302 山梨県南都留郡富士河口湖町小立2505-3
+        mapQuery: "Ryokan Fuji Heights Kawaguchiko"
+        booking:
+          cost: "TWD 3,637"
+        notes:
+          - 8/12 入住、8/14 退，兩晚
+        sources:
+          - type: SRC
+            label: 訂房頁
+            url: https://www.booking.com/hotel/jp/ryokan-fuji-heights.zh-tw.html
+
+  # =========================================================
+  - id: day-03
+    date: 2026-08-13
+    weekday: Thu
+    country: JP
+    city: 河口湖
+    title: 河口湖｜下雨，商店街白跑一趟
+    overview: 整天下雨，去了商店街但富士山全程在雲裡，看不到東西就回旅館，景點都沒去
+    events:
+      - id: e-d03-01
+        time: "05:30"
+        duration: 90
+        title: 房內看清晨富士山（逆富士時段）
+        type: photo
+        skipped: true
+      - id: e-d03-05
+        time: "11:00"
+        duration: 90
+        title: 本町通り商店街，雨中去了一下
+        type: attraction
+        mapQuery: "本町通り商店街 富士吉田"
+      - id: e-d03-02
+        time: "13:30"
+        duration: 120
+        title: 天上山纜車 + 河口湖遊覽船
+        type: attraction
+        skipped: true
+        mapQuery: "Kachi Kachi Ropeway Kawaguchiko"
+      - id: e-d03-03
+        time: "21:00"
+        title: 宿：河口湖（第 2 晚）
+        type: hotel
+
+  # =========================================================
+  - id: day-04
+    date: 2026-08-14
+    weekday: Fri
+    country: JP
+    city: 東京
+    transitCities: [河口湖]
+    title: 回東京｜日暮里吃冰，秋葉原採購
+    overview: 10:30 巴士回東京駅，日暮里吃冰吃拉麵，秋葉原 Bic Camera 買東西，回神田休息
+    events:
+      - id: e-d04-01
+        time: "10:30"
+        duration: 125
+        title: 東京駅～富士五湖線 高速巴士，河口湖駅2番 10:30 発 → 東京駅日本橋口 12:35 着
+        type: transit
+        highlight: true
+        notes:
+          - 同去程那條線，¥2,300 [TOOL-SUM]
+      - id: e-d04-04
+        time: "13:40"
+        duration: 20
+        title: ひみつ堂 かき氷（日暮里・谷中）
+        type: food
+        highlight: true
+        mapQuery: "ひみつ堂 谷中"
+      - id: e-d04-05
+        time: "14:00"
+        duration: 40
+        title: Burai 拉麵（日暮里）
+        type: food
+        mapQuery: "Burai ramen 日暮里"
+      - id: e-d04-06
+        time: "14:45"
+        duration: 35
+        title: 秋葉原 Bic Camera 買東西
+        type: shopping
+        mapQuery: "ビックカメラAKIBA"
+      - id: e-d04-02
+        time: "15:35"
+        duration: 210
+        title: 回神田拿寄放的大行李，休息
+        type: rest
+      - id: e-d04-03
+        time: "22:00"
+        title: 宿：Hostel Est Lilas 神田（第 2 晚・8/14→8/15 退）
+        type: hotel
+        highlight: true
+        address: 東京都千代田区岩本町1-1-9
+        mapQuery: "Hostel Est Lilas Kanda Tokyo"
+        booking:
+          cost: "TWD 837"
+        notes:
+          - 跟 8/11 同一間
+        sources:
+          - type: SRC
+            label: 訂房頁
+            url: https://www.booking.com/hotel/jp/hosuteruerirashen-tian-hostel-estlilas-kanda.zh-tw.html
+
+  # =========================================================
+  - id: day-05
+    date: 2026-08-15
+    weekday: Sat
+    country: JP
+    city: 福島
+    transitCities: [東京]
+    title: PASS 生效｜新幹線直達福島
+    overview: 早上東京自由，14:00 やまびこ141号 一班到福島，傍晚起在站前
+    events:
+      - id: e-d05-00
+        time: "10:00"
+        duration: 150
+        title: 東京早上自由：退房、寄行李在旅館、市區晃
+        type: rest
+        notes:
+          - 行李寄旅館櫃檯，中午再回來拿
+      - id: e-d05-01
+        time: "13:10"
+        duration: 30
+        title: "[山手線或京浜東北線] 神田 → 東京駅，一站"
+        type: transit
+        highlight: true
+      - id: e-d05-02
+        time: "14:00"
+        duration: 91
+        title: "[東北新幹線] やまびこ141号 東京 → 福島 15:31 着 (origin: ¥10130 -> 0)"
+        type: train
+        highlight: true
+        booking:
+          coach: 8
+          seat: A2
+        notes:
+          - 已劃，8 號車 A2，靠窗 [SRC:用戶截圖 eki-net 訂位確認]
+      - id: e-d05-03
+        time: "16:00"
+        duration: 120
+        title: 福島站前慢日：入住放行李、街上亂走
+        type: rest
+        mapQuery: "Fukushima station"
+      - id: e-d05-04
+        time: "16:00"
+        duration: 240
+        title: 晚餐：亜細亜割烹 蓮月 福島店 ＋ パセオ470 商店街夜晃
+        type: meal
+        mapQuery: "亜細亜割烹 蓮月 福島店"
+        sources:
+          - type: SRC
+            label: 亜細亜割烹 蓮月 福島店
+            url: https://ta9c600.gorp.jp/
+          - type: SRC
+            label: 元祖円盤餃子 満腹
+            url: https://fukushima-gyoza.com/shop/manpuku/
+          - type: SRC
+            label: 餃子の照井 東口店
+            url: https://fukushima-gyoza.com/shop/terui-westgate/
+      - id: e-d05-05
+        time: "21:00"
+        title: 宿：Richmond Hotel 福島駅前（1 晚・8/15→8/16 退）
+        type: hotel
+        highlight: true
+        address: 〒960-8053 福島県福島市三河南町1-15
+        mapQuery: "Richmond Hotel Fukushima Ekimae"
+        booking:
+          cost: "TWD 1,372"
+        notes:
+          - 駅前
+        sources:
+          - type: SRC
+            label: 訂房頁
+            url: https://www.booking.com/hotel/jp/richmond-fukushima-ekimae.zh-tw.html
+
+  # =========================================================
+  - id: day-06
+    date: 2026-08-16
+    weekday: Sun
+    country: JP
+    city: 青森
+    transitCities: [福島]
+    title: 福島耍廢半日 → 北上青森
+    overview: 睡飽、站前買桃買酒，11:37 的やまびこ 走人，仙台 12 分鐘換はやぶさ，下午兩點多就到青森
+    events:
+      - id: e-d06-01
+        time: "09:00"
+        duration: 120
+        title: 福島站前慢日：買當季桃子（7–8 月正季）＋福島縣產日本酒
+        type: shopping
+        highlight: true
+        mapQuery: "Fukushima station"
+      - id: e-d06-02
+        time: "11:37"
+        duration: 28
+        title: "[東北新幹線] やまびこ133号 福島 → 仙台 12:05 着 (origin: ¥4610 -> 0)"
+        type: train
+        highlight: true
+        booking:
+          coach: 5
+          seat: 2E
+        notes:
+          - 已劃，5 號車 2E，指定席，用 PASS [SRC:用戶截圖 訂位確認]
+          - 原價 ¥4,210＝運賃 1,410 ＋ 指定席特急 2,800（8/16 最繁忙期）[SRC:用戶截圖 navitime]
+      - id: e-d06-03
+        time: "12:17"
+        duration: 100
+        title: "[東北新幹線] はやぶさ17号 仙台 → 新青森 13:57 着 (origin: ¥12440 -> 0)"
+        type: train
+        highlight: true
+        booking:
+          coach: 2
+          seat: 4E
+        notes:
+          - 已劃，2 號車 4E，仙台 12:17 発、新青森 13:57 着 [SRC:用戶截圖 訂位確認]
+          - 轉乘 12 分鐘。實際是 14 番線 着、12 番線 発，跨兩座月台，要下樓再上樓 [SRC:用戶訊息]
+          - ¥13,790 是福島到新青森 的原價，含上一段やまびこ [SRC:用戶訊息]
+      - id: e-d06-04
+        time: "14:26"
+        duration: 6
+        title: "[奧羽本線] 新青森 → 青森 (origin: ¥199 -> 0)"
+        type: train
+      - id: e-d06-05
+        time: "14:40"
+        duration: 150
+        title: 青森下午自由（提早到出來的空檔）
+        type: rest
+        mapQuery: "Aomori station"
+      - id: e-d06-06
+        time: "15:20"
+        duration: 90
+        title: うまい鮨勘 ゆとろぎ青森&ラビナ店
+        type: meal
+        mapQuery: "うまい鮨勘 ゆとろぎ青森 ラビナ"
+        notes:
+          - 青森駅東口駅ビル ラビナ 1F
+      - id: e-d06-07
+        time: "21:00"
+        title: 宿：APA 青森駅県庁通（1 晚・8/16→8/17 退）
+        type: hotel
+        highlight: true
+        address: 青森県青森市安方2丁目6-6
+        mapQuery: "アパホテル 青森駅県庁通"
+        booking:
+          cost: "TWD 1,484"
+        sources:
+          - type: SRC
+            label: 訂房頁
+            url: https://www.booking.com/hotel/jp/apahoteru-qing-sen-yi-xian-ting-tong.zh-tw.html
+
+  # =========================================================
+  - id: day-07
+    date: 2026-08-17
+    weekday: Mon
+    country: JP
+    city: 青森
+    title: 青森市內上午 ＋ 下午弘前拜訪
+    overview: 早上古川市場、A-FACTORY，下午去弘前，晚餐是朋友爸爸的拉麵
+    events:
+      - id: e-d07-01
+        time: "09:00"
+        duration: 30
+        title: APA 退房，大行李先寄放 ART HOTEL 櫃檯
+        type: other
+      - id: e-d07-02
+        time: "10:00"
+        duration: 90
+        title: 古川市場のっけ丼：買碗白飯，攤位自己挑料鋪上去
+        type: meal
+        highlight: true
+        mapQuery: "Furukawa Fish Market Aomori"
+        sources:
+          - type: SRC
+            label: 元祖 青森のっけ丼
+            url: https://nokkedon.jp/about/
+      - id: e-d07-03
+        time: "12:00"
+        duration: 150
+        title: A-FACTORY 蘋果加工廠 ＋ 青森灣邊
+        type: attraction
+        mapQuery: "A-Factory Aomori"
+      - id: e-d07-04
+        time: "14:45"
+        duration: 50
+        title: "[奧羽本線] 青森 → 弘前 (origin: ¥715 -> 0)"
+        type: train
+      - id: e-d07-05
+        time: "16:00"
+        duration: 90
+        title: 外婆家（弘前高校附近），待到 17:30
+        type: other
+        highlight: true
+      - id: e-d07-06
+        time: "17:45"
+        duration: 60
+        title: Dote no Coffee-ya Manchan
+        type: meal
+        mapQuery: "Dote no Coffee-ya Manchan Hirosaki"
+        notes:
+          - 〒036-8182 青森県弘前市土手町 36-6 1F [SRC:用戶訊息]
+      - id: e-d07-07
+        time: "19:00"
+        duration: 120
+        title: 幸邑（奶奶家）
+        type: meal
+        highlight: true
+        mapQuery: "幸邑 弘前 新鍛冶町"
+        notes:
+          - 〒036-8193 青森県弘前市新鍛冶町 37 [SRC:用戶訊息]
+      - id: e-d07-08
+        time: "21:00"
+        duration: 50
+        title: "[奧羽本線] 弘前 → 青森 (origin: ¥715 -> 0)"
+        type: train
+      - id: e-d07-09
+        time: "22:30"
+        title: 宿：ART HOTEL Aomori（2 晚・8/17→8/19 退）
+        type: hotel
+        highlight: true
+        address: 青森県青森市本町2-1-26
+        mapQuery: "アートホテル青森"
+        booking:
+          cost: "TWD 5,912"
+        sources:
+          - type: SRC
+            label: 訂房頁
+            url: https://www.booking.com/hotel/jp/art-aomori.zh-tw.html
+
+  # =========================================================
+  - id: day-08
+    date: 2026-08-18
+    weekday: Tue
+    country: JP
+    city: 青森
+    transitCities: [八戸]
+    title: 八戸 蕪島一日
+    overview: 9:29 快速到八戸，中午往陸奥湊 轉巴士上海邊神社，回程改搭新幹線從八戸回新青森
+    events:
+      - id: e-d08-01
+        time: "09:30"
+        duration: 95
+        title: "[青い森鉄道] 青森 09:29 快速 → 八戸 (origin: ¥2700 -> 0)"
+        type: train
+        notes:
+          - 青い森鉄道全線在 PASS 範圍內
+      - id: e-d08-02
+        time: "11:00"
+        duration: 60
+        title: 八戸站 麥當勞
+        type: meal
+      - id: e-d08-03
+        time: "12:30"
+        duration: 10
+        title: "[八戸線] 八戸 → 陸奥湊 (origin: ¥220 -> 0)"
+        type: train
+        notes:
+          - 八戸線 在 PASS 的 free area 圖上，八戸→久慈 整條畫成 JR 在來線的藍線 [SRC:用戶截圖 PASS 路線圖]
+          - 官方條款的判準是「地圖所示區域內的 JR EAST 路線」，不是 JR 東日本全線；非 JR 的部分逐一指名，青い森鉄道、三陸鐵道、仙台機場鐵道都在名單上
+        sources:
+          - type: SRC
+            label: JR EAST PASS 旅行條款（繁中）
+            url: https://www.jreast.co.jp/zh-CHT/multi/pass/eastpass_terms.html
+      - id: e-d08-04
+        time: "12:50"
+        duration: 30
+        title: 巴士 → 海邊神社
+        type: transit
+        notes:
+          - 單程 ¥150，不是 JR，PASS 不含 [SRC:用戶訊息]
+      - id: e-d08-05
+        time: "13:20"
+        duration: 30
+        title: 蕪嶋神社
+        type: attraction
+        highlight: true
+        mapQuery: "Kabushima Shrine Hachinohe"
+      - id: e-d08-06
+        time: "13:50"
+        duration: 30
+        title: 巴士 → 鮫
+        type: transit
+        notes:
+          - 單程 ¥150，回程同價 [SRC:用戶訊息]
+      - id: e-d08-07
+        time: "14:30"
+        duration: 15
+        title: "[八戸線] 鮫 → 八戸 (origin: ¥260 -> 0)"
+        type: train
+      - id: e-d08-08
+        time: "15:05"
+        duration: 60
+        title: "[東北新幹線] 八戸 15:05 → 新青森 (origin: ¥4400 -> 0)"
+        type: train
+        highlight: true
+      - id: e-d08-09
+        time: "15:45"
+        duration: 10
+        title: "[奧羽本線] 新青森 15:45 → 青森 (origin: ¥199 -> 0)"
+        type: train
+        notes:
+          - IC ¥199，用 PASS 不用另外付 [SRC:用戶訊息]
+      - id: e-d08-10
+        time: "18:30"
+        duration: 120
+        title: 牛角 燒肉
+        type: meal
+        highlight: true
+        mapQuery: "牛角 青森"
+      - id: e-d08-11
+        time: "22:00"
+        title: 宿：ART HOTEL Aomori（第 2 晚）
+        type: hotel
+
+  # =========================================================
+  - id: day-09
+    date: 2026-08-19
+    weekday: Wed
+    country: JP
+    city: 秋田
+    transitCities: [青森]
+    title: 青森 → 秋田｜特急つがる，中午就到
+    overview: つがる42号走奧羽本線內陸，2 小時 41 分到秋田，下午整個在秋田
+    events:
+      - id: e-d09-01
+        time: "09:04"
+        duration: 161
+        title: "[奧羽本線] 特急つがる42号 青森 09:04 → 秋田 11:45 着 (origin: ¥5280 -> 0)"
+        type: train
+        highlight: true
+        booking:
+          coach: 2
+          seat: 18A
+        notes:
+          - 已劃，2 號車 18A，青森 09:04 発、秋田 11:45 着 [SRC:用戶截圖 訂位確認]
+      - id: e-d09-02
+        time: "12:30"
+        duration: 210
+        title: 秋田站前慢日：市民市場、千秋公園、放行李
+        type: attraction
+        skipped: true
+        mapQuery: "Akita Citizen Market"
+        notes:
+          - 站前走路圈
+      - id: e-d09-03
+        time: "18:30"
+        duration: 90
+        title: 秋田第一晚：天下一番
+        type: meal
+        notes:
+          - 秋田三晚：8/19、8/20 天下一番，8/21 泡麵
+      - id: e-d09-04
+        time: "21:00"
+        title: 宿：Delta Hostel 秋田（3 晚・8/19→8/22 退）
+        type: hotel
+        highlight: true
+        address: 秋田県秋田市保戸野原の町7-68 アトレデルタ2F
+        mapQuery: "DELTA HOSTEL 秋田"
+        booking:
+          cost: "TWD 4,645"
+        notes:
+          - 在保戸野原の町，不在秋田駅正前方
+        sources:
+          - type: SRC
+            label: 訂房頁
+            url: https://www.booking.com/hotel/jp/delta-hostel.zh-tw.html
+
+  # =========================================================
+  - id: day-10
+    date: 2026-08-20
+    weekday: Thu
+    country: JP
+    city: 秋田
+    title: 田澤湖一日｜日本最深的湖
+    overview: こまち16 十點出發，一小時到田澤湖，13:25 那班巴士繞湖一圈，15:11 回秋田
+    events:
+      - id: e-d10-01
+        time: "10:07"
+        duration: 61
+        title: "[秋田新幹線] こまち16号 秋田 10:07 → 田澤湖 11:08 着 (origin: ¥3450 -> 0)"
+        type: train
+        highlight: true
+        booking:
+          coach: 15
+          seat: 9B
+        notes:
+          - 已劃，15 號車 9番B席，指定席 [SRC:用戶截圖 訂位確認]
+          - 15 號車是こまち 那半列的編號，不是第 15 節。こまち 跟はやぶさ 併結時編號從 11 起跳 [GUESS]
+          - 這段跑的是改軌過的田沢湖線，掛新幹線的名，速度是在來線等級
+      - id: e-d10-01a
+        time: "11:15"
+        duration: 60
+        title: 駅前食堂（田沢湖駅前）
+        type: meal
+        mapQuery: "駅前食堂 田沢湖駅"
+      - id: e-d10-02
+        time: "12:25"
+        duration: 11
+        title: 羽後交通 乳頭線／玉川線，田澤湖駅 → 田澤湖畔
+        type: transit
+        notes:
+          - 12:25 同時有兩班，乳頭温泉行 跟 急行玉川線，隨便搭哪班都停田澤湖畔，12:36 到 [SRC:用戶截圖 田沢湖駅前バス時刻表]
+          - 這格是選配。去了湖畔 就只能等一周線 13:37 經過，中途上車沒位子保證；不去就留在駅前 等 13:25 從起點上，位子穩
+          - 羽後交通不是 JR，PASS 不含。車上可刷信用卡跟 QR，Visa／JCB／AmEx 收，MasterCard 不收
+          - 付現金的話上車抽整理券。從田澤湖駅前上車是起點，號碼是 0，一路看車頭看板「0」那格的金額就好
+        sources:
+          - type: SRC
+            label: 羽後交通 田沢湖一周線 時刻表（令和8年4月1日改正）
+            url: https://ugokotsu.co.jp/wp-content/jikoku/latest/tazawa2026.pdf
+          - type: TOOL-SUM
+            label: 一周線乘車紀錄
+            url: https://nicklee.tw/2336/akita-tazawako/
+      - id: e-d10-03
+        time: "13:25"
+        duration: 91
+        title: 羽後交通 田沢湖一周線 繞湖一圈：湖畔、たつこ像
+        type: attraction
+        highlight: true
+        mapQuery: "Lake Tazawa Tatsuko Statue"
+        notes:
+          - 13:25 駅前発 → 13:37 湖畔 → 13:48 大沢 → 13:55 潟尻着（散策 20 分）→ 14:15 発 → 14:25 御座の石神社着（散策 10 分）→ 14:35 発 → 14:44 湖畔 → 14:56 駅前着 [SRC:羽後交通 tazawa2026.pdf]
+          - 時計回り，潟尻 先、御座石 後。たつこ像 的最近站牌是潟尻，遊覽船碼頭是湖畔 [SRC:同上]
+          - 官方註明「一部ダイヤは新幹線と接続になっておりません」。14:56 到接 15:11 的こまち23 只有 15 分，公車誤點就掉車 [SRC:同上]
+          - 這班錯過就沒了。下一班 15:25，16:56 才回駅前
+          - 一周 ¥1,250 [TOOL-SUM]。一日周遊券已經廢止，現在只能單程單程付
+        sources:
+          - type: SRC
+            label: 羽後交通 田沢湖一周線 時刻表（令和8年4月1日改正）
+            url: https://ugokotsu.co.jp/wp-content/jikoku/latest/tazawa2026.pdf
+          - type: TOOL-SUM
+            label: 一周線乘車紀錄
+            url: https://nicklee.tw/2336/akita-tazawako/
+      - id: e-d10-04
+        time: "15:11"
+        duration: 57
+        title: "[秋田新幹線] こまち23号 田澤湖 15:11 → 秋田 16:08 着 (origin: ¥3450 -> 0)"
+        type: train
+        booking:
+          coach: 17
+          seat: 3D
+        notes:
+          - 已劃，17 號車 3番D席，指定席 [SRC:用戶截圖 訂位確認]
+          - 這張是新訂的，還沒領。明早在秋田駅 出發前一起領出來
+          - 繞完湖 14:56 回到駅前，接這班剛好。下一班 16:07、再下一班 17:12 [TOOL-SUM:駅探]
+        sources:
+          - type: SRC
+            label: JR東日本 田沢湖駅 站內設備
+            url: https://www.jreast.co.jp/estation/station/info.aspx?stationcd=955
+      - id: e-d10-05
+        time: "18:00"
+        duration: 120
+        title: セリオン 展望台看日本海夕陽（秋田港）
+        type: attraction
+        skipped: true
+        mapQuery: "Port Tower Selion Akita"
+        notes:
+          - 入場免費，9:00–21:00。秋田駅西口搭「ポートタワーセリオン線」路線巴士 25 分 [TOOL-SUM]
+          - 市內巴士不是 JR，PASS 不含
+      - id: e-d10-06
+        time: "16:30"
+        duration: 90
+        title: 秋田第二晚：天下一番
+        type: meal
+      - id: e-d10-07
+        time: "22:00"
+        title: 宿：秋田（第 2 晚）
+        type: hotel
+
+  # =========================================================
+  - id: day-11
+    date: 2026-08-21
+    weekday: Fri
+    country: JP
+    city: 秋田
+    title: 大館一日｜秋田犬之鄉
+    overview: つがる41 八點半出發，10:04 到大館，出站一分鐘就是秋田犬の里，中午吃拿過駅弁冠軍的鶏めし，13:50 走人
+    events:
+      - id: e-d11-01
+        time: "08:39"
+        duration: 85
+        title: "[奧羽本線] 特急つがる41号 秋田 → 大館 10:04 着 (origin: ¥4180 -> 0)"
+        type: train
+        highlight: true
+        booking:
+          coach: 1
+          seat: 5A
+        notes:
+          - 已劃，1 號車 5A，秋田 08:39 発、大館 10:04 着 [SRC:用戶截圖 訂位確認]
+          - 秋田犬の里 出站走一分鐘
+      - id: e-d11-02
+        time: "10:15"
+        duration: 105
+        title: 秋田犬の里（大館駅徒步 1 分，免費）
+        type: attraction
+        highlight: true
+        address: 秋田県大館市御成町1丁目13-1
+        mapQuery: "秋田犬の里 大館"
+        notes:
+          - 入場免費。設施 9:00–17:00，看得到真狗的秋田犬展示室是 9:30–16:45
+          - 展示室週一休，8/21 是禮拜五，有開
+          - 秋田市那間「秋田犬ふれあい処 in 千秋公園」停業中，令和8年9月才重開 [TOOL-SUM]
+        sources:
+          - type: SRC
+            label: 秋田犬の里
+            url: https://akita-fun.jp/spots/71
+      - id: e-d11-03
+        time: "12:00"
+        duration: 90
+        title: 秋田比内や 大館本店：比內地雞親子丼＋きりたんぽ鍋
+        type: meal
+        address: 秋田県大館市中道1-7-12
+        mapQuery: "秋田比内や 大館本店"
+        notes:
+          - 午餐 11:00–14:00，公休週三。離大館駅 直線 433 公尺，走 6 分 [SRC:座標計算 + ja.wikipedia 大館駅]
+      - id: e-d11-04
+        time: "13:50"
+        duration: 82
+        title: "[奧羽本線] スーパーつがる2号 大館 → 秋田 15:12 着 (origin: ¥4180 -> 0)"
+        type: train
+        highlight: true
+        booking:
+          coach: 1
+          seat: 6A
+        notes:
+          - 已劃，1 號車 6A，大館 13:50 発、秋田 15:12 着 [SRC:用戶截圖 訂位確認]
+          - 大館往秋田一天只有三班特急，這是最後一班有位子的 [TOOL-SUM]
+      - id: e-d11-05
+        time: "18:30"
+        duration: 60
+        title: 回秋田，第三晚：泡麵
+        type: meal
+      - id: e-d11-06
+        time: "21:00"
+        title: 宿：秋田（第 3 晚）
+        type: hotel
+
+  # =========================================================
+  - id: day-12
+    date: 2026-08-22
+    weekday: Sat
+    country: JP
+    city: 仙台
+    transitCities: [秋田]
+    title: 秋田 → 仙台安家
+    overview: 秋田早上退房，12:13 的こまち20 走人，下午進仙台安家，之後不再搬
+    events:
+      - id: e-d12-01
+        time: "11:00"
+        duration: 45
+        title: 秋田站前收尾：退房、寄行李
+        type: shopping
+        notes:
+          - 退房後行李寄站內置物櫃
+      - id: e-d12-02
+        time: "11:45"
+        duration: 25
+        title: 一文字 飯糰
+        type: meal
+        mapQuery: "一文字 秋田"
+      - id: e-d12-03
+        time: "12:13"
+        duration: 136
+        title: "[秋田新幹線＋東北新幹線] こまち20号 秋田 → 仙台 14:29 着 (origin: ¥10880 -> 0)"
+        type: train
+        highlight: true
+        booking:
+          coach: 15
+          seat: 1B
+        notes:
+          - 已劃，15 號車 1 番 B 席，秋田 12:13 発、仙台 14:29 着 [SRC:用戶訊息]
+          - 秋田到大曲這 30 分鐘是倒著坐的。こまち 在大曲折返，座椅朝向照東京方向固定，可以自己轉 [TOOL-SUM]
+        sources:
+          - type: SRC
+            label: 駅探 秋田 → 仙台 こまち（原價 ¥10,680）
+            url: https://ekitan.com/transit/shinkansen/section/sf-597/st-1021/komachi
+      - id: e-d12-04
+        time: "15:00"
+        duration: 30
+        title: 入住 KOKO HOTEL 仙台駅前 Central，之後四晚不用再拖行李
+        type: hotel
+        highlight: true
+        address: 〒980-0021 宮城県仙台市青葉区中央4丁目3-8
+        mapQuery: "KOKO HOTEL 仙台駅前 Central"
+        notes:
+          - 青葉区中央，仙台駅西口那一側
+      - id: e-d12-05
+        time: "18:30"
+        duration: 90
+        title: 溫野菜（しゃぶしゃぶ）
+        type: meal
+        mapQuery: "温野菜 仙台"
+      - id: e-d12-06
+        time: "21:00"
+        title: 宿：KOKO HOTEL 仙台駅前 Central（4 晚・8/22→8/26 退）
+        type: hotel
+        highlight: true
+        address: 〒980-0021 宮城県仙台市青葉区中央4丁目3-8
+        mapQuery: "KOKO HOTEL 仙台駅前 Central"
+        booking:
+          cost: "TWD 9,855"
+        notes:
+          - 8/22–8/26 四連泊，四晚合計約 9,855
+        sources:
+          - type: SRC
+            label: 官方網站
+            url: https://www.koko-hotels.com/sendai_central/
+
+  # =========================================================
+  - id: day-13
+    date: 2026-08-23
+    weekday: Sun
+    country: JP
+    city: 仙台
+    transitCities: [宇都宮, 東京]
+    title: 宇都宮一日｜地下三十公尺的採石場
+    overview: やまびこ 南下宇都宮，巴士上大谷看挖空七十年的地下空間，中午在宇都宮駅 吃完接著南下東京，晚上從上野 直接回仙台
+    events:
+      - id: e-d13-01
+        time: "09:00"
+        duration: 77
+        title: "[東北新幹線] やまびこ210号 仙台 → 宇都宮 10:17 着 (origin: ¥8880 -> 0)"
+        type: train
+        highlight: true
+        booking:
+          coach: 8
+          seat: 9C
+        notes:
+          - 已劃，8 號車 9 番 C 席，仙台 09:00 発、宇都宮 10:17 着 [SRC:用戶截圖 訂位確認]
+      - id: e-d13-02
+        time: "10:36"
+        duration: 35
+        title: 關東巴士 宇都宮駅西口 6 番 → 資料館入口（先買大谷観光一日乗車券 ¥2,200）
+        type: transit
+        notes:
+          - 出發前先買「大谷観光一日乗車券」大人 ¥2,200。內容是大谷・立岩線 巴士一日券＋大谷資料館入場券＋大谷観音（大谷寺）拝観券 [SRC:kantobus.co.jp topics id=1004 與宣傳單 PDF]
+          - 宇都宮市官網那頁還寫 ¥2,000，更新日停在 2024-04-01。大谷資料館 2026 年 4 月改價，大人 800 → 1,000 [SRC:oya909.co.jp/access]，券價跟著漲 200，中学生 1,400、小学生 700 沒動
+          - 宣傳單上的通常合計 ¥2,700 拆法：巴士來回 ¥1,200＋大谷資料館 ¥1,000＋大谷寺 ¥500，買券省 ¥500 [SRC:關東巴士宣傳單 PDF]。實測宇都宮駅西口 → 資料館入口 單程 ¥530 [SRC:kantobus.info 運賃檢索]，光來回加資料館就超過券價
+          - 持券在来らっせ本店 用餐送一杯飲料，二荒山神社、松が峰教会、栃木県立美術館 也有優惠 [SRC:關東巴士宣傳單 PDF]
+          - 販售點：宇都宮市観光案内所在在來線改札口旁，全日 9:00–14:50，最近；関東自動車宇都宮駅前定期券センター 在西口走 1 分，週日 8:30–12:00／13:00–17:00 [SRC:關東巴士宣傳單 PDF]。10:17 下車先買再上巴士
+          - 搭「大谷・立岩行き」，約 30 分，下車走 5 分 [TOOL-SUM]
+          - 週日 45 系統 駅西口 発 → 資料館入口 着：10:19→10:46、10:36→11:03、10:59→11:26、11:23→11:50、11:43→12:10 [SRC:kantobus.info 發著檢索 日曜･祝日]
+          - 10:17 到站接 10:19 來不及，10:36 是買完券趕得上的第一班；沒趕上就 10:59，館內時間少 23 分
+          - 關東巴士不是 JR，PASS 不含
+          - 套票的巴士有效範圍只有大谷・立岩線這一條，券面記載的停留所之間自由上下 [SRC:宇都宮市官網 1007246]
+          - 馬場町 在這條線上，資料館入口 → 馬場町 系統01、¥530、17–22 分，跟坐到宇都宮駅西口 同價，券吃得到 [SRC:kantobus.info 運賃檢索]。只是大谷・立岩線半小時一班；等不到就搭別條線回站，現金 ¥190、約 9 分，那個站牌往車站的車兩三分鐘一班 [SRC:kantobus.info 時刻表]
+          - 来らっせ本店「馬場町」下車走 1 分，下車跟回程上車同一站，不用繞去東武駅前。土日祝 11:00–21:00（L.O. 20:30），無休，028-614-5388 [SRC:關東巴士宣傳單 PDF]
+          - 官方示範行程的最後一段就是「馬場町 → JR宇都宮駅」用同一張券 [SRC:關東巴士宣傳單 PDF]
+          - 「県庁前」跟「馬場町」的乗り場依行先不同，上車前看站牌方向 [SRC:關東巴士宣傳單 PDF]
+          - 去程搭「大谷・立岩」行；回程從立岩 那頭過來的是「宇都宮駅」行 [SRC:關東巴士宣傳單 PDF]
+        sources:
+          - type: SRC
+            label: 關東巴士 大谷観光一日乗車券 宣傳單 PDF（券價、販售點、路線圖、示範行程、協力設施）
+            url: https://www.kantobus.co.jp/common/sysfile/topics/ID00000831binary1.pdf
+          - type: SRC
+            label: 關東巴士 企画乗車券 topics（大人 ¥2,200）
+            url: https://www.kantobus.co.jp/topics/topics.php?id=1004
+          - type: SRC
+            label: 宇都宮市官網 大谷観光一日乗車券（有效範圍只限大谷・立岩線；價格仍寫 ¥2,000，更新日 2024-04-01）
+            url: https://www.city.utsunomiya.lg.jp/citypromotion/kanko/oshirase/1007246.html
+          - type: SRC
+            label: 大谷資料館 料金・アクセス（2026 年 4 月改價，大人 ¥1,000）
+            url: https://www.oya909.co.jp/access/
+          - type: SRC
+            label: 關東巴士 宇都宮駅西口 45 系統「大谷経由 立岩」時刻表（日曜･祝日）
+            url: https://kantobus.info/timetable/result/?no=1&de=3&week=3
+          - type: SRC
+            label: 關東巴士 資料館入口 → 宇都宮駅方面 時刻表（日曜･祝日）
+            url: https://kantobus.info/timetable/result/?no=000277&de=000001&week=3
+      - id: e-d13-03
+        time: "11:08"
+        duration: 67
+        title: 大谷資料館
+        type: attraction
+        highlight: true
+        mapQuery: "Oya History Museum Utsunomiya"
+        notes:
+          - 大正 8 年到昭和 61 年挖了七十年的大谷石，留下的空間延 2 萬平方公尺，深 30 公尺，最深處 60 公尺 [TOOL-SUM]
+          - 坑內年均溫 8 度，七八月也只有 15 度上下。外面三十幾度，帶一件薄外套下去
+          - 《浪客劍心》《王者天下》《飛翔吧！埼玉》《工作細胞》在這裡拍過，MV 有米津玄師、GLAY、JUJU、[Alexandros] [TOOL-SUM]
+          - 單買大人 ¥1,000，但你買的一日券已經含入場券，直接出示
+          - 4 到 11 月無休，9:00–17:00，最終入館 16:30
+          - 一日券還含大谷寺拝観券。大谷寺跟 27 公尺的平和観音就在資料館附近
+        sources:
+          - type: SRC
+            label: 大谷資料館 官方
+            url: https://www.oya909.co.jp/
+      - id: e-d13-04
+        time: "12:21"
+        duration: 25
+        title: 關東巴士 系統01 資料館入口 → 馬場町
+        type: transit
+        notes:
+          - 12:15 出資料館，走 5 分到站牌。12:21 発 → 馬場町 12:43 着 [SRC:kantobus.info 發著檢索 日曜･祝日]
+          - 週日這條線往宇都宮駅 的班次只有四班：12:21（馬場町 12:43／駅 12:52）、12:52（13:14／13:23）、13:27（13:49／13:58）、14:02（14:24／14:33）[SRC:同上]
+          - 全程在一日券範圍內，不用另外付錢
+      - id: e-d13-05
+        time: "12:45"
+        duration: 25
+        title: 来らっせ 本店：一個地方吃遍宇都宮餃子
+        type: meal
+        skipped: true
+        mapQuery: "Kirasse Utsunomiya"
+        notes:
+          - 馬場通り2-3-12，MEGA 唐吉訶德 B1。「馬場町」下車走 1 分。土日祝 11:00–21:00（L.O. 20:30），無休，028-614-5388 [SRC:關東巴士宣傳單 PDF]
+      - id: e-d13-06
+        time: "12:45"
+        duration: 30
+        title: 馬場町 走回宇都宮駅
+        type: transit
+      - id: e-d13-06b
+        time: "13:15"
+        duration: 40
+        title: 満天家（宇都宮駅 PASEO）
+        type: meal
+        mapQuery: "満天家 宇都宮 パセオ"
+      - id: e-d13-07
+        time: "13:58"
+        duration: 50
+        title: "[東北新幹線] つばさ140号 宇都宮 → 東京 14:48 着 (origin: ¥5330 -> 0)"
+        type: train
+        highlight: true
+        booking:
+          coach: 17
+          seat: 6A
+        notes:
+          - 已劃，17 號車 6 番 A 席 [SRC:用戶訊息 訂位確認]
+          - つばさ140 跟やまびこ140 是同一列車，在福島併結後一起開到東京。選つばさ 就是坐 11–17 號車那半，車體照在來線限界做，普通車 2+2 [GUESS]
+      - id: e-d13-08
+        time: "15:10"
+        duration: 60
+        title: えびまるラーメン（水道橋）
+        type: meal
+        mapQuery: "えびまる 水道橋"
+      - id: e-d13-08b
+        time: "16:15"
+        duration: 140
+        title: 新宿、銀座亂逛
+        type: other
+      - id: e-d13-09
+        time: "18:50"
+        duration: 87
+        title: "[東北新幹線] はやぶさ67号 上野 → 仙台 20:17 着 (origin: ¥11620 -> 0)"
+        type: train
+        highlight: true
+        booking:
+          coach: 7
+          seat: 10E
+        notes:
+          - 已劃，7 號車 10 番 E 席 [SRC:用戶訊息]
+          - 原價 ¥11,620＝駅探 ¥11,420 ＋ 繁忙期 ¥200
+        sources:
+          - type: SRC
+            label: 駅探 上野 → 仙台 はやぶさ（はやぶさ67号 18:50→20:17，原價 ¥11,420）
+            url: https://ekitan.com/transit/shinkansen/section/sf-1627/st-1021/hayabusa
+      - id: e-d13-10
+        time: "20:40"
+        duration: 100
+        title: 海の掟：牡蠣
+        type: meal
+        mapQuery: "海の掟 仙台"
+
+  # =========================================================
+  - id: day-14
+    date: 2026-08-24
+    weekday: Mon
+    country: JP
+    city: 仙台
+    transitCities: [一ノ関, 平泉]
+    title: PASS 最終日｜平泉中尊寺金色堂
+    overview: 早班やまびこ 到一ノ関，轉東北本線進平泉上中尊寺，中午巴士直接殺回一ノ関搭 12:51 回仙台，下午吃牛舌逛街
+    events:
+      - id: e-d14-01
+        time: "09:35"
+        duration: 34
+        title: "[東北新幹線] はやぶさ 仙台 09:35 → 一ノ関 (origin: ¥3990 -> 0)"
+        type: train
+        highlight: true
+        notes:
+          - 一ノ関 往北發車 09:25、10:11，都是はやぶさ
+          - PASS 最後一天（8/15 啟用 +10 日 = 8/24 迄）
+      - id: e-d14-02
+        time: "10:20"
+        duration: 10
+        title: "[東北本線] 一ノ関 → 平泉 (origin: ¥210 -> 0)"
+        type: train
+        notes:
+          - 7.2 km、7 到 8 分 [TOOL-SUM]
+      - id: e-d14-03
+        time: "10:40"
+        duration: 95
+        title: 中尊寺金色堂（世界遺產）
+        type: attraction
+        highlight: true
+        mapQuery: "Chusonji Hiraizumi"
+        notes:
+          - 巡回巴士「るんるん」8/24 沒有。它 2026/4/11–11/29 只跑週六日跟國定假日，8/24 是週一 [TOOL-SUM]
+          - 岩手県交通 平泉駅前 → 中尊寺 單程 ¥190，PASS 不含 [SRC:用戶訊息]
+          - 入口到金色堂還要走月見坂，八百公尺上坡，這一段避不掉
+      - id: e-d14-04
+        time: "15:00"
+        duration: 60
+        title: 毛越寺庭園
+        type: attraction
+        skipped: true
+        mapQuery: "Motsuji Hiraizumi"
+        notes:
+          - 平地庭園，離平泉駅 走路十分鐘上下 [GUESS]
+      - id: e-d14-05
+        time: "12:14"
+        duration: 35
+        title: 巴士 中尊寺 → 一ノ関（不經平泉）¥410
+        type: transit
+        notes:
+          - 12:14 那班，實際 12:20。單程 ¥410，岩手県交通不是 JR，PASS 不含 [SRC:用戶訊息]
+      - id: e-d14-06
+        time: "12:51"
+        duration: 33
+        title: "[東北新幹線] やまびこ 一ノ関 12:51 → 仙台 (origin: ¥3990 -> 0)"
+        type: train
+        notes:
+          - 一ノ関 12:51 発 やまびこ [SRC:Yahoo 路線情報 一ノ関 東北新幹線 東京・仙台方面]
+          - 這是 PASS 的最後一趟車，明天起全部自費
+      - id: e-d14-07
+        time: "14:20"
+        duration: 80
+        title: たんや善治郎 二日町店
+        type: meal
+        mapQuery: "たんや善治郎 二日町店"
+      - id: e-d14-08
+        time: "16:00"
+        duration: 120
+        title: 仙台市區逛街
+        type: shopping
+      - id: e-d14-09
+        time: "18:00"
+        duration: 90
+        title: はま寿司
+        type: meal
+        mapQuery: "はま寿司 仙台"
+
+  # =========================================================
+  - id: day-15
+    date: 2026-08-25
+    weekday: Tue
+    country: JP
+    city: 仙台
+    title: 荒濱小學校｜海嘯留下的那棟
+    overview: 上午去荒浜看震災遺構，下午市區收尾。PASS 昨天到期，今天全部自費
+    events:
+      - id: e-d15-01
+        time: "08:31"
+        duration: 14
+        title: 仙台市地下鐵東西線 仙台 08:26 発 → 荒井
+        type: transit
+        notes:
+          - 車程約 14 分，IC ¥310
+          - 要接 08:50 的巴士：08:26 剩 10 分、08:31 剩 5 分、08:37 趕不上
+          - 8 時台仙台発：8:00、8:05、8:10、8:15、8:20、8:26、8:31、8:37、8:42、8:48、8:53、8:59
+        sources:
+          - type: SRC
+            label: 仙台(地下鉄)駅 東西線 荒井方面 時刻表
+            url: https://transit.yahoo.co.jp/timetable/29312/4571
+      - id: e-d15-02
+        time: "08:50"
+        duration: 15
+        title: 仙台市營巴士 荒井駅 08:50 → 震災遺構仙台市立荒浜小学校前（終點）
+        type: transit
+        notes:
+          - 荒井駅（02）乘車處，13 站，單程 ¥240，車程 11–14 分。連地下鐵合計 ¥550
+          - 平日 荒井駅 発：7:07、8:50、9:44、10:44、11:44、12:44、13:28、14:24、15:24、16:24
+          - 土休日 荒井駅 発：7:59、8:59、9:59、10:59、11:59…
+          - 站牌到校舍走路一分半
+        sources:
+          - type: SRC
+            label: 仙台市 荒井駅⇔荒浜小学校前 バス時刻表 PDF
+            url: https://www.city.sendai.jp/kankyo/shisetsu/documents/bus202404.pdf
+      - id: e-d15-03
+        time: "09:30"
+        duration: 120
+        title: 震災遺構 仙台市立荒浜小學校
+        type: attraction
+        highlight: true
+        mapQuery: "Sendai Arahama Elementary School Ruins"
+        notes:
+          - 開館 9:30–17:00（7、8 月延長，平常到 16:00），免費。休館日是週一跟每月第四個週四，8/25 週二有開 [SRC:arahama.sendai311-memorial.jp]
+          - 約 09:05 到站，開館前先去外面的慰靈碑跟舊聚落遺址
+          - 2011 年海嘯灌進校舍，整棟原樣留著，牆上的水位線還在。四周原本的聚落現在是空地
+          - 學校出來就是海岸，慰靈碑跟舊聚落遺址都在走路範圍內
+        sources:
+          - type: SRC
+            label: 震災遺構 仙台市立荒浜小学校 官網
+            url: https://arahama.sendai311-memorial.jp/
+      - id: e-d15-03b
+        time: "11:37"
+        duration: 14
+        title: 仙台市營巴士 R20 荒浜小学校前 11:37 → 荒井駅 11:51
+        type: transit
+        notes:
+          - 平日 荒浜小学校前 発：7:34、8:37、9:37、10:36、11:37、12:37、13:53、14:53、15:53、16:53
+          - 土休日 荒浜小学校前 発：8:29、9:29、10:29、11:29、12:29…
+        sources:
+          - type: SRC
+            label: 仙台市 荒井駅⇔荒浜小学校前 バス時刻表 PDF
+            url: https://www.city.sendai.jp/kankyo/shisetsu/documents/bus202404.pdf
+      - id: e-d15-03c
+        time: "12:00"
+        duration: 14
+        title: 仙台市地下鐵東西線 荒井 12:00 発 → 仙台
+        type: transit
+        notes:
+          - 荒井発 12 時、13 時每 10 分一班：00、10、20、30、40、50
+        sources:
+          - type: SRC
+            label: 荒井駅 東西線 八木山動物公園方面 時刻表
+            url: https://transit.yahoo.co.jp/timetable/29765/4570
+      - id: e-d15-04
+        time: "13:30"
+        duration: 240
+        title: 回市區：商店街拱廊、最後採買
+        type: rest
+      - id: e-d15-05
+        time: "18:30"
+        duration: 90
+        title: 最後的仙台晚餐
+        type: meal
+
+  # =========================================================
+  - id: day-16
+    date: 2026-08-26
+    weekday: Wed
+    country: JP
+    transitCountries: [TW]
+    city: 仙台
+    title: 仙台 → 台北
+    overview: 早上還能逛，14:30 機場鐵道，星宇 17:20 回台北
+    events:
+      - id: e-d16-01
+        time: "10:30"
+        duration: 180
+        title: 退房、車站週邊最後採買
+        type: shopping
+      - id: e-d16-02
+        time: "14:30"
+        duration: 25
+        title: "[仙台機場鐵道線] 仙台 → 仙台機場"
+        type: train
+        notes:
+          - PASS 已過期，自費幾百塊 [GUESS]
+      - id: e-d16-03
+        time: "17:20"
+        duration: 230
+        title: 星宇 JX863 SDJ 仙台 → TPE 台北 T1 20:10 着
+        type: flight
+        highlight: true
+        notes:
+          - 17:20–20:10 直飛，A330-900 經濟艙含餐 [SRC:用戶截圖]
