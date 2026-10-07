@@ -1,0 +1,102 @@
+{
+  "configVersion": 1,
+  "timestamp": 1791364813953,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app-shell",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/chunk-CA9jo9Ye.js",
+        "/chunk-GgBAhQmS.js",
+        "/chunk-_4YbqCw7.js",
+        "/favicon.svg",
+        "/index.html",
+        "/main-NAL6ENQC.js",
+        "/manifest.webmanifest",
+        "/styles-6YPWJLFH.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/icon.svg",
+        "/icons/apple-touch-icon.png",
+        "/icons/icon-128x128.png",
+        "/icons/icon-144x144.png",
+        "/icons/icon-152x152.png",
+        "/icons/icon-192x192.png",
+        "/icons/icon-384x384.png",
+        "/icons/icon-512x512.png",
+        "/icons/icon-72x72.png",
+        "/icons/icon-96x96.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "firestore-reads",
+      "patterns": [
+        "https:\\/\\/firestore\\.googleapis\\.com\\/.*"
+      ],
+      "strategy": "freshness",
+      "maxSize": 200,
+      "maxAge": 86400000,
+      "timeoutMs": 3000,
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "version": 1
+    }
+  ],
+  "hashTable": {
+    "/chunk-CA9jo9Ye.js": "90791dcf3d5b149d489708fbb59c9846ad4e503e",
+    "/chunk-GgBAhQmS.js": "d6f3a3260b7e133a745c63a68a994c1436304897",
+    "/chunk-_4YbqCw7.js": "6e4ee6da28cd335693201850afe4e31e0760bb12",
+    "/favicon.svg": "582d356d38f65fd732b06177d778f439e1d90e54",
+    "/icon.svg": "e2835faeec3d7857f8d5326dc5b6433bc596b242",
+    "/icons/apple-touch-icon.png": "0d94552d8dafb7681191be9187dadb4e96dd2b07",
+    "/icons/icon-128x128.png": "bf46a0292f634fa428e8c452e776692a665b6ccd",
+    "/icons/icon-144x144.png": "2ee6d61ecfbee2f44c88146d81089c64babf0576",
+    "/icons/icon-152x152.png": "47c71ff1b96107139712aca5eabb2e5081d1a560",
+    "/icons/icon-192x192.png": "5d210fa5b9f8d59a9b48ef98b64eb66254c29eca",
+    "/icons/icon-384x384.png": "7a96fbbe19cb00c7f65b53509705952629e59e96",
+    "/icons/icon-512x512.png": "02aed02bcec3ab1d5d83872b5f44f18bcd522d50",
+    "/icons/icon-72x72.png": "f21c528177fbed3c9902503ca87cfcf88458de63",
+    "/icons/icon-96x96.png": "70df6386d2543267152404019ac7fcd9d84b9b4e",
+    "/index.html": "364f8232a81341ca14ac5b916332a0a8369d0d55",
+    "/main-NAL6ENQC.js": "f08b9c336511ef92d38a0a246c33aa398e60dd87",
+    "/manifest.webmanifest": "1109431de7661b872a0f832392d7d6ebaa0c4b85",
+    "/styles-6YPWJLFH.css": "cedbdc9a0b101bc3e8a0d85f4792cf1d22ceded5"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}

@@ -1,0 +1,14 @@
+<svg width="32" height="32" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- stijl favicon：跟 icon.svg 同一張 Mondrian 構圖。白畫布黑框，深淺分頁都站得住，不用分兩版。 -->
+  <rect width="64" height="64" fill="#FFFFFF"/>
+  <rect x="22" width="42" height="38" fill="#C4382E"/>
+  <rect y="22" width="22" height="16" fill="#2D5BA9"/>
+  <rect x="42" y="38" width="22" height="26" fill="#F2C500"/>
+  <g fill="#1B1B1B">
+    <rect x="19.5" width="5" height="38"/>
+    <rect y="35.5" width="64" height="5"/>
+    <rect x="39.5" y="38" width="5" height="26"/>
+    <rect y="19.5" width="22" height="5"/>
+  </g>
+  <rect x="2.5" y="2.5" width="59" height="59" fill="none" stroke="#1B1B1B" stroke-width="5"/>
+</svg>

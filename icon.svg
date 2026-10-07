@@ -1,0 +1,14 @@
+<svg width="512" height="512" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- stijl icon：Mondrian 構圖，紅一大格、藍黃各一小格，黑格線白畫布。full-bleed，PNG 從這份產。 -->
+  <rect width="64" height="64" fill="#FFFFFF"/>
+  <rect x="22" width="42" height="38" fill="#C4382E"/>
+  <rect y="22" width="22" height="16" fill="#2D5BA9"/>
+  <rect x="42" y="38" width="22" height="26" fill="#F2C500"/>
+  <g fill="#1B1B1B">
+    <rect x="19.5" width="5" height="38"/>
+    <rect y="35.5" width="64" height="5"/>
+    <rect x="39.5" y="38" width="5" height="26"/>
+    <rect y="19.5" width="22" height="5"/>
+  </g>
+  <rect x="2.5" y="2.5" width="59" height="59" fill="none" stroke="#1B1B1B" stroke-width="5"/>
+</svg>
