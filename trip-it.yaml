@@ -1,0 +1,1826 @@
+# 義大利 31 天（新天堂樂園 × 一路往南）
+# seed： pnpm tsx scripts/seed.ts public/trip-it.yaml
+# 日期全是佔位（2027-05-03 一 → 06-02 三），機票訂好後改 meta 跟每天的 date / weekday，再對一次星期幾休館。
+# 路線：TPE → 米蘭 3 晚 → 威尼斯 2 晚 → 佛羅倫斯 3 晚 → 羅馬 5 晚 → 拿波里 4 晚 → 夜船 → 巴勒摩 3 晚 → 切法盧 7 晚 → 飛米蘭過夜 → TPE
+# 機票：長榮 BR95 / BR96 桃園 ↔ 米蘭 Malpensa 來回，每天飛；西西里回米蘭靠 Ryanair PMO → MXP 另買一張。
+# 西西里：巴勒摩只住到 Palazzo Adriano 那天（06:30 巴士，從 Cefalù 趕不上），之後整週住 Cefalù 發呆，朝聖點當一日遊。
+# 原則：懶人玩法。只搭火車、巴士、船，不租車。景點在車站步行圈或公車可達。
+# 沒事日：D4 米蘭、D8 佛羅倫斯、D14 羅馬、D18 拿波里、D21 巴勒摩、D24 D26 D28 D29 Cefalù。整天不排，卡片上掛的景點都是「想去再去」。
+# 車、船、巴士、飛機時刻都是 2026 年 11 月同一個星期幾的班表，來源寫在各段 notes；2027 年 5 月的班表出來後要重查一次。
+# 週一休：最後的晚餐、Brera、Uffizi、Accademia、Borghese、Ostia Antica。週二休：Fondazione Prada、Guggenheim、Cinecittà、MANN、Sansevero。梵蒂岡週日休（月底最後一個週日免費開）。
+# 未訂：全部。
+
+meta:
+  id: italy-2027
+  title: 義大利 31 天（新天堂樂園 × 一路往南）
+  startDate: 2027-05-03
+  endDate: 2027-06-02
+  traveler: Jialin
+  luggage: 大行李全程自己帶；高鐵免費放車廂行李架；夜船進艙房
+
+days:
+  # =========================================================
+  - id: day-01
+    date: 2027-05-03
+    weekday: Mon
+    country: TW
+    transitCountries: [IT]
+    city: 台北
+    title: 桃機起飛
+    overview: 長榮 BR95 23:15 直飛米蘭，隔天早上落地
+    events:
+      - id: e-d01-01
+        time: "20:30"
+        duration: 60
+        title: 桃園機場 T2 報到
+        type: transit
+        mapQuery: "Taoyuan Airport Terminal 2"
+      - id: e-d01-02
+        time: "23:15"
+        duration: 860
+        title: BR95 TPE 桃園 → MXP 米蘭 Malpensa（07:35 +1 著）
+        type: flight
+        highlight: true
+        notes:
+          - 787-9、每天飛、飛 14h20 [TOOL-SUM]
+          - 5 月出發 23:15；6 月起改 23:45 [TOOL-SUM]
+        sources:
+          - type: TOOL-SUM
+            label: BR95 2026 時刻
+            url: https://info.flightmapper.net/flight/EVA_Air_BR_95
+
+  # =========================================================
+  - id: day-02
+    date: 2027-05-04
+    weekday: Tue
+    country: IT
+    city: 米蘭
+    title: 抵米蘭、放行李、Duomo 周邊亂走
+    overview: 07:35 落地、Malpensa Express 進 Centrale、下午 Duomo 屋頂、晚上 Navigli 運河
+    events:
+      - id: e-d02-01
+        time: "07:35"
+        duration: 60
+        title: BR95 抵 MXP Malpensa T1、通關領行李
+        type: arrival
+        highlight: true
+      - id: e-d02-02
+        time: "09:00"
+        duration: 51
+        title: Malpensa Express MXP T1 → Milano Centrale
+        type: train
+        highlight: true
+        paymentSystem: contactless
+        notes:
+          - €15 單程（2025-08-01 起從 €13 調漲）、51 分、每 30 分一班 [TOOL-SUM]
+          - 也停 Porta Garibaldi，住那邊就在前一站下 [TOOL-SUM]
+        sources:
+          - type: TOOL-SUM
+            label: Malpensa Express 票價調整
+            url: https://www.italiabsolutely.com/news/transportation/malpensa-express-tickets-to-rise-from-13-to-15-at-the-end-of-july
+      - id: e-d02-03
+        time: "10:30"
+        duration: 60
+        title: 住處寄放行李（Centrale 或 Porta Garibaldi 一帶）
+        type: rest
+      - id: e-d02-04
+        time: "12:00"
+        duration: 60
+        title: 午餐：Luini panzerotti（Duomo 旁）
+        type: meal
+        mapQuery: "Luini Panzerotti Milano"
+      - id: e-d02-05
+        time: "13:30"
+        duration: 120
+        title: Duomo di Milano 屋頂露台 + 大教堂
+        type: attraction
+        highlight: true
+        mapQuery: "Duomo di Milano"
+        notes:
+          - 露台 09:00–19:00、最後進場 18:10 [TOOL-SUM]
+          - Duomo Pass 走樓梯 €22、搭電梯 €26 [TOOL-SUM]
+        sources:
+          - type: TOOL-SUM
+            label: Duomo 票種整理
+            url: https://www.artvisitguide.com/milan-duomo-tickets-guide/
+      - id: e-d02-06
+        time: "15:30"
+        duration: 45
+        title: Galleria Vittorio Emanuele II 穿過去
+        type: photo
+        mapQuery: "Galleria Vittorio Emanuele II"
+      - id: e-d02-07
+        time: "16:30"
+        duration: 60
+        title: 回住處 check-in、休息
+        type: rest
+      - id: e-d02-08
+        time: "18:30"
+        duration: 150
+        title: Navigli 運河區 aperitivo + 晚餐
+        type: meal
+        highlight: true
+        mapQuery: "Naviglio Grande Milano"
+        notes:
+          - 地鐵 M2 Porta Genova 站下，走到 Naviglio Grande 運河邊 180 公尺、約 2 分 [TOOL-SUM:Google 地圖]
+      - id: e-d02-09
+        time: "22:00"
+        title: 宿：米蘭（3 晚 · 5/4→5/7 退）
+        type: hotel
+        highlight: true
+        notes:
+          - 住 Centrale 或 Porta Garibaldi，Malpensa Express 兩站都停 [TOOL-SUM]
+          - 城市稅 2026-04-01 起 3 星 €7、B&B €9.50 一人一晚 [TOOL-SUM]
+          - 地鐵單程 €2.20（90 分）、24h €7.60、3 日 €15.50；2026 起沒紙票，直接感應信用卡 [TOOL-SUM]
+
+  # =========================================================
+  - id: day-03
+    date: 2027-05-05
+    weekday: Wed
+    country: IT
+    city: 米蘭
+    title: 最後的晚餐 + Brera
+    overview: 早上 Cenacolo 15 分鐘場次、Brera 畫廊、下午 Monumentale 墓園
+    events:
+      - id: e-d03-01
+        time: "09:00"
+        duration: 30
+        title: 最後的晚餐 Cenacolo Vinciano（場次時間以訂到的為準）
+        type: attraction
+        highlight: true
+        address: Piazza di Santa Maria delle Grazie 2, Milano
+        notes:
+          - 週二到週日 08:15–19:00、最後進場 18:45、週一休 [SRC:cenacolovinciano.org]
+          - 一次看 15 分鐘、€15、一定要先訂 [TOOL-SUM]
+          - 票按季開賣：2026 年 5–8 月的票在 2026-03-24 12:00 開賣，2027 年 5 月的票照這個節奏大約 2027 年 3 月底開 [SRC:cenacolovinciano.org]
+          - 線上一次最多 5 張；電話 +39 02 92800360 [SRC:cenacolovinciano.org]
+        sources:
+          - type: SRC
+            label: Cenacolo 官網公告（開賣日期）
+            url: https://cenacolovinciano.org/en/latestnews/
+          - type: SRC
+            label: 售票
+            url: https://cenacolovinciano.vivaticket.it/en/
+      - id: e-d03-02
+        time: "10:00"
+        duration: 30
+        title: Santa Maria delle Grazie 教堂本體
+        type: attraction
+        mapQuery: "Santa Maria delle Grazie Milano"
+      - id: e-d03-03
+        time: "11:00"
+        duration: 120
+        title: Pinacoteca di Brera
+        type: attraction
+        highlight: true
+        address: Via Brera 28, Milano
+        notes:
+          - 週二到週日 08:30–19:15、最後進場 18:00、週一休 [SRC:pinacotecabrera.org]
+          - €20、要先線上預約 [SRC:pinacotecabrera.org]
+        sources:
+          - type: SRC
+            label: Brera 開放時間
+            url: https://pinacotecabrera.org/en/visit/orari/
+      - id: e-d03-04
+        time: "13:00"
+        duration: 60
+        title: 午餐：Brera 區
+        type: meal
+        mapQuery: "Via Brera Milano"
+      - id: e-d03-05
+        time: "15:00"
+        duration: 90
+        title: Cimitero Monumentale 墓園散步
+        type: attraction
+        mapQuery: "Cimitero Monumentale di Milano"
+        notes:
+          - 週二到週日 08:00–18:00、免費 [TOOL-SUM]
+      - id: e-d03-06
+        time: "17:00"
+        duration: 90
+        title: Porta Nuova / Bosco Verticale 晃一下
+        type: photo
+        mapQuery: "Bosco Verticale Milano"
+      - id: e-d03-07
+        time: "19:30"
+        duration: 90
+        title: 晚餐：Isola 區
+        type: meal
+        mapQuery: "Isola Milano"
+
+  # =========================================================
+  - id: day-04
+    date: 2027-05-06
+    weekday: Thu
+    country: IT
+    city: 米蘭
+    title: 米蘭沒事日
+    overview: 整天沒安排。想出門的話 Fondazione Prada 在下面，不想就不要
+    events:
+      - id: e-d04-01
+        time: "10:00"
+        duration: 600
+        title: 什麼都不做
+        type: rest
+        highlight: true
+      - id: e-d04-02
+        time: "14:00"
+        duration: 150
+        title: Fondazione Prada（想去再去）
+        type: attraction
+        address: Largo Isarco 2, Milano
+        notes:
+          - 10:00–19:00、週二休、€15 [TOOL-SUM]
+          - 園區裡的 Bar Luce 是 Wes Anderson 設計的 [TOOL-SUM]
+        sources:
+          - type: TOOL-SUM
+            label: Fondazione Prada 參觀資訊
+            url: https://www.fondazioneprada.org/servizio-visitatori-en/?lang=en
+
+  # =========================================================
+  - id: day-05
+    date: 2027-05-07
+    weekday: Fri
+    country: IT
+    city: 威尼斯
+    transitCities: [米蘭]
+    title: 米蘭 → 威尼斯
+    overview: 上午高鐵 2 小時 15 分到 Santa Lucia、下午 Cannaregio 放行李、傍晚搭 1 號線走完大運河
+    events:
+      - id: e-d05-01
+        time: "09:45"
+        duration: 149
+        title: "[Frecciarossa] FR 9717 Milano Centrale → Venezia S. Lucia 12:14 著"
+        type: train
+        highlight: true
+        notes:
+          - 2026-11 週五班表：FR 9717 09:45 → 12:14、2h29、直達、€31.90 [SRC:lefrecce.it 2026-11-06 查詢]
+          - 同時段的 EC 41 10:05 → 12:44、€45 [SRC:lefrecce.it 2026-11-06 查詢]
+          - 2027 年 5 月班表還沒出，出發前用同一個系統重查 [SRC:lefrecce.it]
+        sources:
+          - type: SRC
+            label: Trenitalia 訂票系統（2026-11 班表）
+            url: https://www.lefrecce.it
+      - id: e-d05-02
+        time: "12:20"
+        duration: 30
+        title: 走去 Cannaregio 住處放行李
+        type: transit
+        notes:
+          - 車站走到 Cannaregio 10–15 分 [TOOL-SUM]
+      - id: e-d05-03
+        time: "13:00"
+        duration: 60
+        title: 午餐：cicchetti（Cannaregio 運河邊酒吧）
+        type: meal
+        mapQuery: "Fondamenta della Misericordia Venezia"
+      - id: e-d05-04
+        time: "14:30"
+        duration: 90
+        title: Ghetto Ebraico 猶太區散步
+        type: attraction
+        mapQuery: "Campo del Ghetto Nuovo"
+      - id: e-d05-05
+        time: "16:30"
+        duration: 65
+        title: 水上巴士 1 號線 P.le Roma → Lido 走完大運河
+        type: transit
+        highlight: true
+        paymentSystem: contactless
+        notes:
+          - 1 號線站站停、全程約 65 分 [TOOL-SUM]
+          - 單程 75 分 €9.50；48h €35、72h €45，兩天就買 48h [TOOL-SUM]
+        sources:
+          - type: TOOL-SUM
+            label: ACTV 票價
+            url: https://actv.avmspa.it/en/content/prezzi-vigore
+      - id: e-d05-06
+        time: "18:00"
+        duration: 60
+        title: 聖馬可廣場黃昏
+        type: photo
+        mapQuery: "Piazza San Marco"
+      - id: e-d05-07
+        time: "19:30"
+        duration: 90
+        title: 晚餐
+        type: meal
+      - id: e-d05-08
+        time: "22:00"
+        title: 宿：威尼斯 Cannaregio（2 晚 · 5/7→5/9 退）
+        type: hotel
+        highlight: true
+        notes:
+          - 住在本島過夜的人免付進城費，但要上 cda.ve.it 登記豁免 [TOOL-SUM]
+          - 2026 年進城費日子落在 4–7 月週五到週日（5/7–5/9 這種週末八成有），08:30–16:00 查驗 [TOOL-SUM]
+          - 城市稅 3 星 €3.50 一人一晚 [SRC:comune.venezia.it PDF]
+        sources:
+          - type: TOOL-SUM
+            label: 威尼斯進城費 2026
+            url: https://live.comune.venezia.it/it/2025/11/contributo-di-accesso-2026-la-giunta-conferma-gli-importi-differenziati-incentivando-la
+
+  # =========================================================
+  - id: day-06
+    date: 2027-05-08
+    weekday: Sat
+    country: IT
+    city: 威尼斯
+    title: Burano + Murano + 總督府
+    overview: 早上 12 號線去 Burano 彩色房子、回程 Murano、下午總督府、傍晚 Guggenheim
+    events:
+      - id: e-d06-01
+        time: "09:00"
+        duration: 45
+        title: 水上巴士 12 號線 Fondamente Nove → Burano
+        type: transit
+        highlight: true
+        paymentSystem: contactless
+        notes:
+          - 約 45 分、約每 30 分一班、中停 Murano、Mazzorbo、Torcello [TOOL-SUM]
+        sources:
+          - type: TOOL-SUM
+            label: 怎麼去 Burano
+            url: https://www.isoladiburano.it/en/how-to-get-to-burano.html
+      - id: e-d06-02
+        time: "10:00"
+        duration: 120
+        title: Burano 彩色房子亂走
+        type: photo
+        highlight: true
+        mapQuery: "Burano"
+      - id: e-d06-03
+        time: "12:00"
+        duration: 60
+        title: 午餐：Burano（risotto di gò）
+        type: meal
+      - id: e-d06-04
+        time: "13:30"
+        duration: 90
+        title: 12 號線回程中停 Murano 玻璃工坊
+        type: attraction
+        mapQuery: "Murano"
+      - id: e-d06-05
+        time: "15:30"
+        duration: 120
+        title: Palazzo Ducale 總督府
+        type: attraction
+        highlight: true
+        mapQuery: "Palazzo Ducale Venezia"
+        notes:
+          - 4–10 月 09:00–19:00、最後進場 18:00、全年無休 [SRC:palazzoducale.visitmuve.it]
+          - 聖馬可廣場博物館聯票 €35，提前 30 天線上買 €30 [SRC:palazzoducale.visitmuve.it]
+        sources:
+          - type: SRC
+            label: 總督府參觀資訊
+            url: https://palazzoducale.visitmuve.it/en/visitor-information/
+      - id: e-d06-06
+        time: "17:30"
+        duration: 30
+        title: 聖馬可大教堂（只進本堂）
+        type: attraction
+        mapQuery: "Basilica di San Marco"
+        notes:
+          - 週一到週六 09:30–17:15、週日 14:00–17:15；票價 €10 或 €12 兩個版本，開賣頁才會確定 [TOOL-SUM]
+          - 不能背包，Ateneo San Basso 免費寄放 [TOOL-SUM]
+        sources:
+          - type: SRC
+            label: 聖馬可大教堂售票
+            url: https://tickets.basilicasanmarco.it/en/
+      - id: e-d06-07
+        time: "19:30"
+        duration: 90
+        title: 晚餐：Dorsoduro
+        type: meal
+        mapQuery: "Campo Santa Margherita"
+
+  # =========================================================
+  - id: day-07
+    date: 2027-05-09
+    weekday: Sun
+    country: IT
+    city: 佛羅倫斯
+    transitCities: [威尼斯]
+    title: 威尼斯 → 佛羅倫斯
+    overview: 早上 Guggenheim 開門就進、中午高鐵 2 小時到 SMN、傍晚 Piazzale Michelangelo 看夕陽
+    events:
+      - id: e-d07-01
+        time: "10:00"
+        duration: 75
+        title: Peggy Guggenheim Collection
+        type: attraction
+        address: Dorsoduro 701, Venezia
+        notes:
+          - 10:00–18:00、週二休、€17 [SRC:guggenheim-venice.it]
+        sources:
+          - type: SRC
+            label: Guggenheim 參觀資訊
+            url: https://www.guggenheim-venice.it/en/visit/
+      - id: e-d07-02
+        time: "11:30"
+        duration: 30
+        title: 回住處拿行李、走去 Santa Lucia
+        type: transit
+      - id: e-d07-03
+        time: "12:40"
+        duration: 179
+        title: "[RV 3975 + FR 9421] Venezia S. Lucia → Firenze SMN 15:39 著"
+        type: train
+        highlight: true
+        notes:
+          - 2026-11 週日班表：RV 3975 12:40 出發，轉 FR 9421，15:39 到、2h59、€14.65 [SRC:lefrecce.it 2026-11-08 查詢]
+          - 週日中午沒有直達車；直達的 FR 9427 是 15:26 → 17:39、2h13、€57 [SRC:lefrecce.it 2026-11-08 查詢]
+          - 2027 年 5 月班表還沒出，出發前用同一個系統重查 [SRC:lefrecce.it]
+        sources:
+          - type: SRC
+            label: Trenitalia 訂票系統（2026-11 班表）
+            url: https://www.lefrecce.it
+      - id: e-d07-04
+        time: "16:00"
+        duration: 30
+        title: 住處 check-in、放行李
+        type: rest
+      - id: e-d07-05
+        time: "16:30"
+        duration: 60
+        title: Ponte Vecchio → Oltrarno 走過去
+        type: photo
+        mapQuery: "Ponte Vecchio"
+      - id: e-d07-06
+        time: "18:00"
+        duration: 90
+        title: Piazzale Michelangelo 看夕陽
+        type: photo
+        highlight: true
+        mapQuery: "Piazzale Michelangelo"
+        notes:
+          - 從 Ponte Vecchio 上坡走 25–30 分 [TOOL-SUM]
+      - id: e-d07-07
+        time: "20:00"
+        duration: 90
+        title: 晚餐：Santo Spirito 一帶 trattoria
+        type: meal
+        mapQuery: "Piazza Santo Spirito"
+      - id: e-d07-08
+        time: "22:00"
+        title: 宿：佛羅倫斯（3 晚 · 5/9→5/12 退）
+        type: hotel
+        highlight: true
+        notes:
+          - 建議住 SMN 車站到 Duomo 之間，景點都走得到
+          - 城市稅最多收 7 晚、12 歲以下免 [SRC:servizi.comune.fi.it]
+
+  # =========================================================
+  - id: day-08
+    date: 2027-05-10
+    weekday: Mon
+    country: IT
+    city: 佛羅倫斯
+    title: 佛羅倫斯沒事日（週一美術館全休）
+    overview: Uffizi、Accademia 週一休，正好整天沒安排。餓了去 Mercato Centrale
+    events:
+      - id: e-d08-01
+        time: "10:00"
+        duration: 600
+        title: 什麼都不做
+        type: rest
+        highlight: true
+      - id: e-d08-02
+        time: "12:30"
+        duration: 90
+        title: Mercato Centrale 二樓美食街（餓了再去）
+        type: meal
+        mapQuery: "Mercato Centrale Firenze"
+        notes:
+          - 每天 09:00–23:00 [SRC:mercatocentrale.com]
+        sources:
+          - type: SRC
+            label: Mercato Centrale 資訊
+            url: https://www.mercatocentrale.com/florence/info/
+
+  # =========================================================
+  - id: day-09
+    date: 2027-05-11
+    weekday: Tue
+    country: IT
+    city: 佛羅倫斯
+    title: Uffizi + Accademia
+    overview: 早上 Uffizi 開門就進、下午 Accademia 看大衛、傍晚 Fiesole 小山看城
+    events:
+      - id: e-d09-01
+        time: "08:15"
+        duration: 180
+        title: Galleria degli Uffizi
+        type: attraction
+        highlight: true
+        mapQuery: "Galleria degli Uffizi"
+        notes:
+          - 週二到週日 08:15–18:30、售票到 17:30、週一休 [SRC:uffizi.it]
+          - 當天買 €25、提前買 €29（含 €4 預約費）；16:00 後進場的下午票 €16 [SRC:uffizi.it]
+        sources:
+          - type: SRC
+            label: Uffizi 參觀資訊
+            url: https://www.uffizi.it/en/the-uffizi
+          - type: SRC
+            label: Uffizi 售票
+            url: https://www.uffizi.it/en/tickets
+      - id: e-d09-02
+        time: "11:30"
+        duration: 60
+        title: 午餐：Piazza della Signoria 周邊
+        type: meal
+        mapQuery: "Piazza della Signoria"
+      - id: e-d09-03
+        time: "13:30"
+        duration: 90
+        title: Galleria dell'Accademia 大衛像
+        type: attraction
+        highlight: true
+        mapQuery: "Galleria dell'Accademia Firenze"
+        notes:
+          - 08:15–18:50、最後進場 18:10、週一休 [TOOL-SUM]
+          - 2026-02-01 起 €20、預約費 €4 [TOOL-SUM]
+        sources:
+          - type: TOOL-SUM
+            label: Accademia 票價
+            url: https://www.galleriaaccademiafirenze.it/en/tickets/
+      - id: e-d09-04
+        time: "15:30"
+        duration: 25
+        title: 公車 7 號 Piazza San Marco → Fiesole
+        type: transit
+        paymentSystem: contactless
+        notes:
+          - 約 25 分、約每 20 分一班 [TOOL-SUM]
+          - 市區公車 €2.00（90 分）、上車跟司機買 €3.00 [SRC:at-bus.it]
+        sources:
+          - type: SRC
+            label: Autolinee Toscane 市區票
+            url: https://www.at-bus.it/en/ticket/urban-tickets/urbano-capoluogo
+      - id: e-d09-05
+        time: "16:00"
+        duration: 120
+        title: Fiesole 俯瞰佛羅倫斯、羅馬劇場
+        type: attraction
+        mapQuery: "Fiesole"
+      - id: e-d09-06
+        time: "18:30"
+        duration: 25
+        title: 公車 7 號回市區
+        type: transit
+      - id: e-d09-07
+        time: "19:30"
+        duration: 90
+        title: 晚餐
+        type: meal
+
+  # =========================================================
+  - id: day-10
+    date: 2027-05-12
+    weekday: Wed
+    country: IT
+    city: 羅馬
+    transitCities: [佛羅倫斯]
+    title: 佛羅倫斯 → 羅馬
+    overview: 上午高鐵 1 小時 20 分到 Termini、住 Monti、下午萬神殿跟特雷維噴泉、晚上羅馬假期路線走 Via Margutta 到西班牙階梯
+    events:
+      - id: e-d10-01
+        time: "09:14"
+        duration: 95
+        title: "[Frecciarossa] FR 9515 Firenze SMN → Roma Termini 10:49 著"
+        type: train
+        highlight: true
+        notes:
+          - 2026-11 週三班表：FR 9515 09:14 → 10:49、1h35、€19.90 [SRC:lefrecce.it 2026-11-04 查詢]
+          - 晚一班 FR 8513 09:33 → 11:14、€19.90 [SRC:lefrecce.it 2026-11-04 查詢]
+          - 2027 年 5 月班表還沒出，出發前用同一個系統重查 [SRC:lefrecce.it]
+        sources:
+          - type: SRC
+            label: Trenitalia 訂票系統（2026-11 班表）
+            url: https://www.lefrecce.it
+      - id: e-d10-02
+        time: "11:15"
+        duration: 45
+        title: Termini 走去 Monti 住處放行李
+        type: transit
+      - id: e-d10-03
+        time: "12:30"
+        duration: 60
+        title: 午餐：Monti
+        type: meal
+        mapQuery: "Via dei Serpenti Roma"
+      - id: e-d10-04
+        time: "14:00"
+        duration: 45
+        title: Pantheon 萬神殿
+        type: attraction
+        highlight: true
+        mapQuery: "Pantheon Roma"
+        notes:
+          - 09:00–19:00、最後進場 18:30 [SRC:pantheonroma.com]
+          - 2026-07-01 起 €7（原 €5） [TOOL-SUM]
+        sources:
+          - type: SRC
+            label: Pantheon 官網
+            url: https://www.pantheonroma.com/en/
+      - id: e-d10-05
+        time: "15:00"
+        duration: 30
+        title: Fontana di Trevi
+        type: photo
+        mapQuery: "Fontana di Trevi"
+      - id: e-d10-06
+        time: "16:00"
+        duration: 90
+        title: 羅馬假期路線：Via Margutta 51（Joe 的公寓門）→ 西班牙階梯 → Trinità dei Monti
+        type: photo
+        highlight: true
+        mapQuery: "Via Margutta 51 Roma"
+        notes:
+          - Via Margutta 51 的門還在，中庭不開放 [SRC:bfi.org.uk]
+        sources:
+          - type: SRC
+            label: BFI 羅馬假期取景地
+            url: https://www.bfi.org.uk/features/roman-holiday-rome-locations-audrey-hepburn-gregory-peck
+      - id: e-d10-07
+        time: "19:30"
+        duration: 90
+        title: 晚餐：Monti
+        type: meal
+      - id: e-d10-08
+        time: "22:00"
+        title: 宿：羅馬 Monti（5 晚 · 5/12→5/17 退）
+        type: hotel
+        highlight: true
+        notes:
+          - Monti 夾在 Termini 跟競技場中間，地鐵 B Cavour 站 [TOOL-SUM]
+          - 城市稅 3 星 €6、B&B €6 一人一晚，最多收 10 晚 [SRC:comune.roma.it PDF]
+          - 地鐵公車 BIT €1.50（100 分）、72h €22；5 天買 CIS 7 日票 €29 [SRC:atac.roma.it]
+        sources:
+          - type: SRC
+            label: ATAC 票價
+            url: https://www.atac.roma.it/en/tickets-and-passes/tickets
+
+  # =========================================================
+  - id: day-11
+    date: 2027-05-13
+    weekday: Thu
+    country: IT
+    city: 羅馬
+    title: 競技場 + 古羅馬廣場 + Aventino
+    overview: 早上競技場開門進、古羅馬廣場跟 Palatino、下午 Aventino 鑰匙孔跟橘子花園（絕美之城）、真理之口
+    events:
+      - id: e-d11-01
+        time: "08:30"
+        duration: 120
+        title: Colosseo 競技場（場次以訂到的為準）
+        type: attraction
+        highlight: true
+        mapQuery: "Colosseo"
+        notes:
+          - 夏季 08:30 開、18:30 關、最後進場 17:30 [SRC:colosseo.it]
+          - 票 30 天前開賣；24h 票（競技場 + 廣場 + Palatino）€18；Full Experience 含地下層 €24 [SRC:colosseo.it]
+          - 售票只在 ticketing.colosseo.it，不是 CoopCulture 了 [SRC:colosseo.it]
+        sources:
+          - type: SRC
+            label: 競技場開放時間與票種
+            url: https://colosseo.it/en/visit/opening-times-and-tickets/
+          - type: SRC
+            label: 官方售票
+            url: https://ticketing.colosseo.it/en
+      - id: e-d11-02
+        time: "10:45"
+        duration: 120
+        title: Foro Romano + Palatino（同一張票）
+        type: attraction
+        highlight: true
+        mapQuery: "Foro Romano"
+        notes:
+          - 羅馬假期：Ann 睡著的地方是 Septimius Severus 凱旋門旁 [SRC:bfi.org.uk]
+      - id: e-d11-03
+        time: "13:00"
+        duration: 60
+        title: 午餐：Monti 回頭吃
+        type: meal
+      - id: e-d11-04
+        time: "15:00"
+        duration: 30
+        title: Bocca della Verità 真理之口（Santa Maria in Cosmedin）
+        type: photo
+        mapQuery: "Bocca della Verità"
+      - id: e-d11-05
+        time: "15:45"
+        duration: 90
+        title: Aventino：Giardino degli Aranci 橘子花園 + Priorato di Malta 鑰匙孔（絕美之城）
+        type: attraction
+        highlight: true
+        mapQuery: "Giardino degli Aranci Roma"
+        sources:
+          - type: SRC
+            label: 羅馬觀光局 絕美之城路線
+            url: https://turismoroma.it/en/itineraries/discovering-%E2%80%9C-great-beauty%E2%80%9D
+      - id: e-d11-06
+        time: "18:00"
+        duration: 60
+        title: Testaccio 散步到晚餐
+        type: rest
+        mapQuery: "Testaccio Roma"
+      - id: e-d11-07
+        time: "19:30"
+        duration: 90
+        title: 晚餐：Testaccio（carbonara / cacio e pepe）
+        type: meal
+        highlight: true
+
+  # =========================================================
+  - id: day-12
+    date: 2027-05-14
+    weekday: Fri
+    country: IT
+    city: 羅馬
+    title: 梵蒂岡
+    overview: 早上梵蒂岡博物館開門進、西斯汀、中午聖彼得大教堂跟圓頂、下午 Prati 休息、傍晚 Castel Sant'Angelo 外面
+    events:
+      - id: e-d12-01
+        time: "08:00"
+        duration: 210
+        title: Musei Vaticani + Cappella Sistina（場次以訂到的為準）
+        type: attraction
+        highlight: true
+        mapQuery: "Musei Vaticani"
+        notes:
+          - 週一到週六 08:00–20:00、最後進場 18:00；週日休，只有每月最後一個週日 09:00–14:00 免費開（2027-05-30 就是，但人非常多） [SRC:museivaticani.va]
+          - €20，線上預約加 €5 免排隊 [SRC:museivaticani.va]
+          - 地鐵 A Ottaviano 站走到博物館入口 550 公尺、約 8 分 [TOOL-SUM:Google 地圖]
+        sources:
+          - type: SRC
+            label: 梵蒂岡博物館開放時間
+            url: https://www.museivaticani.va/content/museivaticani/it/info/orari-musei-vaticani.html
+          - type: SRC
+            label: 官方售票
+            url: https://tickets.museivaticani.va/home
+      - id: e-d12-02
+        time: "12:00"
+        duration: 120
+        title: Basilica di San Pietro + 圓頂
+        type: attraction
+        highlight: true
+        mapQuery: "Basilica di San Pietro"
+        notes:
+          - 夏季圓頂 07:00–18:00 [SRC:basilicasanpietro.va]
+          - 線上圓頂票：搭電梯到露台再爬 320 階 €22、全程 551 階 €17 [SRC:basilicasanpietro.va]
+        sources:
+          - type: SRC
+            label: 聖彼得大教堂開放時間
+            url: https://www.basilicasanpietro.va/it/orari
+      - id: e-d12-03
+        time: "14:30"
+        duration: 60
+        title: 午餐：Prati（Via Cola di Rienzo 一帶）
+        type: meal
+        mapQuery: "Via Cola di Rienzo Roma"
+      - id: e-d12-04
+        time: "16:00"
+        duration: 60
+        title: Castel Sant'Angelo 外圍 + Ponte Sant'Angelo（羅馬假期跳河那段）
+        type: photo
+        mapQuery: "Castel Sant'Angelo"
+      - id: e-d12-05
+        time: "17:30"
+        duration: 60
+        title: 回住處休息
+        type: rest
+      - id: e-d12-06
+        time: "19:30"
+        duration: 120
+        title: 晚餐：Trastevere
+        type: meal
+        highlight: true
+        mapQuery: "Piazza di Santa Maria in Trastevere"
+
+  # =========================================================
+  - id: day-13
+    date: 2027-05-15
+    weekday: Sat
+    country: IT
+    city: 羅馬
+    title: Cinecittà 片廠 + Gianicolo
+    overview: 早上地鐵 A 去 Cinecittà 片廠（週六才有古羅馬佈景導覽）、下午 Gianicolo 看城跟 Fontanone（絕美之城開場）、晚上 Trastevere
+    events:
+      - id: e-d13-01
+        time: "09:30"
+        duration: 30
+        title: 地鐵 A Termini → Cinecittà
+        type: metro
+        paymentSystem: contactless
+      - id: e-d13-02
+        time: "10:00"
+        duration: 180
+        title: Cinecittà si Mostra 片廠博物館 + 古羅馬佈景導覽
+        type: attraction
+        highlight: true
+        address: Via Tuscolana 1055, Roma
+        notes:
+          - 10:00–18:00、售票到 16:30、週二休 [TOOL-SUM]
+          - 博物館區 €10；含 MIAC 跟古羅馬佈景導覽 €20，佈景導覽只有週六日跟假日 [TOOL-SUM]
+        sources:
+          - type: TOOL-SUM
+            label: Cinecittà 開放時間與票價
+            url: https://cinecitta.com/en/visit/visitor-information/opening-hours-and-prices/
+      - id: e-d13-03
+        time: "13:15"
+        duration: 60
+        title: 午餐：片廠附近
+        type: meal
+      - id: e-d13-04
+        time: "15:00"
+        duration: 45
+        title: 地鐵 A 回市區、公車上 Gianicolo
+        type: transit
+      - id: e-d13-05
+        time: "16:00"
+        duration: 120
+        title: Gianicolo：Fontanone + Tempietto del Bramante + 看城（絕美之城開場）
+        type: attraction
+        highlight: true
+        mapQuery: "Fontana dell'Acqua Paola"
+        sources:
+          - type: SRC
+            label: 羅馬觀光局 絕美之城路線
+            url: https://turismoroma.it/en/itineraries/discovering-%E2%80%9C-great-beauty%E2%80%9D
+      - id: e-d13-06
+        time: "18:30"
+        duration: 60
+        title: 下山走進 Trastevere
+        type: rest
+      - id: e-d13-07
+        time: "19:30"
+        duration: 120
+        title: 晚餐：Trastevere
+        type: meal
+
+  # =========================================================
+  - id: day-14
+    date: 2027-05-16
+    weekday: Sun
+    country: IT
+    city: 羅馬
+    title: 羅馬沒事日
+    overview: 整天沒安排。想躺的話 Villa Borghese 公園就在地鐵 A 旁邊
+    events:
+      - id: e-d14-01
+        time: "10:00"
+        duration: 600
+        title: 什麼都不做
+        type: rest
+        highlight: true
+      - id: e-d14-02
+        time: "15:00"
+        duration: 120
+        title: Villa Borghese 公園躺、Pincio 露台（想動再去）
+        type: rest
+        mapQuery: "Terrazza del Pincio"
+
+  # =========================================================
+  - id: day-15
+    date: 2027-05-17
+    weekday: Mon
+    country: IT
+    city: 拿波里
+    transitCities: [羅馬]
+    title: 羅馬 → 拿波里
+    overview: 上午高鐵 1 小時 10 分、Centrale 出來先吃 Attanasio、住老城區、下午 MANN 考古博物館、Sansevero 蒙紗基督、晚上 Da Michele
+    events:
+      - id: e-d15-01
+        time: "09:25"
+        duration: 68
+        title: "[Frecciarossa] FR 9603 Roma Termini → Napoli Centrale 10:33 著"
+        type: train
+        highlight: true
+        notes:
+          - 2026-11 週一班表：FR 9603 09:25 → 10:33、1h08、€18.90 [SRC:lefrecce.it 2026-11-02 查詢]
+          - 晚一班 FR 9605 09:53 → 11:03、€18.90 [SRC:lefrecce.it 2026-11-02 查詢]
+          - 2027 年 5 月班表還沒出，出發前用同一個系統重查 [SRC:lefrecce.it]
+        sources:
+          - type: SRC
+            label: Trenitalia 訂票系統（2026-11 班表）
+            url: https://www.lefrecce.it
+      - id: e-d15-02
+        time: "11:00"
+        duration: 30
+        title: Attanasio sfogliatella（Centrale 走 2 分）
+        type: meal
+        highlight: true
+        address: Vico Ferrovia 1/4, Napoli
+        notes:
+          - 週二到週日 06:30–19:30、週一休 [TOOL-SUM]
+        warnings:
+          - level: amber
+            text: 5/17 是週一，Attanasio 休。改隔天早上去，或改 Pintauro [TOOL-SUM]
+      - id: e-d15-03
+        time: "11:30"
+        duration: 45
+        title: 走去老城區住處放行李
+        type: transit
+      - id: e-d15-04
+        time: "12:30"
+        duration: 60
+        title: 午餐：Spaccanapoli 隨便吃
+        type: meal
+        mapQuery: "Spaccanapoli"
+      - id: e-d15-05
+        time: "14:00"
+        duration: 150
+        title: MANN 國立考古博物館（龐貝的馬賽克跟壁畫都在這）
+        type: attraction
+        highlight: true
+        mapQuery: "Museo Archeologico Nazionale di Napoli"
+        notes:
+          - 週一、週三到週日 09:00–19:30、週二休、€20 [SRC:cultura.gov.it]
+        sources:
+          - type: SRC
+            label: MANN 參觀資訊
+            url: https://cultura.gov.it/luogo/museo-archeologico-nazionale-di-napoli-1
+      - id: e-d15-06
+        time: "17:00"
+        duration: 45
+        title: Cappella Sansevero 蒙紗基督（場次以訂到的為準）
+        type: attraction
+        highlight: true
+        mapQuery: "Cappella Sansevero"
+        notes:
+          - 每天 09:00–19:00、最後進場 18:30、週二休 [SRC:museosansevero.it]
+          - €12、一定要先訂、不退；票提前 60 天釋出，5/17 的票約 2027-03-18 開 [TOOL-SUM]
+        sources:
+          - type: SRC
+            label: Sansevero 售票
+            url: https://ticket.museosansevero.it/
+      - id: e-d15-07
+        time: "19:00"
+        duration: 90
+        title: 晚餐：L'Antica Pizzeria da Michele
+        type: meal
+        highlight: true
+        address: Via Cesare Sersale 1/7, Napoli
+        notes:
+          - 每天 10:30–23:00、抽號碼牌、不接受訂位 [TOOL-SUM]
+      - id: e-d15-08
+        time: "22:00"
+        title: 宿：拿波里老城區（4 晚 · 5/17→5/21 退）
+        type: hotel
+        highlight: true
+        notes:
+          - 住 Via Duomo 到 Garibaldi 這一側，走路到 Centrale 跟 Municipio 碼頭都行 [TOOL-SUM]
+          - 城市稅 2026-05-01 起 3 星 €5.50、B&B €5.50 一人一晚 [TOOL-SUM]
+          - 地鐵單程 €1.50、公車 €1.30、日票 €4.50；跨公司 TIC 90 分 €1.90 [TOOL-SUM]
+
+  # =========================================================
+  - id: day-16
+    date: 2027-05-18
+    weekday: Tue
+    country: IT
+    city: 拿波里
+    transitCities: [龐貝]
+    title: 龐貝
+    overview: Circumvesuviana 35 分到 Pompei Scavi、整天逛廢墟、傍晚回拿波里 Lungomare 走
+    events:
+      - id: e-d16-01
+        time: "08:00"
+        duration: 30
+        title: Attanasio sfogliatella（補昨天的）
+        type: meal
+        address: Vico Ferrovia 1/4, Napoli
+      - id: e-d16-02
+        time: "08:40"
+        duration: 37
+        title: "[Circumvesuviana] Napoli Garibaldi → Pompei Scavi–Villa dei Misteri"
+        type: train
+        highlight: true
+        notes:
+          - 33–37 分、每 20–30 分一班、首班 05:39、€3.30 [TOOL-SUM]
+          - 下車站是 Pompei Scavi–Villa dei Misteri，不是 Pompei Santuario；出站 50 公尺就是 Porta Marina 入口 [TOOL-SUM]
+          - Campania Express 2026-10-01 起停駛，別查它 [TOOL-SUM]
+        sources:
+          - type: TOOL-SUM
+            label: Circumvesuviana 去龐貝
+            url: https://bluekeys.it/blog/naples-pompei-transfer-circumvesuviana-train
+      - id: e-d16-03
+        time: "09:30"
+        duration: 300
+        title: Parco Archeologico di Pompei
+        type: attraction
+        highlight: true
+        mapQuery: "Pompei Scavi Porta Marina"
+        notes:
+          - 3/16–10/14 09:00–19:00、最後進場 17:30 [SRC:pompeiisites.org]
+          - 2026-01-12 起只看龐貝 €20；含郊區別墅跟接駁 €25 [SRC:pompeiisites.org]
+          - 一天上限 2 萬人、出來不能再進；線上買 pompeii.vivaticket.it [SRC:pompeiisites.org]
+        sources:
+          - type: SRC
+            label: 龐貝開放時間與票價
+            url: https://pompeiisites.org/en/visiting-info/timetables-and-tickets/
+      - id: e-d16-04
+        time: "12:30"
+        duration: 45
+        title: 午餐：園區內或 Porta Marina 外
+        type: meal
+      - id: e-d16-05
+        time: "15:00"
+        duration: 40
+        title: "[Circumvesuviana] Pompei Scavi → Napoli Garibaldi"
+        type: train
+      - id: e-d16-06
+        time: "16:30"
+        duration: 90
+        title: 回住處休息
+        type: rest
+      - id: e-d16-07
+        time: "18:00"
+        duration: 90
+        title: Lungomare 海邊走到 Castel dell'Ovo 外面
+        type: photo
+        mapQuery: "Lungomare Caracciolo"
+        notes:
+          - Castel dell'Ovo 2023 年 3 月起整修關閉、沒有重開日期，只走外面 [TOOL-SUM]
+      - id: e-d16-08
+        time: "20:00"
+        duration: 90
+        title: 晚餐：Chiaia
+        type: meal
+
+  # =========================================================
+  - id: day-17
+    date: 2027-05-19
+    weekday: Wed
+    country: IT
+    city: 拿波里
+    transitCities: [Procida]
+    title: Procida（郵差）
+    overview: 水翼船 40 分去 Procida、Marina Corricella 彩色漁港、走去 Pozzo Vecchio 郵差海灘、傍晚回拿波里
+    events:
+      - id: e-d17-01
+        time: "08:55"
+        duration: 40
+        title: "[Caremar 水翼船] Molo Beverello 08:55 → Procida 09:35"
+        type: transit
+        highlight: true
+        notes:
+          - 水翼船 40 分 €17.40；渡輪從 Calata Porta di Massa 60 分 €12.70 [SRC:shop.caremar.it]
+          - 2026-11 週三班表，水翼船從 Beverello：07:30、08:55、11:45、13:10、14:45、18:15 [SRC:shop.caremar.it 2026-11-11 查詢]
+          - 2027-05-19 在 Caremar 系統還查不到班次，夏季班表出來再重查 [SRC:shop.caremar.it]
+        sources:
+          - type: SRC
+            label: Caremar 票價
+            url: https://shop.caremar.it/it/tariffe/
+          - type: TOOL-SUM
+            label: 拿波里 → Procida 船班
+            url: https://www.sorrentoinsider.com/it/t/napoli/procida
+      - id: e-d17-02
+        time: "09:45"
+        duration: 120
+        title: Marina Corricella 彩色漁港（郵差取景、Troisi 廣場）
+        type: photo
+        highlight: true
+        mapQuery: "Marina Corricella Procida"
+        sources:
+          - type: TOOL-SUM
+            label: Procida 郵差路線
+            url: https://www.italia.it/en/italy/things-to-do/procida-salina-troisi-postino-tour
+      - id: e-d17-03
+        time: "12:00"
+        duration: 60
+        title: 午餐：Corricella 港邊
+        type: meal
+      - id: e-d17-04
+        time: "13:30"
+        duration: 120
+        title: 走去 Spiaggia del Postino（Cala di Pozzo Vecchio）
+        type: attraction
+        mapQuery: "Spiaggia di Pozzo Vecchio Procida"
+        notes:
+          - 從 Corricella 走約 30 分 [TOOL-SUM]
+      - id: e-d17-05
+        time: "16:50"
+        duration: 40
+        title: "[Caremar 水翼船] Procida 16:50 → Napoli Molo Beverello 17:30"
+        type: transit
+        notes:
+          - 2026-11 週三班表，回拿波里的水翼船：13:20、14:55、16:50；渡輪到 Porta di Massa：13:30、16:05 [SRC:shop.caremar.it 2026-11-11 查詢]
+      - id: e-d17-06
+        time: "17:45"
+        duration: 30
+        title: 地鐵 1 號線 Municipio → Toledo 站看一眼（歐洲最美地鐵站）
+        type: metro
+        mapQuery: "Toledo Metro Station Napoli"
+      - id: e-d17-07
+        time: "18:00"
+        duration: 60
+        title: Quartieri Spagnoli、Maradona 壁畫
+        type: photo
+        address: Via Emanuele De Deo 60, Napoli
+      - id: e-d17-08
+        time: "19:30"
+        duration: 90
+        title: 晚餐：Sorbillo
+        type: meal
+        highlight: true
+        address: Via dei Tribunali 32, Napoli
+        notes:
+          - 週一到週六 12:00–15:00、19:00–23:30，週日休 [TOOL-SUM]
+
+  # =========================================================
+  - id: day-18
+    date: 2027-05-20
+    weekday: Thu
+    country: IT
+    city: 拿波里
+    title: 拿波里沒事日
+    overview: 整天沒安排。晚上想吃披薩的話 Starita 在 Materdei
+    events:
+      - id: e-d18-01
+        time: "10:00"
+        duration: 540
+        title: 什麼都不做
+        type: rest
+        highlight: true
+      - id: e-d18-02
+        time: "19:00"
+        duration: 90
+        title: Pizzeria Starita（想吃再去）
+        type: meal
+        address: Via Materdei 27/28, Napoli
+        notes:
+          - 週一休 [TOOL-SUM]
+
+  # =========================================================
+  - id: day-19
+    date: 2027-05-21
+    weekday: Fri
+    country: IT
+    city: 拿波里
+    transitCities: [巴勒摩]
+    title: 拿波里最後半天、晚上搭夜船去巴勒摩
+    overview: 退房寄行李、Napoli Sotterranea 地下城、下午 Chiaia 慢慢走、18:00 前到 Calata Porta di Massa 報到、船上睡一晚
+    events:
+      - id: e-d19-01
+        time: "10:00"
+        duration: 90
+        title: Napoli Sotterranea 地下城導覽
+        type: attraction
+        highlight: true
+        address: Piazza San Gaetano 68, Napoli
+        notes:
+          - 整點一場 10:00–18:00、90 分、€15、可以現場排 [TOOL-SUM]
+        sources:
+          - type: SRC
+            label: Napoli Sotterranea 預約
+            url: https://booking.napolisotterranea.org/
+      - id: e-d19-02
+        time: "12:00"
+        duration: 60
+        title: 午餐：Via dei Tribunali
+        type: meal
+      - id: e-d19-03
+        time: "13:30"
+        duration: 180
+        title: 下午慢：Chiaia、Villa Comunale、咖啡
+        type: rest
+        mapQuery: "Villa Comunale Napoli"
+      - id: e-d19-04
+        time: "17:00"
+        duration: 30
+        title: 回住處拿行李、地鐵 1 號線 → Municipio
+        type: metro
+      - id: e-d19-05
+        time: "18:00"
+        duration: 120
+        title: Calata Porta di Massa 報到（GNV 售票處 Piazzale Immacolatella Vecchia 1）
+        type: transit
+        highlight: true
+        address: Piazzale Molo Pisacane 1, Napoli
+        notes:
+          - 徒步旅客提前 2 小時到、開船前 45 分關閉報到 [SRC:gnv.it]
+          - 售票處週一到週六 08:30–20:10 [SRC:gnv.it]
+          - Municipio 站出來走過去；Porta di Massa 跟 Piazzale Angioino 之間有接駁車 06:00–24:00 [TOOL-SUM]
+        sources:
+          - type: SRC
+            label: GNV 拿波里港
+            url: https://www.gnv.it/en/ports/campania/naples
+      - id: e-d19-06
+        time: "20:00"
+        duration: 660
+        title: "[GNV 夜船] Napoli 20:00 → Palermo 07:00（+1）"
+        type: transit
+        highlight: true
+        notes:
+          - 2026-11-06 週五：20:00 → 07:00（+1）、直達 11 小時、船是 GNV Polaris；艙房 €64 起、躺椅 €40、套房 €245 起 [SRC:gnv.it 訂票頁 2026-11-06 查詢]
+          - 2026 年 11 月整個月週日都沒有船，週一到週六才有 [SRC:gnv.it 出發日曆]
+          - Tirrenia/Moby 2025-11 起停跑這條線，查到的 20:15 班是舊的 [SRC:traghettilines.it]
+          - 備案：Grimaldi 22:30 → 07:00、一週 3–4 班 [TOOL-SUM]
+        warnings:
+          - level: amber
+            text: 時刻是 2026 年 11 月的班表，2027 年 5 月的還沒開賣。開賣後在 gnv.it 出發日曆重查
+        sources:
+          - type: SRC
+            label: GNV 拿波里 → 巴勒摩
+            url: https://www.gnv.it/en/ferries-destinations/sicily/naples-palermo
+      - id: e-d19-07
+        time: "22:00"
+        title: 宿：GNV 夜船艙房（1 晚）
+        type: hotel
+        highlight: true
+        notes:
+          - 艙房 €64 起（2026-11 價格）[SRC:gnv.it 訂票頁 2026-11-06 查詢]
+
+  # =========================================================
+  - id: day-20
+    date: 2027-05-22
+    weekday: Sat
+    country: IT
+    city: 巴勒摩
+    title: 船到巴勒摩、老城第一天
+    overview: 早上下船走進老城、Cappella Palatina、Ballarò 市場午餐、Teatro Massimo 導覽、傍晚 Quattro Canti 跟 Kalsa
+    events:
+      - id: e-d20-01
+        time: "07:00"
+        duration: 60
+        title: GNV 抵 Palermo（Calata Marinai d'Italia）、下船
+        type: arrival
+        highlight: true
+        notes:
+          - 港口大門走到 Piazza Marina 約 500 公尺 10 分；到 Teatro Massimo 1.7 公里 22 分；到 Centrale 約 2 公里 [SRC:gnv.it]
+          - 市公車 101、102、107、230 經過港口 [SRC:gnv.it]
+        sources:
+          - type: SRC
+            label: GNV 巴勒摩港
+            url: https://www.gnv.it/en/ports/sicily/palermo
+      - id: e-d20-02
+        time: "08:15"
+        duration: 45
+        title: 走去住處寄放行李（Centrale 一帶）
+        type: transit
+      - id: e-d20-03
+        time: "09:00"
+        duration: 60
+        title: 早餐：Via Maqueda 咖啡 + arancina
+        type: meal
+        mapQuery: "Via Maqueda Palermo"
+      - id: e-d20-04
+        time: "10:00"
+        duration: 120
+        title: Palazzo dei Normanni + Cappella Palatina
+        type: attraction
+        highlight: true
+        mapQuery: "Cappella Palatina"
+        notes:
+          - 週一到週六 08:30–16:30（最後進場）、週日 08:30–12:30 [SRC:federicosecondo.org]
+          - 週四到週一 €14.50 含皇家寢宮跟花園；週二三 €10 寢宮不開 [SRC:federicosecondo.org]
+        sources:
+          - type: SRC
+            label: Palazzo Reale 參觀資訊
+            url: https://www.federicosecondo.org/visita/
+      - id: e-d20-05
+        time: "12:15"
+        duration: 75
+        title: 午餐：Ballarò 市場街邊吃（pane ca meusa、panelle）
+        type: meal
+        highlight: true
+        mapQuery: "Mercato di Ballarò"
+      - id: e-d20-06
+        time: "14:00"
+        duration: 45
+        title: 回住處 check-in
+        type: rest
+      - id: e-d20-07
+        time: "15:30"
+        duration: 40
+        title: Teatro Massimo 導覽（教父 3 結尾那座歌劇院）
+        type: attraction
+        highlight: true
+        mapQuery: "Teatro Massimo Palermo"
+        notes:
+          - 每天 09:30–19:00、最後一場 18:20、40 分、€14 [SRC:teatromassimo.it]
+        sources:
+          - type: SRC
+            label: Teatro Massimo 導覽
+            url: https://www.teatromassimo.it/visite-guidate/
+      - id: e-d20-08
+        time: "16:30"
+        duration: 120
+        title: Quattro Canti → Piazza Pretoria → Kalsa 亂走
+        type: photo
+        mapQuery: "Quattro Canti Palermo"
+      - id: e-d20-09
+        time: "19:30"
+        duration: 90
+        title: 晚餐：Vucciria 一帶
+        type: meal
+        mapQuery: "Piazza Caracciolo Palermo"
+      - id: e-d20-10
+        time: "22:00"
+        title: 宿：巴勒摩 Centrale 附近（3 晚 · 5/22→5/25 退）
+        type: hotel
+        highlight: true
+        notes:
+          - 住車站附近：去 Cefalù、Bagheria 的火車跟去 Palazzo Adriano 的 AST 巴士都從 Centrale 出發 [SRC:astsicilia.it]
+          - Centrale 走到 Quattro Canti 約 1.4 公里 17 分 [TOOL-SUM]
+          - AMAT 公車單程 €1.40（90 分）、上車買 €1.80、日票 €3.50 [SRC:amat.pa.it]
+        sources:
+          - type: SRC
+            label: AMAT 票價
+            url: https://www.amat.pa.it/biglietti/
+
+  # =========================================================
+  - id: day-21
+    date: 2027-05-23
+    weekday: Sun
+    country: IT
+    city: 巴勒摩
+    title: 巴勒摩沒事日
+    overview: 整天沒安排。想出門的話 Mondello 海邊搭 806 公車
+    events:
+      - id: e-d21-01
+        time: "10:00"
+        duration: 600
+        title: 什麼都不做
+        type: rest
+        highlight: true
+      - id: e-d21-02
+        time: "14:00"
+        duration: 240
+        title: Mondello 海邊（想去再去，公車 806）
+        type: rest
+        mapQuery: "Mondello"
+
+  # =========================================================
+  - id: day-22
+    date: 2027-05-24
+    weekday: Mon
+    country: IT
+    city: 巴勒摩
+    transitCities: [Palazzo Adriano]
+    title: Palazzo Adriano：Giancaldo 本人
+    overview: 06:25 AST 巴士 3 小時進山、Piazza Umberto I 廣場、電影博物館、三間教堂、15:30 車回巴勒摩
+    events:
+      - id: e-d22-01
+        time: "06:25"
+        duration: 185
+        title: "[AST 巴士] Palermo Cairoli（Centrale 站內）06:25 → Palazzo Adriano 09:30"
+        type: transit
+        highlight: true
+        notes:
+          - 2026-11 週一班表：06:25 Palermo Cairoli → 07:15 Villafrati → 08:55 Prizzi → 09:30 Palazzo Adriano，3 小時 05 分 [SRC:AST 查詢系統 2026-11-09]
+          - 同一天其他去程：12:15、14:20、18:45 從 Cairoli 出發 [SRC:AST 查詢系統 2026-11-09]
+          - 2026-02-02 起 AST 城際線全部從 Centrale 站內的 Piazza Cairoli 發車，站前那個站牌取消了 [SRC:astsicilia.it]
+          - AST 電話 091 6208111 [SRC:astsicilia.it]
+        warnings:
+          - level: red
+            text: 週日沒有車，2026-11-08 週日查詢結果是「Nessun itinerario trovato」。所以排週一
+        sources:
+          - type: SRC
+            label: AST 查詢系統
+            url: http://www.aziendasicilianatrasporti.it:8080/
+          - type: SRC
+            label: AST 巴勒摩發車點異動（2026-01-30）
+            url: https://www.astsicilia.it/comunicato-allutenza-soppressione-fermata-stazione-centrale-palermo/
+          - type: SRC
+            label: AST 2020 夏季時刻表
+            url: http://www.astsicilia.it/wp-content/uploads/OrariPalermo150620.pdf
+      - id: e-d22-02
+        time: "09:35"
+        duration: 90
+        title: Piazza Umberto I：廣場、1608 年的噴泉、Via Nino Bixio 電影院門面的位置
+        type: photo
+        highlight: true
+        mapQuery: "Piazza Umberto I Palazzo Adriano"
+        notes:
+          - 電影院門面是搭的，拍完就拆了；廣場跟噴泉是真的 [TOOL-SUM]
+          - 小鎮三個月的拍攝，居民全當臨演 [TOOL-SUM]
+        sources:
+          - type: TOOL-SUM
+            label: Italy for Movies 逐場景取景地
+            url: https://www.italyformovies.it/film-serie-tv-games/detail/6903/nuovo-cinema-paradiso
+      - id: e-d22-03
+        time: "10:45"
+        duration: 60
+        title: Museo Nuovo Cinema Paradiso（Alfredo 載 Totò 的腳踏車、放映機、道具）
+        type: attraction
+        highlight: true
+        mapQuery: "Museo Nuovo Cinema Paradiso Palazzo Adriano"
+        notes:
+          - 每天 09:00–13:00、15:00–19:00、免費、電話 +39 091 8349933 [TOOL-SUM]
+          - 鎮公所 +39 091 8349901 [SRC:comune.palazzoadriano.pa.it]
+        warnings:
+          - level: amber
+            text: 博物館有一說是在鎮公所裡的一個房間。去之前打電話確認開不開
+        sources:
+          - type: TOOL-SUM
+            label: 博物館資訊
+            url: https://www.museionline.info/sicilia-musei-monumenti/museo-nuovo-cinema-paradiso
+      - id: e-d22-04
+        time: "12:00"
+        duration: 60
+        title: 三間教堂：del Carmelo（電影院內景）、Assunta（番茄那場、少年 Totò 坐的階梯）、del Lume 鐘樓（Alfredo 葬禮）
+        type: attraction
+        mapQuery: "Chiesa Maria SS. del Carmelo Palazzo Adriano"
+      - id: e-d22-05
+        time: "13:00"
+        duration: 90
+        title: 午餐：廣場邊
+        type: meal
+      - id: e-d22-06
+        time: "15:30"
+        duration: 165
+        title: "[AST 巴士] Palazzo Adriano 15:30 → Palermo Cairoli 18:15"
+        type: transit
+        highlight: true
+        notes:
+          - 2026-11 週一班表：回程只有 13:45 → 16:30、15:30 → 18:15 兩班 [SRC:AST 查詢系統 2026-11-09]
+      - id: e-d22-07
+        time: "19:30"
+        duration: 90
+        title: 晚餐
+        type: meal
+
+  # =========================================================
+  - id: day-23
+    date: 2027-05-25
+    weekday: Tue
+    country: IT
+    city: 切法盧
+    transitCities: [巴勒摩, Lascari]
+    title: 巴勒摩 → Cefalù：海堤放電影那場
+    overview: 火車 1 小時到 Cefalù，路上經過 Lascari，就是 Alfredo 送 Totò 走的那個車站。放好行李，傍晚走去 Porta Marina 跟 Molo Vecchio
+    events:
+      - id: e-d23-01
+        time: "10:15"
+        duration: 54
+        title: "[IC 95070] Palermo Centrale → Cefalù 11:09 著"
+        type: train
+        highlight: true
+        notes:
+          - 2026-11 週二班表：IC 95070 10:15 → 11:09、€9；區間車 RE 21664 10:50 → 11:45、€7.10 [SRC:lefrecce.it 2026-11-03 查詢]
+          - 早一班 RE 12878 09:36 → 10:23 [SRC:lefrecce.it 2026-11-03 查詢]
+          - 電影裡的 Giancaldo 車站是舊的 Lascari-Gratteri 站，在 Cefalù 前約 9 公里；2016 年關站、2017 年站房拆掉，現在的 Lascari 站在它前面約 250 公尺 [TOOL-SUM:it.wikipedia Ferrovia Palermo-Messina]
+          - IC 95070 不停 Lascari。想下車看，搭 RE 12878 09:36 → Lascari 10:16，或 RE 21664 10:50 → 11:36，再接下一班到 Cefalù [SRC:lefrecce.it 2026-11-03 查詢]
+        sources:
+          - type: SRC
+            label: Trenitalia 巴勒摩 ↔ Cefalù 假日加班
+            url: https://www.trenitalia.com/it/chi-siamo/comunicati-stampa/20250321-collegamenti-tra-palermo-e-cefalu-nei-giorni-festivi.html
+          - type: TOOL-SUM
+            label: Lascari 站房拆除
+            url: https://www.artribune.com/?p=463559
+      - id: e-d23-02
+        time: "11:15"
+        duration: 30
+        title: 車站走進老城放行李
+        type: transit
+      - id: e-d23-03
+        time: "12:00"
+        duration: 300
+        title: 什麼都不做
+        type: rest
+      - id: e-d23-04
+        time: "18:00"
+        duration: 90
+        title: Piazza Marina、Porta Marina、Molo Vecchio：夏夜在海堤對著牆放《尤里西斯》、暴風雨那場；30 年後跟 Elena 重逢也在這段
+        type: photo
+        highlight: true
+        mapQuery: "Porta Marina Cefalù"
+        sources:
+          - type: SRC
+            label: Cefalù 市府 Piazza Marina 頁
+            url: https://cefalu.comune.digital/visit/i/71153267/piazza-marina-e-spiaggia-del-vecchio-molo
+          - type: SRC
+            label: Visit Sicily 電影路線
+            url: https://www.visitsicily.info/en/itine
+      - id: e-d23-05
+        time: "22:00"
+        title: 宿：Cefalù 老城（7 晚 · 5/25→6/1 退）
+        type: hotel
+        highlight: true
+        notes:
+          - 建議住老城靠車站那一側，拖行李不用穿過整個老城
+          - 老城是限制通行區，攝影機 24 小時拍，摩托車也算 [SRC:rentmenow.it]
+          - 一週住同一間，可以找有廚房的公寓（CaseVacanza.it）或問修道院住宿 [SRC:casevacanza.it]
+
+  # =========================================================
+  - id: day-24
+    date: 2027-05-26
+    weekday: Wed
+    country: IT
+    city: 切法盧
+    title: Cefalù 沒事日
+    overview: 整天沒安排。海灘就在老城旁邊
+    events:
+      - id: e-d24-01
+        time: "10:00"
+        duration: 600
+        title: 什麼都不做（海灘）
+        type: rest
+        highlight: true
+        mapQuery: "Lungomare Cefalù"
+      - id: e-d24-02
+        time: "15:00"
+        duration: 75
+        title: Duomo di Cefalù（想進再進，本堂免費）
+        type: attraction
+        mapQuery: "Duomo di Cefalù"
+        notes:
+          - 付費參觀路線每天 10:00–13:00、15:00–18:00 [SRC:chiesacattolica.it PDF 2025]
+          - Rosso 全套約 €13、Blu 快速約 €10，官網 duomocefalu.it 買 [TOOL-SUM]
+        sources:
+          - type: SRC
+            label: Duomo di Cefalù 官網
+            url: https://duomocefalu.it/
+
+  # =========================================================
+  - id: day-25
+    date: 2027-05-27
+    weekday: Thu
+    country: IT
+    city: 切法盧
+    transitCities: [Castelbuono]
+    title: Castelbuono：Totò 的學校
+    overview: 車站前搭巴士 40 分上山，城堡就是電影裡的學校。中午吃 manna 甜點，下午車回來
+    events:
+      - id: e-d25-01
+        time: "08:00"
+        duration: 40
+        title: "[SAIS 巴士] Cefalù 車站前 → Castelbuono（Via Fonti di Camar 8）"
+        type: transit
+        highlight: true
+        notes:
+          - Trenitalia 買一張到「CASTELBUONO BORGO」的票就含巴士段 €2.90 [SRC:trenitalia.com]
+          - 2025 年平日去程 07:35、08:00、11:00、12:45、13:30；回程 13:30、13:50、14:30、16:40；週日只有 19:30 去、15:50 回，所以排平日 [TOOL-SUM]
+        sources:
+          - type: SRC
+            label: Trenitalia Link Parco delle Madonie
+            url: https://www.trenitalia.com/it/regionale/collegamenti-regionale/parco-delle-madonie.html
+          - type: TOOL-SUM
+            label: Cefalù ↔ Castelbuono 巴士時刻（2025-03）
+            url: https://www.tourismi.it/cefalu-castelbuono-geraci-siculo-gangi-in-treno-e-autobus/
+      - id: e-d25-02
+        time: "09:30"
+        duration: 90
+        title: Castello dei Ventimiglia：電影裡 Totò 的學校
+        type: attraction
+        highlight: true
+        mapQuery: "Castello dei Ventimiglia Castelbuono"
+        notes:
+          - 4–10 月每天 09:30–13:00、15:00–18:30、€6、現場買票 [SRC:museocivico.eu]
+          - 電話 +39 0921 671211 [SRC:museocivico.eu]
+        sources:
+          - type: SRC
+            label: Museo Civico di Castelbuono
+            url: http://www.museocivico.eu/
+      - id: e-d25-03
+        time: "11:15"
+        duration: 45
+        title: Fiasconaro 吃 manna 甜點
+        type: meal
+        mapQuery: "Fiasconaro Castelbuono"
+      - id: e-d25-04
+        time: "12:15"
+        duration: 60
+        title: 午餐：Castelbuono
+        type: meal
+      - id: e-d25-05
+        time: "13:30"
+        duration: 40
+        title: "[SAIS 巴士] Castelbuono → Cefalù 車站"
+        type: transit
+      - id: e-d25-06
+        time: "14:30"
+        duration: 240
+        title: 回去躺
+        type: rest
+
+  # =========================================================
+  - id: day-26
+    date: 2027-05-28
+    weekday: Fri
+    country: IT
+    city: 切法盧
+    title: Cefalù 沒事日
+    overview: 整天沒安排
+    events:
+      - id: e-d26-01
+        time: "10:00"
+        duration: 600
+        title: 什麼都不做
+        type: rest
+        highlight: true
+
+  # =========================================================
+  - id: day-27
+    date: 2027-05-29
+    weekday: Sat
+    country: IT
+    city: 切法盧
+    transitCities: [Bagheria, Santa Flavia]
+    title: Bagheria（導演的故鄉）+ Solanto 的錨
+    overview: 火車往巴勒摩方向坐到 Bagheria，Villa Palagonia 怪物別墅跟 Santo Sepolcro 教堂。下午到 Santa Flavia 看 Totò 跟 Alfredo 坐著講話的那排錨，傍晚回 Cefalù
+    events:
+      - id: e-d27-01
+        time: "08:53"
+        duration: 39
+        title: "[RE 5353 + RE 6068] Cefalù → Bagheria 09:32 著"
+        type: train
+        highlight: true
+        notes:
+          - 2026-11 週六班表：08:53 出發、中途換一次車、09:32 到、€6.50 [SRC:lefrecce.it 2026-11-07 查詢]
+          - 直達的 RE 12871 是 09:46 → 10:33 [SRC:lefrecce.it 2026-11-07 查詢]
+        sources:
+          - type: SRC
+            label: Trenitalia 訂票系統（2026-11 班表）
+            url: https://www.lefrecce.it
+      - id: e-d27-02
+        time: "10:00"
+        duration: 90
+        title: Villa Palagonia 怪物別墅
+        type: attraction
+        highlight: true
+        address: Piazza Garibaldi 3, Bagheria
+        notes:
+          - 4–10 月 09:00–13:00、16:00–19:00、關門前 30 分停止進場、€6 [SRC:villapalagonia.it]
+          - 電影沒在 Bagheria 拍，這裡是導演的記憶：Don Adelfio 的原型是 Santo Sepolcro 堂區放電影剪吻戲的神父，Alfredo 的原型是攝影師 Mimmo Pintacuda [TOOL-SUM]
+        sources:
+          - type: SRC
+            label: Villa Palagonia 官網
+            url: https://www.villapalagonia.it/
+      - id: e-d27-03
+        time: "11:45"
+        duration: 30
+        title: Chiesa del Santo Sepolcro（Don Adelfio 原型的堂區）
+        type: photo
+        mapQuery: "Chiesa del Santo Sepolcro Bagheria"
+      - id: e-d27-04
+        time: "12:30"
+        duration: 75
+        title: 午餐：Bagheria
+        type: meal
+      - id: e-d27-05
+        time: "14:14"
+        duration: 3
+        title: "[RE 21822] Bagheria → Santa Flavia-Solunto-Porticello 14:17 著"
+        type: train
+        notes:
+          - 2026-11 週六班表：每小時 16 分左右一班，14:14、15:16、16:16、17:16，3 分鐘、€2.20 [SRC:lefrecce.it 2026-11-07 查詢]
+      - id: e-d27-06
+        time: "14:30"
+        duration: 90
+        title: Tonnara di Solanto：Totò 退伍回來跟 Alfredo 坐在錨前面講話的地方
+        type: photo
+        highlight: true
+        mapQuery: "Castello di Solanto, Santa Flavia"
+        notes:
+          - 舊錨在 Tonnara di Solanto 跟旁邊的 Solanto 城堡範圍裡；漁場 1961 年關閉 [SRC:balarm.it]
+          - Google 地圖沒有 Tonnara 這個點，搜「Castello di Solanto」；從 Santa Flavia 走 1.8 公里、約 24 分，大多平路 [TOOL-SUM:Google 地圖，起點被解成「S.Flavia」]
+          - 城堡現在做婚宴跟活動場地 [SRC:ilcastellodisolanto.it]；Terradamare 合作社有導覽團進花園跟漁場，日期跟票價看它的網站 [SRC:terradamare.org]
+        sources:
+          - type: SRC
+            label: 西西里的 tonnara 與電影
+            url: https://www.balarm.it/news/le-tonnare-di-hollywood-e-non-solo-sono-in-sicilia-dai-film-classici-all-odissea-163253
+          - type: SRC
+            label: Terradamare 城堡與漁場導覽
+            url: https://terradamare.org/castello-di-solanto-visite/
+      - id: e-d27-07
+        time: "16:20"
+        duration: 66
+        title: "[RE 21826 + RV 5360] Santa Flavia → Cefalù 17:26 著"
+        type: train
+        notes:
+          - 2026-11 週六班表：16:20 出發、換一次車、17:26 到、€6.50；下一班 18:20 → 19:29 [SRC:lefrecce.it 2026-11-07 查詢]
+
+  # =========================================================
+  - id: day-28
+    date: 2027-05-30
+    weekday: Sun
+    country: IT
+    city: 切法盧
+    title: Cefalù 沒事日
+    overview: 整天沒安排
+    events:
+      - id: e-d28-01
+        time: "10:00"
+        duration: 600
+        title: 什麼都不做
+        type: rest
+        highlight: true
+
+  # =========================================================
+  - id: day-29
+    date: 2027-05-31
+    weekday: Mon
+    country: IT
+    city: 切法盧
+    title: Cefalù 沒事日
+    overview: 整天沒安排。想動的話傍晚爬 La Rocca 看整個 Cefalù
+    events:
+      - id: e-d29-01
+        time: "10:00"
+        duration: 600
+        title: 什麼都不做
+        type: rest
+        highlight: true
+      - id: e-d29-02
+        time: "17:00"
+        duration: 120
+        title: La Rocca（想爬再爬）
+        type: attraction
+        mapQuery: "Rocca di Cefalù"
+        notes:
+          - 夏令時間 08:00–20:00、最後進場 18:00、€5、入口 Salita Saraceni（Piazza Garibaldi）、要穿包鞋 [SRC:comune.cefalu.pa.it]
+        sources:
+          - type: SRC
+            label: Rocca di Cefalù 市府頁
+            url: https://comune.cefalu.pa.it/vivere-il-comune/luoghi/rocca-di-cefalu/
+
+  # =========================================================
+  - id: day-30
+    date: 2027-06-01
+    weekday: Tue
+    country: IT
+    city: 米蘭
+    transitCities: [切法盧, 巴勒摩]
+    title: Cefalù → 巴勒摩機場 → 米蘭 Malpensa 過夜
+    overview: 早上火車回巴勒摩、轉機場線、easyJet 中午飛 Malpensa、住機場旅館
+    events:
+      - id: e-d30-01
+        time: "08:53"
+        duration: 43
+        title: "[RE 5353] Cefalù → Palermo Centrale 09:36 著"
+        type: train
+        notes:
+          - 2026-11 週二班表：RE 5353 08:53 → 09:36、€7.10 [SRC:lefrecce.it 2026-11-03 查詢]
+      - id: e-d30-02
+        time: "10:12"
+        duration: 62
+        title: "[RE 21725] Palermo Centrale → Palermo Aeroporto 11:14 著"
+        type: train
+        notes:
+          - 2026-11 週二班表：RE 21725 10:12 → 11:14、€6.80；下一班 RE 5613 10:42 → 11:33 [SRC:lefrecce.it 2026-11-03 查詢]
+          - 從 Cefalù 那班 09:36 到，轉車有 36 分鐘 [SRC:lefrecce.it 2026-11-03 查詢]
+          - 備案：Prestia e Comandè 機場巴士從 Centrale 發車，50 分、每 30 分一班 [SRC:prestiaecomande.it]
+        sources:
+          - type: TOOL-SUM
+            label: Palermo Centrale → 機場火車
+            url: https://www.thetrainline.com/train-times/palermo-centrale-to-palermo-punta-raisi-aeroporto
+          - type: SRC
+            label: Prestia e Comandè 時刻
+            url: https://www.prestiaecomande.it/orari-e-linee/
+      - id: e-d30-03
+        time: "12:45"
+        duration: 100
+        title: "[easyJet] PMO Palermo 12:45 → MXP Malpensa 14:25"
+        type: flight
+        highlight: true
+        notes:
+          - 2026-11-03 週二的直飛：Wizz Air 06:15、easyJet 09:30、Ryanair 11:45、easyJet 12:45 €27、Ryanair 15:50、easyJet 15:55、Wizz Air 19:40、easyJet 22:00 [TOOL-SUM:Google 航班]
+          - 火車 11:14 到機場站，離 12:45 起飛有 1 小時 31 分 [TOOL-SUM:Google 航班；SRC:lefrecce.it]
+          - 跟長榮分開買的票，行李要在 Malpensa 重新託運
+          - 建議訂中午到下午的班，前一晚就到 Malpensa，隔天 11:15 的 BR96 不用趕
+        sources:
+          - type: TOOL-SUM
+            label: Google 航班 PMO → MXP（2026-11-03）
+            url: https://www.google.com/travel/flights?q=Flights%20from%20PMO%20to%20MXP%20on%202026-11-03%20one%20way&curr=EUR
+      - id: e-d30-04
+        time: "16:00"
+        duration: 60
+        title: Malpensa T1 機場旅館 check-in
+        type: rest
+      - id: e-d30-05
+        time: "22:00"
+        title: 宿：Malpensa 機場旅館（1 晚 · 6/1→6/2 退）
+        type: hotel
+        highlight: true
+        notes:
+          - 建議住跟 T1 航廈相連的旅館，隔天走路去報到
+
+  # =========================================================
+  - id: day-31
+    date: 2027-06-02
+    weekday: Wed
+    country: IT
+    transitCountries: [TW]
+    city: 米蘭
+    title: 飛回台北
+    overview: 長榮 BR96 11:15 起飛、隔天清晨到桃園
+    events:
+      - id: e-d31-01
+        time: "08:30"
+        duration: 90
+        title: MXP T1 報到
+        type: transit
+      - id: e-d31-02
+        time: "11:15"
+        duration: 880
+        title: BR96 MXP 米蘭 → TPE 桃園（隔天 06:05 著）
+        type: flight
+        highlight: true
+        notes:
+          - 每天飛；2026 年 6 月表 11:15 → 06:05 +1 [TOOL-SUM]
+        sources:
+          - type: TOOL-SUM
+            label: BR96 2026 時刻
+            url: https://info.flightmapper.net/flight/EVA_Air_BR_96

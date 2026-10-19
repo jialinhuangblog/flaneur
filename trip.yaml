@@ -1,0 +1,1515 @@
+# Phase A source of truth. All data sourced from
+# ~/Downloads/files/荷比法14天行程_完整版_v5.md
+#
+# Phase B: scripts/seed.ts reads this → Firestore.
+# Phase C: app switches to Firestore, this file kept as historical backup.
+
+meta:
+  id: holland-france-2026
+  title: 荷比法 14 天
+  startDate: 2026-05-23
+  endDate: 2026-06-06
+  traveler: 一個人旅行
+  luggage: 29 吋大行李箱
+
+days:
+  # =========================================================
+  - id: day-01
+    date: 2026-05-23
+    weekday: Sat
+    country: TW
+    transitCountries: [AE, NL]
+    title: 桃機起飛
+    overview: 出發、Etihad TPE → AUH → AMS
+    events:
+      - id: e-d01-01
+        time: "19:40"
+        title: EY899 TPE 桃園 → AUH 阿布達比
+        type: flight
+        highlight: true
+        booking:
+          ref: __SECRET__
+          cost: "NT$26,499（含回程）"
+
+  # =========================================================
+  - id: day-02
+    date: 2026-05-24
+    weekday: Sun
+    country: NL
+    title: 抵阿姆斯特丹、調時差
+    overview: 早班抵達、輕量行程、早睡
+    events:
+      - id: e-d02-01
+        time: "08:00"
+        duration: 60
+        title: EY043 AUH 阿布達比 → AMS Schiphol 降落、通關領行李
+        type: arrival
+        highlight: true
+      - id: e-d02-02
+        time: "09:00"
+        duration: 30
+        title: NS 火車 Schiphol → Centraal
+        type: train
+        cost: "€5.40"
+        notes:
+          - OVpay 嗶卡
+      - id: e-d02-03
+        time: "09:30"
+        duration: 30
+        title: Tram 14 / 走路到 Stayokay Stadsdoelen
+        type: tram
+        paymentSystem: OVpay
+        address: Kloveniersburgwal 97, 1011 KB Amsterdam
+      - id: e-d02-04
+        time: "10:00"
+        title: 寄行李 locker（€6 / 12h、刷卡）
+        type: rest
+      - id: e-d02-05
+        time: "10:30"
+        duration: 210
+        title: Nieuwmarkt、Dam Square 散步
+        type: attraction
+      - id: e-d02-06
+        time: "14:00"
+        duration: 120
+        title: Check-in Stayokay Stadsdoelen
+        type: hotel
+        address: Kloveniersburgwal 97, 1011 KB Amsterdam
+        notes:
+          - 進房補眠 1-2 小時調時差
+      - id: e-d02-07
+        time: "17:00"
+        duration: 60
+        title: 簡單晚餐
+        type: meal
+      - id: e-d02-08
+        time: "19:00"
+        duration: 120
+        title: 慢走運河、看夕陽
+        type: attraction
+        notes:
+          - 5 月底 21:30 才落日
+      - id: e-d02-09
+        time: "21:00"
+        title: 早睡調時差
+        type: rest
+
+  # =========================================================
+  - id: day-03
+    date: 2026-05-25
+    weekday: Mon
+    country: NL
+    title: Rijksmuseum + Vondelpark + EYE + NEMO 夜景
+    overview: 阿姆精華景點 + 夜景
+    events:
+      - id: e-d03-01
+        time: "08:30"
+        duration: 60
+        title: 起床、早餐
+        type: meal
+      - id: e-d03-02
+        time: "09:30"
+        duration: 30
+        title: Tram 14 到博物館廣場
+        type: tram
+        paymentSystem: OVpay
+        cost: "€2"
+      - id: e-d03-03
+        time: "10:00"
+        duration: 150
+        title: Rijksmuseum + Metamorphoses 特展
+        type: attraction
+        highlight: true
+        mapQuery: "Rijksmuseum Amsterdam Netherlands"
+        cost: "€25"
+        notes:
+          - 已訂、Metamorphoses + Gallery of Honour
+      - id: e-d03-04
+        time: "12:30"
+        duration: 15
+        title: 出館買 sandwich / 咖啡
+        type: meal
+        cost: "€10"
+      - id: e-d03-15
+        time: "13:00"
+        duration: 180
+        title: 9 街 Zara 買衣服
+        mapQuery: "De 9 Straatjes Amsterdam Netherlands"
+        type: shopping
+      - id: e-d03-05
+        time: "12:45"
+        duration: 105
+        title: Vondelpark 草地野餐 + 散步看春花
+        mapQuery: "Vondelpark Amsterdam Netherlands"
+        type: attraction
+        highlight: true
+        skipped: true
+        notes:
+          - 走 5 分鐘到 Vondelpark
+      - id: e-d03-06
+        time: "14:30"
+        duration: 30
+        title: Tram 2 到 Centraal 渡輪碼頭
+        type: tram
+        paymentSystem: OVpay
+        cost: "€2"
+        skipped: true
+      - id: e-d03-07
+        time: "15:00"
+        duration: 15
+        title: 免費渡輪 → EYE Filmmuseum
+        type: transit
+        skipped: true
+      - id: e-d03-08
+        time: "15:15"
+        duration: 75
+        title: EYE 大廳 + 咖啡 + 拍建築
+        mapQuery: "Eye Film Museum Amsterdam Netherlands"
+        type: attraction
+        cost: "€5"
+        skipped: true
+      - id: e-d03-09
+        time: "16:30"
+        duration: 30
+        title: 渡輪回 Centraal、走回飯店
+        type: transit
+        skipped: true
+      - id: e-d03-10
+        time: "17:00"
+        duration: 150
+        title: 回飯店休息 / 補眠
+        type: rest
+      - id: e-d03-11
+        time: "19:30"
+        duration: 90
+        title: 飯店附近晚餐
+        type: meal
+        cost: "€25"
+      - id: e-d03-12
+        time: "21:00"
+        duration: 30
+        title: 走 / Tram 到 NEMO 屋頂看夕陽
+        mapQuery: "NEMO Science Museum Amsterdam Netherlands"
+        type: attraction
+        highlight: true
+        skipped: true
+      - id: e-d03-13
+        time: "21:30"
+        duration: 60
+        title: 屋頂日落、看老城全景
+        mapQuery: "NEMO Science Museum Amsterdam Netherlands"
+        type: attraction
+        skipped: true
+      - id: e-d03-14
+        time: "22:30"
+        title: 走回飯店（10 分鐘）
+        type: transit
+        paymentSystem: walking
+        skipped: true
+
+  # =========================================================
+  - id: day-04
+    date: 2026-05-26
+    weekday: Tue
+    country: NL
+    title: Jordaan + 運河深度日
+    overview: 安妮取消後改慢遊運河區
+    events:
+      - id: e-d04-01
+        time: "09:00"
+        duration: 45
+        title: 早餐
+        type: meal
+      - id: e-d04-02
+        time: "09:45"
+        duration: 45
+        title: 走路 / Tram 14 到 Jordaan 區
+        type: tram
+        paymentSystem: OVpay
+        cost: "€2"
+      - id: e-d04-03
+        time: "10:30"
+        duration: 60
+        title: Westerkerk 西教堂爬塔
+        mapQuery: "Westerkerk Amsterdam Netherlands"
+        type: attraction
+        highlight: true
+        cost: "€10"
+        skipped: true
+        notes:
+          - 看 Jordaan 全景
+      - id: e-d04-04
+        time: "11:30"
+        duration: 30
+        title: De 9 Straatjes（Le Labo 試香水）
+        mapQuery: "De 9 Straatjes Amsterdam Netherlands"
+        type: shopping
+        notes:
+          - 文青選物店、咖啡店
+      - id: e-d04-05
+        time: "12:00"
+        duration: 60
+        title: 路過安妮之家外觀拍照
+        mapQuery: "Anne Frank House Amsterdam Netherlands"
+        type: photo
+        skipped: true
+      - id: e-d04-06
+        time: "13:00"
+        duration: 90
+        title: Jordaan 咖啡店午餐
+        type: meal
+        cost: "€20"
+        skipped: true
+      - id: e-d04-07
+        time: "14:30"
+        duration: 60
+        title: 走運河 + Bloemenmarkt 花市
+        mapQuery: "Bloemenmarkt Amsterdam Netherlands"
+        type: attraction
+        skipped: true
+      - id: e-d04-08
+        time: "15:30"
+        duration: 90
+        title: 運河船遊（黃昏場 1.5 小時）
+        type: attraction
+        highlight: true
+        cost: "€18"
+        skipped: true
+      - id: e-d04-09
+        time: "12:30"
+        duration: 30
+        title: Tram 到 De Pijp 區
+        type: tram
+        paymentSystem: OVpay
+        cost: "€2"
+      - id: e-d04-10
+        time: "13:00"
+        duration: 90
+        title: Albert Cuyp 市集（haring / kibbeling）
+        mapQuery: "Albert Cuyp Market Amsterdam Netherlands"
+        type: meal
+        highlight: true
+        cost: "€15"
+      - id: e-d04-11
+        time: "19:00"
+        duration: 120
+        title: De Pijp 區晚餐（小酒館 / brown café）
+        type: meal
+        cost: "€25"
+        skipped: true
+      - id: e-d04-12
+        time: "14:45"
+        title: Tram 回飯店
+        type: tram
+        paymentSystem: OVpay
+
+  # =========================================================
+  - id: day-05
+    date: 2026-05-27
+    weekday: Wed
+    country: NL
+    title: 阿姆 floating day（自由閑晃 + 搶 Catacombs 票）
+    overview: 取消羊角村、無固定行程、為 d6 拖行李保留體力
+    events:
+      - id: e-d05-01
+        time: "10:00"
+        duration: 60
+        title: 慢起床、外帶咖啡
+        type: rest
+        notes:
+          - 「外帶咖啡回飯店過一天」也是合法選項、不強制出門
+      - id: e-d05-02
+        time: "11:00"
+        duration: 300
+        title: 自由閑晃（任選下列、全部可跳）
+        type: other
+        notes:
+          - Vondelpark 草地 + 外帶咖啡（tram 14 約 15 分、下雨就跳）
+          - Begijnhof 小庭院（走 10 分、半小時走完、安靜 contemplative）
+          - OBA 中央圖書館 7 樓 café（Centraal 5 分、免費、插座、看城景）
+          - Hortus Botanicus 植物園（走 8 分、€12、室內溫室適合下雨天）
+          - Brown café 整天賴（Café Hoppe / Café 't Smalle / Papeneiland）
+      - id: e-d05-09
+        time: "16:00"
+        title: 已搶 Catacombs 6/3 11:00 場
+        type: other
+        highlight: true
+        notes:
+          - 原 12:00 場
+      - id: e-d05-08
+        time: "18:00"
+        duration: 120
+        title: 早晚餐（為 d6 拖行李保留體力）
+        type: meal
+        cost: "€25"
+      - id: e-d05-10
+        time: "21:00"
+        title: 早睡
+        type: rest
+
+  # =========================================================
+  - id: day-06
+    date: 2026-05-28
+    weekday: Thu
+    country: NL
+    title: 阿姆 → 鹿特丹（立方屋）
+    overview: 跨城日、下午探港口建築
+    events:
+      - id: e-d06-01
+        time: "09:00"
+        title: 退房
+        type: rest
+      - id: e-d06-02
+        time: "11:36"
+        duration: 72
+        title: NS Intercity Amsterdam Centraal → Rotterdam Centraal
+        type: train
+        highlight: true
+        paymentSystem: NS-QR
+        cost: "€12.12（NS PriceTime Deal 40% off、原 €20.20）"
+        notes:
+          - PriceTime Deal 綁時段 10:00–15:00、不綁班次、區間內任意班都能搭
+          - 預設 11:36 直達班（Track 2a → Track 7、8 站、72 分鐘）
+          - 若 IC Direct（M52 + Direct）想趕時間、要 +€3.20 toeslag、自由換
+          - 出發前 D-1 在 NS app（非 NS International、非 9292）買、買完出現 QR Code、上車 / 下車不用 OVpay tap
+      - id: e-d06-03
+        time: "12:48"
+        title: 抵 Rotterdam Centraal
+        mapQuery: "Rotterdam Centraal station Netherlands"
+        type: arrival
+      - id: e-d06-04
+        time: "13:00"
+        duration: 30
+        title: Check-in 立方屋（Stayokay Cube）
+        type: hotel
+        highlight: true
+        address: Overblaak 85-87, 3011 MH Rotterdam
+      - id: e-d06-05
+        time: "13:30"
+        duration: 90
+        title: Markthal 午餐（MVRDV 2014）
+        mapQuery: "Markthal Rotterdam Netherlands"
+        type: meal
+      - id: e-d06-06
+        time: "15:00"
+        duration: 60
+        title: 立方屋 Show Cube
+        mapQuery: "Kijk-Kubus Rotterdam Netherlands"
+        type: attraction
+      - id: e-d06-07
+        time: "16:00"
+        duration: 60
+        title: 中央圖書館、Blaak 圓盤車站
+        mapQuery: "Bibliotheek Rotterdam Netherlands"
+        type: attraction
+      - id: e-d06-08
+        time: "17:00"
+        duration: 30
+        title: 走 Erasmus 橋（UNStudio）
+        mapQuery: "Erasmusbrug Rotterdam Netherlands"
+        type: attraction
+      - id: e-d06-09
+        time: "17:30"
+        duration: 90
+        title: Kop van Zuid 港區：De Rotterdam、Montevideo
+        mapQuery: "Kop van Zuid Rotterdam Netherlands"
+        type: attraction
+      - id: e-d06-10
+        time: "19:00"
+        duration: 60
+        title: Hotel New York 河邊咖啡
+        mapQuery: "Hotel New York Rotterdam Netherlands"
+        type: meal
+      - id: e-d06-11
+        time: "20:00"
+        duration: 90
+        title: 港邊晚餐
+        type: meal
+      - id: e-d06-12
+        time: "21:30"
+        title: Erasmus 橋夜景
+        mapQuery: "Erasmusbrug Rotterdam Netherlands"
+        type: attraction
+        highlight: true
+
+  # =========================================================
+  - id: day-07
+    date: 2026-05-29
+    weekday: Fri
+    country: NL
+    title: Boijmans Depot 建築深度日
+    overview: Museumpark + 建築博物館
+    events:
+      - id: e-d07-01
+        time: "09:00"
+        duration: 60
+        title: 早餐
+        type: meal
+      - id: e-d07-02
+        time: "10:00"
+        duration: 30
+        title: 走路 / Metro E 線到 Museumpark
+        type: metro
+      - id: e-d07-03
+        time: "10:30"
+        duration: 60
+        title: 外面拍 Boijmans Depot 鏡面建築
+        mapQuery: "Depot Boijmans Van Beuningen Rotterdam Netherlands"
+        type: photo
+      - id: e-d07-04
+        time: "11:30"
+        duration: 120
+        title: Depot Boijmans Van Beuningen
+        mapQuery: "Depot Boijmans Van Beuningen Rotterdam Netherlands"
+        type: attraction
+        highlight: true
+        cost: "€20"
+        notes:
+          - 已訂、館藏 + 修復室 + 屋頂全景
+      - id: e-d07-05
+        time: "13:30"
+        duration: 60
+        title: Museumpark 附近午餐
+        type: meal
+        cost: "€15"
+      - id: e-d07-06
+        time: "14:30"
+        duration: 120
+        title: Het Nieuwe Instituut（建築博物館）
+        mapQuery: "Het Nieuwe Instituut Rotterdam Netherlands"
+        type: attraction
+        cost: "€15"
+      - id: e-d07-07
+        time: "16:30"
+        duration: 60
+        title: Witte de Withstraat 街咖啡
+        mapQuery: "Witte de Withstraat Rotterdam Netherlands"
+        type: meal
+        cost: "€5"
+      - id: e-d07-08
+        time: "17:30"
+        duration: 90
+        title: Delfshaven 老港區
+        mapQuery: "Delfshaven Rotterdam Netherlands"
+        type: attraction
+      - id: e-d07-09
+        time: "19:00"
+        duration: 120
+        title: Fenix Food Factory 晚餐
+        mapQuery: "Fenix Food Factory Rotterdam Netherlands"
+        type: meal
+        cost: "€25"
+      - id: e-d07-10
+        time: "21:00"
+        title: 回飯店
+        type: rest
+
+  # =========================================================
+  - id: day-08
+    date: 2026-05-30
+    weekday: Sat
+    country: BE
+    transitCountries: [NL]
+    title: 鹿特丹 → 根特（Antwerpen 中停）
+    overview: 跨國日、69 分鐘 Antwerpen Centraal 拍建築
+    events:
+      - id: e-d08-01
+        time: "10:00"
+        title: 退房
+        type: rest
+      - id: e-d08-02
+        time: "11:00"
+        duration: 40
+        title: Sprinter Blaak → Rotterdam Centraal
+        type: train
+        paymentSystem: OVpay
+      - id: e-d08-03
+        time: "11:42"
+        duration: 45
+        title: Eurocity Direct #9532 Rotterdam Centraal → Antwerpen Centraal
+        type: train
+        highlight: true
+        paymentSystem: NS International-QR
+        booking:
+          ref: __SECRET__
+          cost: "€29"
+        notes:
+          - 綁定 11:42 班 #9532（Operator ECD）、不可改搭其他班次（誤車要改票 €5）
+          - Class 2、Free Seating、無劃位、車內找空位坐
+          - 中途過境點 Hazeldonk(Gr) 12:08（NL/BE 邊界、車不停、純參考）
+          - 抵達 Antwerpen Centraal Track 22（地下層 -2、29 吋走電梯）
+          - 出發月台 Rotterdam Centraal 當天 NS app 查（HSL 一般 Track 15-16）
+          - NS International Saver fare、出發前一天前可退改
+      - id: e-d08-04
+        time: "12:27"
+        duration: 69
+        title: 抵 Antwerpen Centraal、寄 29 吋 lockers、空手拍 69 分鐘
+        mapQuery: "Antwerpen-Centraal station Belgium"
+        type: attraction
+        warnings:
+          - level: info
+            text: Tourist Info 後 / Astridplein 端有 lockers、刷卡、最少租 1 天
+      - id: e-d08-05
+        time: "13:36"
+        duration: 56
+        title: IC Antwerpen Centraal → Gent-Sint-Pieters
+        type: train
+        highlight: true
+        paymentSystem: SNCB-QR
+        cost: "€8.50 單程"
+        notes:
+          - SNCB Weekend 單程票、QR Code、當日任意 IC 自由座
+          - 建議 13:36 班 #19720 Platform 13
+      - id: e-d08-06
+        time: "14:32"
+        duration: 13
+        title: 抵 Gent-Sint-Pieters Platform 6
+        type: arrival
+      - id: e-d08-07
+        time: "14:45"
+        duration: 15
+        title: Tram 1 Gent-Sint-Pieters → Korenmarkt（走到 Uppelink）
+        type: tram
+        paymentSystem: De Lijn contactless
+        cost: "€3"
+      - id: e-d08-08
+        time: "15:00"
+        duration: 60
+        title: Uppelink check-in（無電梯、扛 29 吋上木樓梯）
+        type: hotel
+        highlight: true
+        address: Sint-Michielsplein 21, 9000 Gent
+        warnings:
+          - level: amber
+            text: 1200 年老建築 listed monument、純樓梯扛 29 吋
+      - id: e-d08-09
+        time: "16:00"
+        duration: 300
+        title: 老城散步：聖巴夫主教座堂、Graslei
+        mapQuery: "Sint-Baafskathedraal Gent Belgium"
+        type: attraction
+      - id: e-d08-10
+        time: "21:00"
+        title: Graslei 夜景
+        mapQuery: "Graslei Gent Belgium"
+        type: attraction
+        highlight: true
+
+  # =========================================================
+  - id: day-09
+    date: 2026-05-31
+    weekday: Sun
+    country: BE
+    title: 根特 + 布魯日當日來回
+    overview: Weekend Ticket 隨到隨搭、整天 Brugge
+    events:
+      - id: e-d09-01
+        time: "09:00"
+        duration: 60
+        title: 早餐
+        type: meal
+      - id: e-d09-02
+        time: "10:00"
+        duration: 30
+        title: Tram 1 Korenmarkt → Gent-Sint-Pieters
+        type: tram
+        paymentSystem: De Lijn contactless
+      - id: e-d09-03
+        time: "10:51"
+        duration: 23
+        title: IC Gent-Sint-Pieters → Brugge
+        type: train
+        highlight: true
+        paymentSystem: SNCB-QR
+        cost: "€11.80 來回"
+        notes:
+          - SNCB Weekend 來回票、QR Code、當日任意 IC 自由座
+          - 同票涵蓋 d09-12 回程
+      - id: e-d09-04
+        time: "11:14"
+        duration: 16
+        title: 抵 Brugge
+        type: arrival
+      - id: e-d09-05
+        time: "11:30"
+        duration: 30
+        title: Brugge 火車站 → Markt 老城中心（優先步行 20 分、De Lijn bus 5 分 fallback）
+        type: transit
+        paymentSystem: De Lijn contactless
+        cost: "€2（bus fallback）"
+      - id: e-d09-06
+        time: "12:00"
+        duration: 90
+        title: 鐘樓 Belfort（爬塔 366 階）
+        mapQuery: "Belfort Brugge Belgium"
+        type: attraction
+        highlight: true
+        cost: "€15"
+      - id: e-d09-07
+        time: "13:30"
+        duration: 60
+        title: 午餐（市集廣場附近）
+        type: meal
+        cost: "€25"
+      - id: e-d09-08
+        time: "14:30"
+        duration: 60
+        title: 運河遊船
+        type: attraction
+        highlight: true
+        cost: "€15"
+      - id: e-d09-09
+        time: "15:30"
+        duration: 90
+        title: 聖母教堂、波尼法爵橋、玫瑰碼頭
+        mapQuery: "Onze-Lieve-Vrouwekerk Brugge Belgium"
+        type: attraction
+      - id: e-d09-10
+        time: "17:00"
+        duration: 60
+        title: 愛之湖公園、皇家貝居安會院
+        mapQuery: "Minnewater Brugge Belgium"
+        type: attraction
+      - id: e-d09-11
+        time: "18:00"
+        duration: 46
+        title: 走 Steenstraat 商店街
+        mapQuery: "Steenstraat Brugge Belgium"
+        type: shopping
+      - id: e-d09-12
+        time: "18:46"
+        duration: 23
+        title: IC Brugge → Gent-Sint-Pieters
+        type: train
+        highlight: true
+        paymentSystem: SNCB-QR
+        notes:
+          - SNCB Weekend 來回票回程（同 d09-03 那張）
+      - id: e-d09-13
+        time: "19:30"
+        duration: 90
+        title: 根特晚餐
+        type: meal
+        cost: "€25"
+
+  # =========================================================
+  - id: day-10
+    date: 2026-06-01
+    weekday: Mon
+    country: FR
+    transitCountries: [BE]
+    title: 根特 → 巴黎（住朋友家 Villejuif）
+    overview: Eurostar ER 9350、抵 Paris 後 Métro 5+7 到朋友家
+    events:
+      - id: e-d10-01
+        time: "09:30"
+        duration: 30
+        title: 退房、Tram 1 Korenmarkt → Gent-Sint-Pieters
+        type: tram
+        paymentSystem: De Lijn contactless
+      - id: e-d10-02
+        time: "10:23"
+        duration: 35
+        title: IC Gent-Sint-Pieters → Brussel-Zuid
+        type: train
+        highlight: true
+        paymentSystem: SNCB-QR
+        cost: "€11.40 單程"
+        notes:
+          - SNCB 單程票已訂、QR Code、當日任意 IC 自由座
+          - 平日票（週一、無 Weekend 優惠）
+      - id: e-d10-03
+        time: "11:00"
+        duration: 180
+        title: 抵 Brussel-Zuid、寄 L locker、大廣場 / 尿尿小童 / 拱廊街 / 午餐
+        mapQuery: "Grand Place Brussels Belgium"
+        type: attraction
+        warnings:
+          - level: amber
+            text: locker 需 L size（29 吋）、旺季可能滿
+      - id: e-d10-04
+        time: "14:00"
+        duration: 43
+        title: 領行李、走到 Eurostar 月台
+        type: transit
+        paymentSystem: walking
+        notes:
+          - 申根內 Eurostar 無安檢、無 customs、直接上車
+          - buffer 給拖 29 吋找月台
+      - id: e-d10-05
+        time: "14:43"
+        duration: 127
+        title: Eurostar ER 9350 Brussel-Zuid → Paris Gare du Nord（誤點 40 min）
+        type: train
+        highlight: true
+        booking:
+          ref: __SECRET__
+          coach: 8
+          seat: 73
+          cost: "€70"
+        notes:
+          - Brussels 起站、空車挑 LR
+          - Coach 8 Seat 73、LR 在前方 ~8m
+          - 申根內無 customs、可以放心睡
+        sources:
+          - type: SRC
+            label: seat61.com PBKA seat plan
+            url: https://www.seat61.com/reference/trainseatplans/Thalys-seat-plan.pdf
+      - id: e-d10-06
+        time: "16:50"
+        duration: 10
+        title: 抵 Paris Gare du Nord、Coach 8 LR 取行李
+        mapQuery: "Paris Gare du Nord France"
+        type: arrival
+        warnings:
+          - level: red
+            text: 巴黎扒手熱點、立刻下 Métro、不要在站內滑手機
+      - id: e-d10-07
+        time: "17:00"
+        duration: 25
+        title: Métro 5 南向 → Place d'Italie
+        type: metro
+        notes:
+          - IDFM Navigo 嗶手機
+      - id: e-d10-08
+        time: "17:25"
+        duration: 10
+        title: 換 Métro 7（往 Villejuif Louis Aragon）
+        type: metro
+        warnings:
+          - level: amber
+            text: 終點 Villejuif Louis Aragon、不要上 Mairie d'Ivry 那條岔路
+      - id: e-d10-09
+        time: "17:35"
+        duration: 5
+        title: 抵 Villejuif Léo Lagrange、走 1-3 分鐘
+        type: arrival
+        address: Villejuif – Léo Lagrange Line 7
+      - id: e-d10-10
+        time: "18:30"
+        duration: 60
+        title: 抵朋友家、放行李
+        type: hotel
+        highlight: true
+        address: 100 Av. de Paris, 94800 Villejuif
+      - id: e-d10-11
+        time: "18:30"
+        duration: 60
+        title: 朋友帶逛附近 / 進市區（Line 7 到 Pont Marie 22 分鐘）
+        type: attraction
+        skipped: true
+      - id: e-d10-13
+        time: "19:30"
+        duration: 60
+        title: 跟朋友去超市買菜（沙拉 + 蝦子）
+        type: shopping
+      - id: e-d10-12
+        time: "20:30"
+        duration: 90
+        title: 朋友家自製晚餐（沙拉 + 蝦子）
+        type: meal
+        highlight: true
+
+  # =========================================================
+  - id: day-11
+    date: 2026-06-02
+    weekday: Tue
+    country: FR
+    title: Existentialism Day｜Café de Flore + Camus + Orsay + 左岸書店
+    overview: Sartre/Beauvoir/Camus 朝聖、Orsay 印象派、傍晚 18:30 回家看書
+    events:
+      - id: e-d11-01
+        time: "06:30"
+        duration: 30
+        title: 起床、簡單早餐
+        type: rest
+      - id: e-d11-02
+        time: "07:00"
+        duration: 30
+        title: Métro 7 → Saint-Germain-des-Prés
+        type: metro
+        skipped: true
+      - id: e-d11-03
+        time: "07:30"
+        duration: 60
+        title: Café de Flore（慢咖啡 + croissant、開門那刻最空）
+        mapQuery: "Café de Flore Paris France"
+        type: meal
+        highlight: true
+        cost: "€10-15"
+        skipped: true
+        notes:
+          - Sartre / Beauvoir / Camus 50 年代固定根據地
+          - 7:30 開門剎那、本地人在看報、觀光客還沒到
+          - 樓上 1 樓有 Sartre 老座位（被觀光客排隊坐）
+      - id: e-d11-04
+        time: "08:30"
+        duration: 5
+        title: Les Deux Magots 對門瞄一眼（拍照、看店內中國瓷像）
+        mapQuery: "Les Deux Magots Paris France"
+        type: photo
+        skipped: true
+        notes:
+          - 1812 創、比 Flore 老、Sartre/Beauvoir 1939 前主場
+          - 暖氣壞才搬隔壁 Flore、自此沒搬回
+          - Prix des Deux Magots 文學獎發源地
+      - id: e-d11-05
+        time: "08:35"
+        duration: 10
+        title: 29 rue Madame Camus 故居銘牌
+        mapQuery: "29 rue Madame Paris France"
+        type: attraction
+        skipped: true
+        notes:
+          - Camus 巴黎住處、牆上有小銅牌
+          - 從 Flore 走 6e 南側 5-8 分鐘
+      - id: e-d11-06
+        time: "08:45"
+        duration: 10
+        title: Gallimard 出版社外觀
+        mapQuery: "5 rue Gaston-Gallimard Paris France"
+        type: attraction
+        skipped: true
+        notes:
+          - Camus 1943-60 在這當編輯
+          - 法國最重要的文學出版社、Sartre 也在這出書
+          - 純外觀、不能進
+      - id: e-d11-07
+        time: "08:55"
+        duration: 30
+        title: 走到 Orsay（沿 rue de Bellechasse、塞納河南岸）
+        type: transit
+        paymentSystem: walking
+        skipped: true
+      - id: e-d11-08
+        time: "10:00"
+        duration: 210
+        title: 奧賽美術館（印象派、莫內、雷諾瓦、Degas、梵谷）
+        mapQuery: "Musée d'Orsay Paris France"
+        type: attraction
+        highlight: true
+        cost: "€16"
+      - id: e-d11-17
+        time: "13:30"
+        duration: 60
+        title: Orsay 旁河岸小市集（地攤買 vintage 行李袋）
+        type: shopping
+        highlight: true
+      - id: e-d11-18
+        time: "14:45"
+        duration: 60
+        title: Café de Flore（午後咖啡）
+        mapQuery: "Café de Flore Paris France"
+        type: meal
+        highlight: true
+      - id: e-d11-19
+        time: "16:00"
+        duration: 75
+        title: Métro 回朋友家放 vintage 行李袋
+        type: metro
+      - id: e-d11-20
+        time: "18:30"
+        duration: 30
+        title: Métro 進市區、走到 Thuy Long
+        type: metro
+      - id: e-d11-21
+        time: "19:00"
+        duration: 90
+        title: Thuy Long 越南餐廳（跟朋友吃飯）
+        mapQuery: "Thuy Long Paris France"
+        type: meal
+        highlight: true
+      - id: e-d11-22
+        time: "20:30"
+        duration: 45
+        title: 餐廳跟 Montparnasse-Bienvenue 周邊閒晃
+        mapQuery: "Montparnasse-Bienvenue Paris France"
+        type: attraction
+      - id: e-d11-09
+        time: "13:30"
+        duration: 60
+        title: 塞納河邊午餐
+        type: meal
+        skipped: true
+      - id: e-d11-10
+        time: "14:30"
+        duration: 20
+        title: 走 Pont Royal、過河看金字塔（不停留、20 分鐘）
+        mapQuery: "Pont Royal Paris France"
+        type: photo
+        skipped: true
+      - id: e-d11-11
+        time: "14:50"
+        duration: 30
+        title: Saint-Sulpice 教堂（Hemingway 場景 + Delacroix 壁畫、免費）
+        mapQuery: "Église Saint-Sulpice Paris France"
+        type: attraction
+        skipped: true
+        notes:
+          - Hemingway《流動的饗宴》提到的地方
+          - 內有 Delacroix《雅各與天使搏鬥》壁畫
+      - id: e-d11-12
+        time: "15:20"
+        duration: 20
+        title: Sorbonne 庭院外觀（哲學家學校）
+        mapQuery: "La Sorbonne Paris France"
+        type: attraction
+        skipped: true
+        notes:
+          - Sartre / Beauvoir / Foucault / Derrida 都在這念書
+          - 外面庭院 + 拍照、不能進教學區
+      - id: e-d11-13
+        time: "15:40"
+        duration: 60
+        title: Shakespeare and Company 書店
+        mapQuery: "Shakespeare and Company Paris France"
+        type: attraction
+        highlight: true
+        skipped: true
+        notes:
+          - 1920s Hemingway / Joyce / Sylvia Beach 出版尤利西斯的地方
+          - 樓上 Tumbleweed 房間有免費讀書區
+          - 旁邊 Café Shakespeare 可以再喝一杯
+      - id: e-d11-14
+        time: "16:40"
+        duration: 45
+        title: 早晚餐 拉丁區小館（45 min 快吃）
+        type: meal
+        skipped: true
+      - id: e-d11-15
+        time: "17:25"
+        duration: 65
+        title: Métro 7 → Villejuif
+        type: metro
+        skipped: true
+      - id: e-d11-16
+        time: "18:30"
+        title: 到家、看書 / 寫東西 / 早睡
+        type: rest
+        skipped: true
+
+  # =========================================================
+  - id: day-12
+    date: 2026-06-03
+    weekday: Wed
+    country: FR
+    title: 蒙帕納斯墓園 + Catacombes + 鐵塔 + 超市晚餐
+    overview: Sartre/Beauvoir 墓朝聖、Catacombes、鐵塔仰拍、Picard 微波回家
+    events:
+      - id: e-d12-01
+        time: "06:30"
+        duration: 30
+        title: 起床、朋友家簡單早餐
+        type: rest
+      - id: e-d12-02
+        time: "07:30"
+        duration: 60
+        title: Métro 7 + RER B → Denfert-Rochereau
+        type: metro
+      - id: e-d12-03
+        time: "08:30"
+        duration: 90
+        title: Cimetière du Montparnasse 朝聖（存在主義 + 荒謬主義墓園）
+        mapQuery: "Cimetière du Montparnasse Paris France"
+        type: attraction
+        highlight: true
+        skipped: true
+        notes:
+          - 改成 catacombs 之後再去（見 e-d12-21）
+      - id: e-d12-04
+        time: "10:00"
+        duration: 20
+        title: 蒙帕納斯街區 / quick coffee
+        type: meal
+        skipped: true
+      - id: e-d12-05
+        time: "10:20"
+        duration: 30
+        title: 走到 Catacombes 入口（Denfert-Rochereau）
+        type: transit
+        paymentSystem: walking
+        skipped: true
+      - id: e-d12-20
+        time: "10:00"
+        duration: 60
+        title: Métro 直接到 Denfert-Rochereau
+        type: metro
+      - id: e-d12-07
+        time: "11:00"
+        duration: 90
+        title: 地下墓穴 Catacombs（11:00 場）
+        mapQuery: "Catacombes de Paris France"
+        type: attraction
+        highlight: true
+        cost: "€31"
+        warnings:
+          - level: info
+            text: 出口在 René-Coty、不在原入口、不要回頭找
+          - level: info
+            text: 帶薄外套、地下 14°C
+      - id: e-d12-21
+        time: "12:30"
+        duration: 90
+        title: Cimetière du Montparnasse（Sartre + Beauvoir 朝聖）
+        mapQuery: "Cimetière du Montparnasse Paris France"
+        type: attraction
+        highlight: true
+        notes:
+          - Sartre + Beauvoir 合葬 Division 20、Avenue Principale 左側
+          - 帶過期 Métro ticket 放 Sartre 墓上
+          - Beauvoir 死在 Sartre 生日 4/14、葬一起
+      - id: e-d12-06
+        time: "12:30"
+        duration: 60
+        title: 出口 René-Coty lunch
+        type: meal
+        skipped: true
+      - id: e-d12-22
+        time: "14:00"
+        duration: 25
+        title: Métro 6 → Passy
+        type: metro
+      - id: e-d12-23
+        time: "14:25"
+        duration: 20
+        title: Passy 走過去戰神廣場（過 Pont de Bir-Hakeim）
+        mapQuery: "Pont de Bir-Hakeim Paris France"
+        type: transit
+        paymentSystem: walking
+      - id: e-d12-09
+        time: "14:00"
+        duration: 30
+        title: Métro 6 → Bir-Hakeim（跳過 Trocadéro 扒手熱點）
+        type: metro
+        skipped: true
+      - id: e-d12-10
+        time: "14:45"
+        duration: 60
+        title: 戰神廣場 Champ de Mars 仰拍鐵塔
+        mapQuery: "Champ de Mars Paris France"
+        type: attraction
+        highlight: true
+      - id: e-d12-11
+        time: "15:30"
+        duration: 30
+        title: 沿塞納河岸走 → Pont Alexandre III（最美橋、30 min）
+        mapQuery: "Pont Alexandre III Paris France"
+        type: transit
+        paymentSystem: walking
+        skipped: true
+      - id: e-d12-12
+        time: "16:00"
+        duration: 30
+        title: Pont Alexandre III 拍 + 周邊
+        mapQuery: "Pont Alexandre III Paris France"
+        type: attraction
+        skipped: true
+      - id: e-d12-24
+        time: "15:45"
+        duration: 30
+        title: Métro 到第一區
+        type: metro
+      - id: e-d12-25
+        time: "16:15"
+        duration: 75
+        title: Kodawari Ramen 1er（龍蝦口味）
+        mapQuery: "Kodawari Ramen 1er Paris France"
+        type: meal
+        highlight: true
+      - id: e-d12-26
+        time: "17:30"
+        duration: 150
+        title: 香水朝聖（從 6/4 提前）
+        type: shopping
+        highlight: true
+        notes:
+          - Frédéric Malle / MFK / Serge Lutens / Le Labo / Comme des Garçons
+      - id: e-d12-13
+        time: "16:30"
+        duration: 60
+        title: Métro → Villejuif
+        type: metro
+        skipped: true
+      - id: e-d12-27
+        time: "20:00"
+        duration: 45
+        title: Métro 回朋友家
+        type: metro
+      - id: e-d12-14
+        time: "17:30"
+        duration: 30
+        title: Villejuif Picard / Monoprix 買晚餐
+        type: shopping
+        cost: "€8-15"
+        skipped: true
+      - id: e-d12-15
+        time: "18:00"
+        duration: 60
+        title: 到朋友家、微波 + 開吃
+        type: meal
+        skipped: true
+      - id: e-d12-28
+        time: "20:45"
+        duration: 90
+        title: 朋友家吃披薩
+        type: meal
+        highlight: true
+      - id: e-d12-16
+        time: "22:15"
+        title: 休息 / 早睡
+        type: rest
+
+  # =========================================================
+  - id: day-13
+    date: 2026-06-04
+    weekday: Thu
+    country: FR
+    title: 蒙馬特早場 + 香水朝聖 + Marais 漫步 + 超市晚餐
+    overview: 蒙馬特 8:45 空場、5 家香水、Vosges + Hugo 故居、Picard 收
+    events:
+      - id: e-d13-01
+        time: "06:30"
+        duration: 30
+        title: 起床
+        type: rest
+      - id: e-d13-02
+        time: "07:00"
+        duration: 30
+        title: 朋友家早餐
+        type: meal
+        skipped: true
+      - id: e-d13-20
+        time: "07:30"
+        duration: 90
+        title: 跟朋友去式微 tabac 吃早餐 + 觀察生態
+        type: meal
+        highlight: true
+        notes:
+          - 朋友論文主題
+          - tabac 原本是實體小賭場（PMU 投注 + 飲料 + 煙草）、數位化後賭場部分式微、剩下飲料 + 菸
+          - 不是觀光客會找到的地方
+      - id: e-d13-03
+        time: "09:30"
+        duration: 30
+        title: 拖 29 吋 Métro 7 → Sully-Morland
+        type: metro
+        warnings:
+          - level: amber
+            text: Sully-Morland 沒電梯、扛 29 吋下 1-2 段樓梯
+      - id: e-d13-04
+        time: "10:00"
+        duration: 15
+        title: 抵 The People Marais 寄行李 lockers in basement
+        type: hotel
+        highlight: true
+        address: 17 Boulevard Morland, 75004 Paris
+        warnings:
+          - level: info
+            text: 飯店電梯偶有故障風險、寄 lockers 後不要再上樓
+      - id: e-d13-30
+        time: "10:30"
+        duration: 30
+        title: Métro → Babylone
+        type: metro
+      - id: e-d13-31
+        time: "11:00"
+        duration: 240
+        title: 6e / 7e 隨處逛
+        type: attraction
+        highlight: true
+      - id: e-d13-05
+        time: "08:15"
+        duration: 30
+        title: Métro 7 → Châtelet → 4/12 → Anvers
+        type: metro
+        skipped: true
+      - id: e-d13-06
+        time: "08:45"
+        duration: 90
+        title: Sacré-Cœur 階梯爬上去（早上人潮最少、tour bus 還沒到）
+        mapQuery: "Sacré-Cœur Montmartre France"
+        type: attraction
+        highlight: true
+        skipped: true
+        notes:
+          - 8:45 觀光客還沒湧入、階梯可坐、看老城全景
+          - 旁邊 St-Pierre de Montmartre 教堂順道
+      - id: e-d13-07
+        time: "10:15"
+        duration: 75
+        title: 蒙馬特小巷散步（Rue de l'Abreuvoir / Le Consulat / La Maison Rose）
+        mapQuery: "Rue de l'Abreuvoir Paris France"
+        type: attraction
+        highlight: true
+        skipped: true
+        notes:
+          - Le Consulat 餐廳：1880 雷諾瓦 / 梵谷 / 莫內 常去
+          - La Maison Rose 粉色咖啡館、IG 經典
+          - Place du Tertre 畫家會纏你畫肖像 €60、笑著拒絕走過
+      - id: e-d13-08
+        time: "11:30"
+        duration: 60
+        title: 蒙馬特 brunch（quiche / crêpe / pain au chocolat）
+        type: meal
+        skipped: true
+      - id: e-d13-09
+        time: "12:30"
+        duration: 30
+        title: Métro → Tuileries / Pyramides（聖歐諾黑路香水區）
+        type: metro
+        skipped: true
+      - id: e-d13-10
+        time: "13:00"
+        duration: 240
+        title: 香水朝聖（聖歐諾黑路 5 家集中、走路 15 分鐘內走完）
+        type: shopping
+        highlight: true
+        skipped: true
+        notes:
+          - 6/3 在 Kodawari 旁邊已做完、見 e-d12-26
+        children:
+          - id: e-d13-p1
+            time: "13:00"
+            title: Frédéric Malle（試 Musc Ravageur）
+            type: shopping
+            address: Rue Cambon, Paris
+          - id: e-d13-p2
+            time: "13:30"
+            title: MFK（試 Baccarat Rouge 540）
+            type: shopping
+            address: 5 Rue d'Alger, Paris
+          - id: e-d13-p3
+            time: "14:30"
+            title: Serge Lutens（試 Chergui）
+            type: shopping
+            address: Rue Saint-Honoré, Paris
+          - id: e-d13-p4
+            time: "15:15"
+            title: Le Labo Saint-Honoré（試 Vanille 44 / Patchouli 24）
+            type: shopping
+            address: 203 Rue Saint-Honoré, Paris
+            notes:
+              - 跟 Serge Lutens 隔壁、203 號附近
+          - id: e-d13-p5
+            time: "16:00"
+            title: Comme des Garçons（試 Wonderwood）
+            type: shopping
+            address: 54 Rue du Faubourg Saint-Honoré, Paris
+          - id: e-d13-p6
+            time: "16:30"
+            title: 做最終決定、買香水
+            type: shopping
+      - id: e-d13-11
+        time: "17:00"
+        duration: 30
+        title: Métro → Saint-Paul
+        type: metro
+      - id: e-d13-12
+        time: "17:30"
+        duration: 15
+        title: Place des Vosges 孚日廣場（1612 最古老廣場、紅磚拱廊）
+        mapQuery: "Place des Vosges Paris France"
+        type: attraction
+        highlight: true
+      - id: e-d13-13
+        time: "17:45"
+        duration: 25
+        title: Maison de Victor Hugo（免費、Vosges 6 號）
+        mapQuery: "Maison de Victor Hugo Paris France"
+        type: attraction
+        highlight: true
+        notes:
+          - Hugo 1832-1848 住處、原裝家具、中式客廳超酷
+          - 免費、不用預訂、25 min 走完
+          - Vosges 廣場東南角
+      - id: e-d13-14
+        time: "18:10"
+        duration: 10
+        title: Hôtel de Sully + Village Saint-Paul 順道
+        mapQuery: "Hôtel de Sully Paris France"
+        type: attraction
+      - id: e-d13-15
+        time: "18:20"
+        duration: 30
+        title: Monoprix / Franprix 買晚餐 picnic
+        type: shopping
+        cost: "€15-18"
+        notes:
+          - Baguette + Brie + Jambon + 番茄 + 水果 + 紅酒
+          - Monoprix République 走 5 分、品質好
+          - Picard 12 rue Saint-Antoine 走 5 分（冷凍微波、若飯店有微波爐）
+      - id: e-d13-16
+        time: "20:30"
+        duration: 30
+        title: The People check-in
+        type: hotel
+        highlight: true
+      - id: e-d13-32
+        time: "21:00"
+        duration: 30
+        title: Métro → Bir-Hakeim（赴鐵塔）
+        type: metro
+      - id: e-d13-33
+        time: "21:30"
+        duration: 30
+        title: 戰神廣場鋪 picnic、等點燈
+        mapQuery: "Champ de Mars Paris France"
+        type: meal
+      - id: e-d13-34
+        time: "22:00"
+        duration: 5
+        title: 巴黎鐵塔點燈 sparkle
+        mapQuery: "Eiffel Tower Paris France"
+        type: attraction
+        highlight: true
+        notes:
+          - 最後一場通常是午夜（季節而異）
+      - id: e-d13-35
+        time: "22:05"
+        duration: 30
+        title: 收 picnic、走回 Métro
+        type: transit
+        paymentSystem: walking
+      - id: e-d13-36
+        time: "22:35"
+        duration: 40
+        title: Métro 回 The People
+        type: metro
+      - id: e-d13-17
+        time: "23:15"
+        duration: 30
+        title: 打包行李、整理隨身包
+        type: rest
+      - id: e-d13-18
+        time: "23:45"
+        duration: 15
+        title: IDFM Navigo Wallet 確認、手機充滿、Uber / Bolt 估價
+        type: rest
+        warnings:
+          - level: amber
+            text: 評估體力、決定明早 RER B 主方案還是 Uber 備案
+      - id: e-d13-19
+        time: "00:00"
+        title: 睡
+        type: rest
+
+  # =========================================================
+  - id: day-14
+    date: 2026-06-05
+    weekday: Fri
+    country: FR
+    transitCountries: [AE]
+    title: 巴黎 → CDG → 台北
+    overview: 早班 EY032 10:40、主方案 RER B + Métro 7 + CDGVAL
+    events:
+      - id: e-d14-01
+        time: "05:30"
+        duration: 15
+        title: 起床
+        type: rest
+      - id: e-d14-02
+        time: "05:45"
+        duration: 5
+        title: 退房、走到 Sully-Morland 站
+        type: transit
+        paymentSystem: walking
+      - id: e-d14-03
+        time: "05:50"
+        duration: 10
+        title: Métro 7 上車（首班通過、Bonjour RATP 確認）
+        type: metro
+        warnings:
+          - level: amber
+            text: Sully-Morland 沒電梯、扛 29 吋下樓
+      - id: e-d14-04
+        time: "06:00"
+        duration: 25
+        title: 抵 Châtelet、換 RER B 月台（拖大行李 15-20 分鐘 buffer）
+        type: transit
+        paymentSystem: walking
+      - id: e-d14-05
+        time: "06:29"
+        duration: 35
+        title: RER B omnibus Châtelet-Les Halles → CDG Aéroport 1
+        type: train
+        highlight: true
+        paymentSystem: IDFM Navigo
+        warnings:
+          - level: red
+            text: 不要上 Massy-Palaiseau（express 不停 CDG 1）或 Mitry-Claye（不去機場）
+        sources:
+          - type: SRC
+            label: RER B 班表（Paris → CDG, 平日）
+            url: https://parisbytrain.com/wp-content/uploads/2022/10/rer-b-train-schedule-2022-weekday-paris-to-cdg.pdf
+      - id: e-d14-06
+        time: "07:04"
+        duration: 10
+        title: 抵 CDG 1、跟 CDGVAL 指標走、免費接駁到 T1
+        type: transit
+      - id: e-d14-07
+        time: "07:14"
+        duration: 16
+        title: 抵 T1 入口
+        type: arrival
+      - id: e-d14-08
+        time: "07:30"
+        duration: 30
+        title: Etihad check-in、託運 29 吋
+        type: transit
+        highlight: true
+        warnings:
+          - level: red
+            text: 出發前查 Etihad CDG T1 櫃台關閉時間（常見起飛前 60 分但依 station/艙等而異）
+      - id: e-d14-09
+        time: "08:00"
+        duration: 30
+        title: 退稅 PABLO 機器（單筆同店 €100.01 以上才能退）
+        type: shopping
+      - id: e-d14-10
+        time: "08:30"
+        duration: 30
+        title: 海關 + 安檢
+        type: transit
+      - id: e-d14-11
+        time: "09:00"
+        duration: 100
+        title: 候機（Le Labo Geranium 33 試聞）
+        type: rest
+      - id: e-d14-12
+        time: "10:40"
+        duration: 535
+        title: EY032 CDG 巴黎 → AUH 阿布達比
+        type: flight
+        highlight: true
+        booking:
+          ref: __SECRET__
+        notes:
+          - 與 EY899 同一張回程票（d01-01）
+      - id: e-d14-13
+        time: "19:35"
+        duration: 105
+        title: 抵 AUH、轉機 1h45min（Le Labo Geranium 33 試聞）
+        type: arrival
+      - id: e-d14-14
+        time: "21:20"
+        title: EY898 AUH 阿布達比 → TPE 桃園
+        type: flight
+        highlight: true
+        booking:
+          ref: __SECRET__
+        notes:
+          - 與 EY899 同一張回程票（d01-01）
+
+  # =========================================================
+  - id: day-15
+    date: 2026-06-06
+    weekday: Sat
+    country: TW
+    title: 抵桃機
+    overview: 旅程結束
+    events:
+      - id: e-d15-01
+        time: "10:00"
+        title: 抵桃園機場
+        type: arrival
+        highlight: true
